@@ -1,0 +1,539 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1F3CA7E91EDB8556008EC963 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3CA7E81EDB8556008EC963 /* AppDelegate.swift */; };
+		1F3CA7EB1EDB8556008EC963 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3CA7EA1EDB8556008EC963 /* ViewController.swift */; };
+		1F3CA7EE1EDB8556008EC963 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F3CA7EC1EDB8556008EC963 /* Main.storyboard */; };
+		1F3CA7F01EDB8556008EC963 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F3CA7EF1EDB8556008EC963 /* Assets.xcassets */; };
+		1F3CA7F31EDB8556008EC963 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F3CA7F11EDB8556008EC963 /* LaunchScreen.storyboard */; };
+		1F3CA7FE1EDB8556008EC963 /* phyterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3CA7FD1EDB8556008EC963 /* phyterTests.swift */; };
+		1F3CA8091EDB8557008EC963 /* phyterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3CA8081EDB8557008EC963 /* phyterUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1F3CA7FA1EDB8556008EC963 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F3CA7DD1EDB8556008EC963 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1F3CA7E41EDB8556008EC963;
+			remoteInfo = phyter;
+		};
+		1F3CA8051EDB8557008EC963 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F3CA7DD1EDB8556008EC963 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1F3CA7E41EDB8556008EC963;
+			remoteInfo = phyter;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1F3CA7E51EDB8556008EC963 /* phyter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = phyter.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F3CA7E81EDB8556008EC963 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1F3CA7EA1EDB8556008EC963 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1F3CA7ED1EDB8556008EC963 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1F3CA7EF1EDB8556008EC963 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1F3CA7F21EDB8556008EC963 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1F3CA7F41EDB8556008EC963 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1F3CA7F91EDB8556008EC963 /* phyterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = phyterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F3CA7FD1EDB8556008EC963 /* phyterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = phyterTests.swift; sourceTree = "<group>"; };
+		1F3CA7FF1EDB8556008EC963 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1F3CA8041EDB8557008EC963 /* phyterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = phyterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F3CA8081EDB8557008EC963 /* phyterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = phyterUITests.swift; sourceTree = "<group>"; };
+		1F3CA80A1EDB8557008EC963 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1F3CA7E21EDB8556008EC963 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1F3CA7F61EDB8556008EC963 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1F3CA8011EDB8557008EC963 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1F3CA7DC1EDB8556008EC963 = {
+			isa = PBXGroup;
+			children = (
+				1F3CA7E71EDB8556008EC963 /* phyter */,
+				1F3CA7FC1EDB8556008EC963 /* phyterTests */,
+				1F3CA8071EDB8557008EC963 /* phyterUITests */,
+				1F3CA7E61EDB8556008EC963 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1F3CA7E61EDB8556008EC963 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1F3CA7E51EDB8556008EC963 /* phyter.app */,
+				1F3CA7F91EDB8556008EC963 /* phyterTests.xctest */,
+				1F3CA8041EDB8557008EC963 /* phyterUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1F3CA7E71EDB8556008EC963 /* phyter */ = {
+			isa = PBXGroup;
+			children = (
+				1F3CA7E81EDB8556008EC963 /* AppDelegate.swift */,
+				1F3CA7EA1EDB8556008EC963 /* ViewController.swift */,
+				1F3CA7EC1EDB8556008EC963 /* Main.storyboard */,
+				1F3CA7EF1EDB8556008EC963 /* Assets.xcassets */,
+				1F3CA7F11EDB8556008EC963 /* LaunchScreen.storyboard */,
+				1F3CA7F41EDB8556008EC963 /* Info.plist */,
+			);
+			path = phyter;
+			sourceTree = "<group>";
+		};
+		1F3CA7FC1EDB8556008EC963 /* phyterTests */ = {
+			isa = PBXGroup;
+			children = (
+				1F3CA7FD1EDB8556008EC963 /* phyterTests.swift */,
+				1F3CA7FF1EDB8556008EC963 /* Info.plist */,
+			);
+			path = phyterTests;
+			sourceTree = "<group>";
+		};
+		1F3CA8071EDB8557008EC963 /* phyterUITests */ = {
+			isa = PBXGroup;
+			children = (
+				1F3CA8081EDB8557008EC963 /* phyterUITests.swift */,
+				1F3CA80A1EDB8557008EC963 /* Info.plist */,
+			);
+			path = phyterUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1F3CA7E41EDB8556008EC963 /* phyter */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1F3CA80D1EDB8557008EC963 /* Build configuration list for PBXNativeTarget "phyter" */;
+			buildPhases = (
+				1F3CA7E11EDB8556008EC963 /* Sources */,
+				1F3CA7E21EDB8556008EC963 /* Frameworks */,
+				1F3CA7E31EDB8556008EC963 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = phyter;
+			productName = phyter;
+			productReference = 1F3CA7E51EDB8556008EC963 /* phyter.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1F3CA7F81EDB8556008EC963 /* phyterTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1F3CA8101EDB8557008EC963 /* Build configuration list for PBXNativeTarget "phyterTests" */;
+			buildPhases = (
+				1F3CA7F51EDB8556008EC963 /* Sources */,
+				1F3CA7F61EDB8556008EC963 /* Frameworks */,
+				1F3CA7F71EDB8556008EC963 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1F3CA7FB1EDB8556008EC963 /* PBXTargetDependency */,
+			);
+			name = phyterTests;
+			productName = phyterTests;
+			productReference = 1F3CA7F91EDB8556008EC963 /* phyterTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		1F3CA8031EDB8557008EC963 /* phyterUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1F3CA8131EDB8557008EC963 /* Build configuration list for PBXNativeTarget "phyterUITests" */;
+			buildPhases = (
+				1F3CA8001EDB8557008EC963 /* Sources */,
+				1F3CA8011EDB8557008EC963 /* Frameworks */,
+				1F3CA8021EDB8557008EC963 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1F3CA8061EDB8557008EC963 /* PBXTargetDependency */,
+			);
+			name = phyterUITests;
+			productName = phyterUITests;
+			productReference = 1F3CA8041EDB8557008EC963 /* phyterUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1F3CA7DD1EDB8556008EC963 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "Jefferson Jones";
+				TargetAttributes = {
+					1F3CA7E41EDB8556008EC963 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 37R6FCG424;
+						ProvisioningStyle = Automatic;
+					};
+					1F3CA7F81EDB8556008EC963 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 37R6FCG424;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 1F3CA7E41EDB8556008EC963;
+					};
+					1F3CA8031EDB8557008EC963 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 37R6FCG424;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 1F3CA7E41EDB8556008EC963;
+					};
+				};
+			};
+			buildConfigurationList = 1F3CA7E01EDB8556008EC963 /* Build configuration list for PBXProject "phyter" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1F3CA7DC1EDB8556008EC963;
+			productRefGroup = 1F3CA7E61EDB8556008EC963 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1F3CA7E41EDB8556008EC963 /* phyter */,
+				1F3CA7F81EDB8556008EC963 /* phyterTests */,
+				1F3CA8031EDB8557008EC963 /* phyterUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1F3CA7E31EDB8556008EC963 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F3CA7F31EDB8556008EC963 /* LaunchScreen.storyboard in Resources */,
+				1F3CA7F01EDB8556008EC963 /* Assets.xcassets in Resources */,
+				1F3CA7EE1EDB8556008EC963 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1F3CA7F71EDB8556008EC963 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1F3CA8021EDB8557008EC963 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1F3CA7E11EDB8556008EC963 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F3CA7EB1EDB8556008EC963 /* ViewController.swift in Sources */,
+				1F3CA7E91EDB8556008EC963 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1F3CA7F51EDB8556008EC963 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F3CA7FE1EDB8556008EC963 /* phyterTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1F3CA8001EDB8557008EC963 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F3CA8091EDB8557008EC963 /* phyterUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1F3CA7FB1EDB8556008EC963 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1F3CA7E41EDB8556008EC963 /* phyter */;
+			targetProxy = 1F3CA7FA1EDB8556008EC963 /* PBXContainerItemProxy */;
+		};
+		1F3CA8061EDB8557008EC963 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1F3CA7E41EDB8556008EC963 /* phyter */;
+			targetProxy = 1F3CA8051EDB8557008EC963 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		1F3CA7EC1EDB8556008EC963 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1F3CA7ED1EDB8556008EC963 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		1F3CA7F11EDB8556008EC963 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1F3CA7F21EDB8556008EC963 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1F3CA80B1EDB8557008EC963 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1F3CA80C1EDB8557008EC963 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1F3CA80E1EDB8557008EC963 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 37R6FCG424;
+				INFOPLIST_FILE = phyter/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jmj.phyter;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		1F3CA80F1EDB8557008EC963 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 37R6FCG424;
+				INFOPLIST_FILE = phyter/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jmj.phyter;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		1F3CA8111EDB8557008EC963 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 37R6FCG424;
+				INFOPLIST_FILE = phyterTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jmj.phyterTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/phyter.app/phyter";
+			};
+			name = Debug;
+		};
+		1F3CA8121EDB8557008EC963 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 37R6FCG424;
+				INFOPLIST_FILE = phyterTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jmj.phyterTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/phyter.app/phyter";
+			};
+			name = Release;
+		};
+		1F3CA8141EDB8557008EC963 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 37R6FCG424;
+				INFOPLIST_FILE = phyterUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jmj.phyterUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = phyter;
+			};
+			name = Debug;
+		};
+		1F3CA8151EDB8557008EC963 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 37R6FCG424;
+				INFOPLIST_FILE = phyterUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jmj.phyterUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = phyter;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1F3CA7E01EDB8556008EC963 /* Build configuration list for PBXProject "phyter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F3CA80B1EDB8557008EC963 /* Debug */,
+				1F3CA80C1EDB8557008EC963 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1F3CA80D1EDB8557008EC963 /* Build configuration list for PBXNativeTarget "phyter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F3CA80E1EDB8557008EC963 /* Debug */,
+				1F3CA80F1EDB8557008EC963 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		1F3CA8101EDB8557008EC963 /* Build configuration list for PBXNativeTarget "phyterTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F3CA8111EDB8557008EC963 /* Debug */,
+				1F3CA8121EDB8557008EC963 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		1F3CA8131EDB8557008EC963 /* Build configuration list for PBXNativeTarget "phyterUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F3CA8141EDB8557008EC963 /* Debug */,
+				1F3CA8151EDB8557008EC963 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1F3CA7DD1EDB8556008EC963 /* Project object */;
+}
