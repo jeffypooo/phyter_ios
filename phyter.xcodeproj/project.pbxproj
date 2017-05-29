@@ -8,12 +8,34 @@
 
 /* Begin PBXBuildFile section */
 		1F3CA7E91EDB8556008EC963 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3CA7E81EDB8556008EC963 /* AppDelegate.swift */; };
-		1F3CA7EB1EDB8556008EC963 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3CA7EA1EDB8556008EC963 /* ViewController.swift */; };
 		1F3CA7EE1EDB8556008EC963 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F3CA7EC1EDB8556008EC963 /* Main.storyboard */; };
 		1F3CA7F01EDB8556008EC963 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F3CA7EF1EDB8556008EC963 /* Assets.xcassets */; };
 		1F3CA7F31EDB8556008EC963 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F3CA7F11EDB8556008EC963 /* LaunchScreen.storyboard */; };
 		1F3CA7FE1EDB8556008EC963 /* phyterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3CA7FD1EDB8556008EC963 /* phyterTests.swift */; };
 		1F3CA8091EDB8557008EC963 /* phyterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3CA8081EDB8557008EC963 /* phyterUITests.swift */; };
+		31B73012703440A5C6A473BA /* CBInstrumentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B731118E73A8E56607E976 /* CBInstrumentManager.swift */; };
+		31B7302B711098E3948C9DCA /* CBInstrumentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B731118E73A8E56607E976 /* CBInstrumentManager.swift */; };
+		31B7303F85E3B7ADC6E19422 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B73ADE73A647149BEF792E /* StartView.swift */; };
+		31B734442D6AD5F07436CB72 /* UseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B73D75C9D0092FCE6105C5 /* UseCase.swift */; };
+		31B73472F2612E2B9C3D3C3E /* ScanForInstruments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B73ECB26EA30D2661A51AC /* ScanForInstruments.swift */; };
+		31B734959320B0E574E81278 /* NearbyInstrumentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B73D81A8B433DC32385709 /* NearbyInstrumentCell.swift */; };
+		31B734BBB6A2067AC4B7C2E1 /* PhyterInstrument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B732D0F063B7E60D85AAFE /* PhyterInstrument.swift */; };
+		31B734F2B7D129C4F37EEDD0 /* ConnectInstrument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B73D781F2AFD37CDBFE169 /* ConnectInstrument.swift */; };
+		31B73656EA9D2A913BCF2B03 /* StartPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B73FD54C35355771C33A60 /* StartPresenter.swift */; };
+		31B736B6F0D30F18D9C05FC7 /* InstrumentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B731CBA1B34988FB54E7D1 /* InstrumentManager.swift */; };
+		31B736BC1E195CBC5079442E /* NearbyInstrumentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B73D81A8B433DC32385709 /* NearbyInstrumentCell.swift */; };
+		31B736C87FBF9865DCA2CB96 /* SampleMeasurement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B73C06A800395EB977A286 /* SampleMeasurement.swift */; };
+		31B738B62F4060CA02B3CA58 /* SampleMeasurement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B73C06A800395EB977A286 /* SampleMeasurement.swift */; };
+		31B7391E2769B3B68256C84F /* InstrumentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B731CBA1B34988FB54E7D1 /* InstrumentManager.swift */; };
+		31B7396E01AA5909CC489AF9 /* ConnectInstrument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B73D781F2AFD37CDBFE169 /* ConnectInstrument.swift */; };
+		31B73B8F2F9D3CFF53E25E89 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B73C98C56A0E35D5381E5C /* StartViewController.swift */; };
+		31B73CF9A540E8D34CC286C2 /* StartPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B73FD54C35355771C33A60 /* StartPresenter.swift */; };
+		31B73D7D22C0D93C2C4F655B /* PhyterInstrument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B732D0F063B7E60D85AAFE /* PhyterInstrument.swift */; };
+		31B73D907E4231D896FE2C9F /* UseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B73D75C9D0092FCE6105C5 /* UseCase.swift */; };
+		31B73DF9FE3A91A64813A1C1 /* CBPhyterInstrument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B736263AFACB0B28721AFB /* CBPhyterInstrument.swift */; };
+		31B73ED43412D77B41A619A7 /* ScanForInstruments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B73ECB26EA30D2661A51AC /* ScanForInstruments.swift */; };
+		31B73EE725E87FE25EAD7392 /* CBPhyterInstrument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B736263AFACB0B28721AFB /* CBPhyterInstrument.swift */; };
+		31B73F2D351107F9D430F34A /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B73ADE73A647149BEF792E /* StartView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +58,6 @@
 /* Begin PBXFileReference section */
 		1F3CA7E51EDB8556008EC963 /* phyter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = phyter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F3CA7E81EDB8556008EC963 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1F3CA7EA1EDB8556008EC963 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1F3CA7ED1EDB8556008EC963 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1F3CA7EF1EDB8556008EC963 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1F3CA7F21EDB8556008EC963 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +68,18 @@
 		1F3CA8041EDB8557008EC963 /* phyterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = phyterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F3CA8081EDB8557008EC963 /* phyterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = phyterUITests.swift; sourceTree = "<group>"; };
 		1F3CA80A1EDB8557008EC963 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		31B731118E73A8E56607E976 /* CBInstrumentManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBInstrumentManager.swift; sourceTree = "<group>"; };
+		31B731CBA1B34988FB54E7D1 /* InstrumentManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstrumentManager.swift; sourceTree = "<group>"; };
+		31B732D0F063B7E60D85AAFE /* PhyterInstrument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhyterInstrument.swift; sourceTree = "<group>"; };
+		31B736263AFACB0B28721AFB /* CBPhyterInstrument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBPhyterInstrument.swift; sourceTree = "<group>"; };
+		31B73ADE73A647149BEF792E /* StartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
+		31B73C06A800395EB977A286 /* SampleMeasurement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleMeasurement.swift; sourceTree = "<group>"; };
+		31B73C98C56A0E35D5381E5C /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		31B73D75C9D0092FCE6105C5 /* UseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UseCase.swift; sourceTree = "<group>"; };
+		31B73D781F2AFD37CDBFE169 /* ConnectInstrument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectInstrument.swift; sourceTree = "<group>"; };
+		31B73D81A8B433DC32385709 /* NearbyInstrumentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearbyInstrumentCell.swift; sourceTree = "<group>"; };
+		31B73ECB26EA30D2661A51AC /* ScanForInstruments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanForInstruments.swift; sourceTree = "<group>"; };
+		31B73FD54C35355771C33A60 /* StartPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,11 +131,13 @@
 			isa = PBXGroup;
 			children = (
 				1F3CA7E81EDB8556008EC963 /* AppDelegate.swift */,
-				1F3CA7EA1EDB8556008EC963 /* ViewController.swift */,
 				1F3CA7EC1EDB8556008EC963 /* Main.storyboard */,
 				1F3CA7EF1EDB8556008EC963 /* Assets.xcassets */,
 				1F3CA7F11EDB8556008EC963 /* LaunchScreen.storyboard */,
 				1F3CA7F41EDB8556008EC963 /* Info.plist */,
+				31B73C98F4E5689A427C54F3 /* scenes */,
+				31B73A159416E4A601AF6F5D /* domain */,
+				31B7374AACDE2B8477CEC039 /* bluetooth */,
 			);
 			path = phyter;
 			sourceTree = "<group>";
@@ -123,6 +158,119 @@
 				1F3CA80A1EDB8557008EC963 /* Info.plist */,
 			);
 			path = phyterUITests;
+			sourceTree = "<group>";
+		};
+		31B730BB2310E47729292B20 /* usecase */ = {
+			isa = PBXGroup;
+			children = (
+				31B73ECB26EA30D2661A51AC /* ScanForInstruments.swift */,
+				31B73D781F2AFD37CDBFE169 /* ConnectInstrument.swift */,
+			);
+			path = usecase;
+			sourceTree = "<group>";
+		};
+		31B73149143222E543B8C0BE /* start */ = {
+			isa = PBXGroup;
+			children = (
+				31B73C98C56A0E35D5381E5C /* StartViewController.swift */,
+				31B73F8A563E3C885316D974 /* table */,
+				31B73FD54C35355771C33A60 /* StartPresenter.swift */,
+				31B7390C160F2809A5083949 /* view */,
+			);
+			path = start;
+			sourceTree = "<group>";
+		};
+		31B7358D92764C64B46B1563 /* measure */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = measure;
+			sourceTree = "<group>";
+		};
+		31B7374AACDE2B8477CEC039 /* bluetooth */ = {
+			isa = PBXGroup;
+			children = (
+				31B731118E73A8E56607E976 /* CBInstrumentManager.swift */,
+				31B736263AFACB0B28721AFB /* CBPhyterInstrument.swift */,
+			);
+			path = bluetooth;
+			sourceTree = "<group>";
+		};
+		31B738A9F8B54C6877471D61 /* store */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = store;
+			sourceTree = "<group>";
+		};
+		31B7390C160F2809A5083949 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				31B73ADE73A647149BEF792E /* StartView.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		31B73A159416E4A601AF6F5D /* domain */ = {
+			isa = PBXGroup;
+			children = (
+				31B73DA6CEFACB4071221192 /* instrument */,
+				31B73A7D8A00C873FAC1F26B /* measurements */,
+				31B73D75C9D0092FCE6105C5 /* UseCase.swift */,
+			);
+			path = domain;
+			sourceTree = "<group>";
+		};
+		31B73A7D8A00C873FAC1F26B /* measurements */ = {
+			isa = PBXGroup;
+			children = (
+				31B73D8FA7B7B47FB8599609 /* model */,
+				31B738A9F8B54C6877471D61 /* store */,
+			);
+			path = measurements;
+			sourceTree = "<group>";
+		};
+		31B73C98F4E5689A427C54F3 /* scenes */ = {
+			isa = PBXGroup;
+			children = (
+				31B73149143222E543B8C0BE /* start */,
+				31B7358D92764C64B46B1563 /* measure */,
+			);
+			path = scenes;
+			sourceTree = "<group>";
+		};
+		31B73D8FA7B7B47FB8599609 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				31B73C06A800395EB977A286 /* SampleMeasurement.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		31B73DA6CEFACB4071221192 /* instrument */ = {
+			isa = PBXGroup;
+			children = (
+				31B73F5360EA8246FEF5723C /* model */,
+				31B731CBA1B34988FB54E7D1 /* InstrumentManager.swift */,
+				31B730BB2310E47729292B20 /* usecase */,
+			);
+			path = instrument;
+			sourceTree = "<group>";
+		};
+		31B73F5360EA8246FEF5723C /* model */ = {
+			isa = PBXGroup;
+			children = (
+				31B732D0F063B7E60D85AAFE /* PhyterInstrument.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		31B73F8A563E3C885316D974 /* table */ = {
+			isa = PBXGroup;
+			children = (
+				31B73D81A8B433DC32385709 /* NearbyInstrumentCell.swift */,
+			);
+			path = table;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,8 +410,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F3CA7EB1EDB8556008EC963 /* ViewController.swift in Sources */,
 				1F3CA7E91EDB8556008EC963 /* AppDelegate.swift in Sources */,
+				31B736C87FBF9865DCA2CB96 /* SampleMeasurement.swift in Sources */,
+				31B73B8F2F9D3CFF53E25E89 /* StartViewController.swift in Sources */,
+				31B736BC1E195CBC5079442E /* NearbyInstrumentCell.swift in Sources */,
+				31B73D7D22C0D93C2C4F655B /* PhyterInstrument.swift in Sources */,
+				31B7391E2769B3B68256C84F /* InstrumentManager.swift in Sources */,
+				31B7302B711098E3948C9DCA /* CBInstrumentManager.swift in Sources */,
+				31B73DF9FE3A91A64813A1C1 /* CBPhyterInstrument.swift in Sources */,
+				31B734442D6AD5F07436CB72 /* UseCase.swift in Sources */,
+				31B73472F2612E2B9C3D3C3E /* ScanForInstruments.swift in Sources */,
+				31B73656EA9D2A913BCF2B03 /* StartPresenter.swift in Sources */,
+				31B7303F85E3B7ADC6E19422 /* StartView.swift in Sources */,
+				31B7396E01AA5909CC489AF9 /* ConnectInstrument.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,6 +431,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F3CA7FE1EDB8556008EC963 /* phyterTests.swift in Sources */,
+				31B738B62F4060CA02B3CA58 /* SampleMeasurement.swift in Sources */,
+				31B734959320B0E574E81278 /* NearbyInstrumentCell.swift in Sources */,
+				31B734BBB6A2067AC4B7C2E1 /* PhyterInstrument.swift in Sources */,
+				31B736B6F0D30F18D9C05FC7 /* InstrumentManager.swift in Sources */,
+				31B73012703440A5C6A473BA /* CBInstrumentManager.swift in Sources */,
+				31B73EE725E87FE25EAD7392 /* CBPhyterInstrument.swift in Sources */,
+				31B73D907E4231D896FE2C9F /* UseCase.swift in Sources */,
+				31B73ED43412D77B41A619A7 /* ScanForInstruments.swift in Sources */,
+				31B73CF9A540E8D34CC286C2 /* StartPresenter.swift in Sources */,
+				31B73F2D351107F9D430F34A /* StartView.swift in Sources */,
+				31B734F2B7D129C4F37EEDD0 /* ConnectInstrument.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
