@@ -10,9 +10,14 @@ enum StartViewAction {
   case instrumentSelect(PhyterInstrument)
 }
 
+enum StartViewSegue {
+  case measure(PhyterInstrument)
+}
+
 protocol StartView {
-  
   func startView(setRefreshing refreshing: Bool)
   func startView(addInstrument: PhyterInstrument)
-  
+  func startView(showConnectingAlert instrument: PhyterInstrument)
+  func startView(showConnectionErrorAlert instrument: PhyterInstrument)
+  func startView(performSegue segue: StartViewSegue)
 }

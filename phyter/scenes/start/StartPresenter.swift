@@ -28,6 +28,10 @@ class StartPresenter {
     scanForInstruments()
   }
   
+  func viewDidDisappear() {
+    useCases.scanForInstruments.terminate()
+  }
+  
   func didPerform(action: StartViewAction) {
     switch action {
     case .refresh:
@@ -67,6 +71,7 @@ class StartPresenter {
         onSuccess: {
           _ in
           print("connected to \(instrument.name)")
+          self.viewPerformSegue(.measure(instrument))
         },
         onError: {
           error in
@@ -81,6 +86,10 @@ class StartPresenter {
   
   private func viewAddInstrument(_ instrument: PhyterInstrument) {
     view?.startView(addInstrument: instrument)
+  }
+  
+  private func viewPerformSegue(_ segue: StartViewSegue) {
+    view?.startView(performSegue: segue)
   }
   
 }

@@ -62,6 +62,7 @@ class ScanForInstruments: OngoingUseCase<ScanForInstrumentsArgs, ScanForInstrume
   }
   
   open override func terminate() {
+    guard isExecuting else { return }
     manager.stopScanForInstruments()
     successCallback = nil
     updateCallback = nil

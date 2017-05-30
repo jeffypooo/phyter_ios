@@ -62,6 +62,22 @@ class StartViewController: UIViewController {
     presenter.viewDidAppear()
   }
   
+  open override func viewDidDisappear(_ animated: Bool) {
+    super.viewDidDisappear(animated)
+    presenter.viewDidDisappear()
+  }
+  
+  open override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    super.prepare(for: segue, sender: sender)
+    if let senderSegue = sender as? StartViewSegue {
+      switch senderSegue {
+      case .measure(let instrument):
+        (segue.destination as! MeasureViewController).instrument = instrument
+        break
+      }
+    }
+  }
+  
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
   }
@@ -78,6 +94,7 @@ class StartViewController: UIViewController {
 }
 
 extension StartViewController: StartView {
+  
   func startView(setRefreshing refreshing: Bool) {
     DispatchQueue.main.async {
       if refreshing {
@@ -97,12 +114,23 @@ extension StartViewController: StartView {
     }
   }
   
-  func startView(showInstrumentConnecting instrument: PhyterInstrument) {
+  func startView(showConnectingAlert instrument: PhyterInstrument) {
   
   }
+  
+  func startView(showConnectionErrorAlert instrument: PhyterInstrument) {
+  }
+  
+  func startView(performSegue segue: StartViewSegue) {
+    DispatchQueue.main.async {
+      self.performSegue(withIdentifier: segue.stringIdentifier(), sender: segue)
+    }
+  }
+  
 }
 
 extension StartViewController: UITableViewDelegate {
+  
   public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
     presenter.didPerform(action: .instrumentSelect(instruments[indexPath.row]))
@@ -110,6 +138,7 @@ extension StartViewController: UITableViewDelegate {
 }
 
 extension StartViewController: UITableViewDataSource {
+  
   public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return instruments.count
   }
@@ -123,5 +152,15 @@ extension StartViewController: UITableViewDataSource {
     cell.bind(to: instruments[indexPath.row])
     return cell
   }
+  
 }
 
+fileprivate extension StartViewSegue {
+  
+  func stringIdentifier() -> String {
+    switch self {
+    case .measure: return "show_measure_view"
+    }
+  }
+  
+}

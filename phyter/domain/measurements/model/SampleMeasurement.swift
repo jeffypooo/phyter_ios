@@ -6,10 +6,10 @@
 import Foundation
 
 protocol SampleMeasurement {
-  
-  var timestamp:   Date { get set }
-  var salinity:    Float32 { get set }
-  var pH:          Float32 { get set }
-  var temperature: Float32 { get set }
+  var instrumentId: UUID { get set }
+  var timestamp:    Date { get set }
+  var salinity:     Float32 { get set }
+  var pH:           Float32 { get set }
+  var temperature:  Float32 { get set }
   
 }

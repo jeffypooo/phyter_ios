@@ -13,29 +13,80 @@
 		1F3CA7F31EDB8556008EC963 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F3CA7F11EDB8556008EC963 /* LaunchScreen.storyboard */; };
 		1F3CA7FE1EDB8556008EC963 /* phyterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3CA7FD1EDB8556008EC963 /* phyterTests.swift */; };
 		1F3CA8091EDB8557008EC963 /* phyterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3CA8081EDB8557008EC963 /* phyterUITests.swift */; };
+		1F76020F1EDCBCD1009834FF /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F7602091EDCBCD1009834FF /* RealmSwift.framework */; };
+		1F7602101EDCBCD1009834FF /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F76020A1EDCBCD1009834FF /* Realm.framework */; };
+		1F7602121EDCBCD1009834FF /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F76020C1EDCBCD1009834FF /* RxSwift.framework */; };
+		1F7602131EDCBCD1009834FF /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F76020D1EDCBCD1009834FF /* RxCocoa.framework */; };
+		1F7602141EDCBCD1009834FF /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F76020E1EDCBCD1009834FF /* RxBlocking.framework */; };
+		31B73010F31011CE81E4E149 /* MeasurementsForInstrument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B73F03B6657996578E537D /* MeasurementsForInstrument.swift */; };
 		31B73012703440A5C6A473BA /* CBInstrumentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B731118E73A8E56607E976 /* CBInstrumentManager.swift */; };
 		31B7302B711098E3948C9DCA /* CBInstrumentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B731118E73A8E56607E976 /* CBInstrumentManager.swift */; };
 		31B7303F85E3B7ADC6E19422 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B73ADE73A647149BEF792E /* StartView.swift */; };
+		31B73143E9895FBE6845522B /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 31B7325A7349906EAF1EB27A /* Cartfile */; };
+		31B731BE9A091D6F32FD0EC1 /* PhyterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B73FB34D6581F4372973A3 /* PhyterProtocol.swift */; };
+		31B7327FC497E7E94D21568B /* ObserveSalinity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B7340113F0D0CAAB40AFAD /* ObserveSalinity.swift */; };
+		31B7328502114A7CD6A75003 /* MeasurePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B731045FBD6A799625395C /* MeasurePresenter.swift */; };
+		31B73290E6F1DC738D041CFC /* RealmObjectHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B737CD29204109E5C9D329 /* RealmObjectHelper.swift */; };
+		31B73323ABB7C682A4206AB7 /* MeasurementRepositoryUseCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B73926E91E8E01B40E8484 /* MeasurementRepositoryUseCases.swift */; };
+		31B7334EDD5C7B8841EB9798 /* MeasureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B7335B7DCE9A39AD03A48D /* MeasureViewController.swift */; };
+		31B7335ADCD5E454D170983A /* CreateMeasurement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B7369A133023D04439E00C /* CreateMeasurement.swift */; };
+		31B7336B1BE647323726FDDD /* MeasurementRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B73E9CBDFDB6D874A7C646 /* MeasurementRepository.swift */; };
 		31B734442D6AD5F07436CB72 /* UseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B73D75C9D0092FCE6105C5 /* UseCase.swift */; };
+		31B7344F59A6292A95E78DA6 /* MeasurementRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B73E9CBDFDB6D874A7C646 /* MeasurementRepository.swift */; };
 		31B73472F2612E2B9C3D3C3E /* ScanForInstruments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B73ECB26EA30D2661A51AC /* ScanForInstruments.swift */; };
 		31B734959320B0E574E81278 /* NearbyInstrumentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B73D81A8B433DC32385709 /* NearbyInstrumentCell.swift */; };
+		31B734A0F7C22F16E2EFF868 /* SetSalinity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B73AA562C4F474E548322F /* SetSalinity.swift */; };
 		31B734BBB6A2067AC4B7C2E1 /* PhyterInstrument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B732D0F063B7E60D85AAFE /* PhyterInstrument.swift */; };
 		31B734F2B7D129C4F37EEDD0 /* ConnectInstrument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B73D781F2AFD37CDBFE169 /* ConnectInstrument.swift */; };
+		31B735141AC0D02728073BEE /* CreateMeasurement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B7369A133023D04439E00C /* CreateMeasurement.swift */; };
+		31B735149A5B4BB425EE32EA /* Measure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B733714D52834D5B4D8E69 /* Measure.swift */; };
+		31B73541E58303C9FBEDCA0E /* SetSalinity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B73AA562C4F474E548322F /* SetSalinity.swift */; };
+		31B7356D95FD9BDB05B99963 /* SampleMeasurementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B733AE136EB8A1FD4D14A8 /* SampleMeasurementCell.swift */; };
+		31B7361E63E5D96EF675C597 /* SetSalinity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B73AA562C4F474E548322F /* SetSalinity.swift */; };
+		31B73620478636331D354F59 /* MeasurementRepositoryUseCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B73926E91E8E01B40E8484 /* MeasurementRepositoryUseCases.swift */; };
 		31B73656EA9D2A913BCF2B03 /* StartPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B73FD54C35355771C33A60 /* StartPresenter.swift */; };
 		31B736B6F0D30F18D9C05FC7 /* InstrumentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B731CBA1B34988FB54E7D1 /* InstrumentManager.swift */; };
 		31B736BC1E195CBC5079442E /* NearbyInstrumentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B73D81A8B433DC32385709 /* NearbyInstrumentCell.swift */; };
 		31B736C87FBF9865DCA2CB96 /* SampleMeasurement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B73C06A800395EB977A286 /* SampleMeasurement.swift */; };
+		31B73728B6EC6BAFCA4A5CDD /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B738E2368F1FF8F908CEF7 /* Background.swift */; };
+		31B737C9DDCB7CC97422B63E /* CreateMeasurement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B7369A133023D04439E00C /* CreateMeasurement.swift */; };
+		31B737E4970BE297D5BC77E5 /* UUIDS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B734F1150FDEFF8237100A /* UUIDS.swift */; };
+		31B73852A1AA6B26C335EB23 /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B738E2368F1FF8F908CEF7 /* Background.swift */; };
 		31B738B62F4060CA02B3CA58 /* SampleMeasurement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B73C06A800395EB977A286 /* SampleMeasurement.swift */; };
+		31B738B84FC7469E8D54D46A /* MeasureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B73BB1DA6EEA488A6DA5B4 /* MeasureView.swift */; };
+		31B738B990A3DFA3C332B592 /* InstrumentUseCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B7366FC3F4B5318C8765E7 /* InstrumentUseCases.swift */; };
+		31B738BB24F63CE046C0F635 /* MeasureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B73BB1DA6EEA488A6DA5B4 /* MeasureView.swift */; };
+		31B738D56C67E3D2D8603D84 /* UUIDS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B734F1150FDEFF8237100A /* UUIDS.swift */; };
+		31B73915752B12303C2B9C79 /* Measure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B733714D52834D5B4D8E69 /* Measure.swift */; };
 		31B7391E2769B3B68256C84F /* InstrumentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B731CBA1B34988FB54E7D1 /* InstrumentManager.swift */; };
 		31B7396E01AA5909CC489AF9 /* ConnectInstrument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B73D781F2AFD37CDBFE169 /* ConnectInstrument.swift */; };
+		31B73980C238768C9F7293B2 /* MeasurementsForInstrument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B73F03B6657996578E537D /* MeasurementsForInstrument.swift */; };
+		31B739F07E69CD7A616A2185 /* InstrumentUseCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B7366FC3F4B5318C8765E7 /* InstrumentUseCases.swift */; };
+		31B739FE50A9F4988D75291B /* Measure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B733714D52834D5B4D8E69 /* Measure.swift */; };
+		31B73A152F0863C8D64FC453 /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B738E2368F1FF8F908CEF7 /* Background.swift */; };
+		31B73A55FEA4F8EC0CA9FDF4 /* MeasurePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B731045FBD6A799625395C /* MeasurePresenter.swift */; };
+		31B73AF0C3A6E358625236AA /* MeasurementRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B73E9CBDFDB6D874A7C646 /* MeasurementRepository.swift */; };
 		31B73B8F2F9D3CFF53E25E89 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B73C98C56A0E35D5381E5C /* StartViewController.swift */; };
 		31B73CF9A540E8D34CC286C2 /* StartPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B73FD54C35355771C33A60 /* StartPresenter.swift */; };
+		31B73D2D93BFDD32FB3654F9 /* ObserveSalinity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B7340113F0D0CAAB40AFAD /* ObserveSalinity.swift */; };
 		31B73D7D22C0D93C2C4F655B /* PhyterInstrument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B732D0F063B7E60D85AAFE /* PhyterInstrument.swift */; };
 		31B73D907E4231D896FE2C9F /* UseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B73D75C9D0092FCE6105C5 /* UseCase.swift */; };
 		31B73DF9FE3A91A64813A1C1 /* CBPhyterInstrument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B736263AFACB0B28721AFB /* CBPhyterInstrument.swift */; };
+		31B73E05FA3BA5968F225C79 /* InstrumentUseCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B7366FC3F4B5318C8765E7 /* InstrumentUseCases.swift */; };
+		31B73E88BA2CC607980D6DC2 /* UUIDS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B734F1150FDEFF8237100A /* UUIDS.swift */; };
+		31B73EA79B30A6011E5C65A1 /* RealmMeasurementRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B73CE8FE90F9158C4D7642 /* RealmMeasurementRepository.swift */; };
+		31B73EA79EAB743D3041A1B0 /* RealmSampleMeasurement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B73487DF5CAA50A0095B0B /* RealmSampleMeasurement.swift */; };
+		31B73EAAE9D3C54E9905233F /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 31B7325A7349906EAF1EB27A /* Cartfile */; };
+		31B73EC44E711F7DBA48A973 /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 31B7325A7349906EAF1EB27A /* Cartfile */; };
 		31B73ED43412D77B41A619A7 /* ScanForInstruments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B73ECB26EA30D2661A51AC /* ScanForInstruments.swift */; };
 		31B73EE725E87FE25EAD7392 /* CBPhyterInstrument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B736263AFACB0B28721AFB /* CBPhyterInstrument.swift */; };
 		31B73F2D351107F9D430F34A /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B73ADE73A647149BEF792E /* StartView.swift */; };
+		31B73F9DF5745C64EFCA288F /* RealmHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B73F25411F75BB332CEF81 /* RealmHelper.swift */; };
+		31B73FA151CF67B15ACFFC88 /* PhyterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B73FB34D6581F4372973A3 /* PhyterProtocol.swift */; };
+		31B73FA9A707F283DCAF47E4 /* ObserveSalinity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B7340113F0D0CAAB40AFAD /* ObserveSalinity.swift */; };
+		31B73FDC49F9829E19BE0485 /* MeasurementRepositoryUseCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B73926E91E8E01B40E8484 /* MeasurementRepositoryUseCases.swift */; };
+		31B73FEA662006F8A22BF614 /* PhyterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B73FB34D6581F4372973A3 /* PhyterProtocol.swift */; };
+		31B73FEE47AF68F64FD5744A /* MeasurementsForInstrument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B73F03B6657996578E537D /* MeasurementsForInstrument.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,17 +119,43 @@
 		1F3CA8041EDB8557008EC963 /* phyterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = phyterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F3CA8081EDB8557008EC963 /* phyterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = phyterUITests.swift; sourceTree = "<group>"; };
 		1F3CA80A1EDB8557008EC963 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1F7602091EDCBCD1009834FF /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
+		1F76020A1EDCBCD1009834FF /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
+		1F76020B1EDCBCD1009834FF /* RxTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxTest.framework; path = Carthage/Build/iOS/RxTest.framework; sourceTree = "<group>"; };
+		1F76020C1EDCBCD1009834FF /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		1F76020D1EDCBCD1009834FF /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
+		1F76020E1EDCBCD1009834FF /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
+		31B731045FBD6A799625395C /* MeasurePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeasurePresenter.swift; sourceTree = "<group>"; };
 		31B731118E73A8E56607E976 /* CBInstrumentManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBInstrumentManager.swift; sourceTree = "<group>"; };
 		31B731CBA1B34988FB54E7D1 /* InstrumentManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstrumentManager.swift; sourceTree = "<group>"; };
+		31B7325A7349906EAF1EB27A /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		31B732D0F063B7E60D85AAFE /* PhyterInstrument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhyterInstrument.swift; sourceTree = "<group>"; };
+		31B7335B7DCE9A39AD03A48D /* MeasureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeasureViewController.swift; sourceTree = "<group>"; };
+		31B733714D52834D5B4D8E69 /* Measure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Measure.swift; sourceTree = "<group>"; };
+		31B733AE136EB8A1FD4D14A8 /* SampleMeasurementCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleMeasurementCell.swift; sourceTree = "<group>"; };
+		31B7340113F0D0CAAB40AFAD /* ObserveSalinity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObserveSalinity.swift; sourceTree = "<group>"; };
+		31B73487DF5CAA50A0095B0B /* RealmSampleMeasurement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmSampleMeasurement.swift; sourceTree = "<group>"; };
+		31B734F1150FDEFF8237100A /* UUIDS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UUIDS.swift; sourceTree = "<group>"; };
 		31B736263AFACB0B28721AFB /* CBPhyterInstrument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBPhyterInstrument.swift; sourceTree = "<group>"; };
+		31B7366FC3F4B5318C8765E7 /* InstrumentUseCases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstrumentUseCases.swift; sourceTree = "<group>"; };
+		31B7369A133023D04439E00C /* CreateMeasurement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateMeasurement.swift; sourceTree = "<group>"; };
+		31B737CD29204109E5C9D329 /* RealmObjectHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmObjectHelper.swift; sourceTree = "<group>"; };
+		31B738E2368F1FF8F908CEF7 /* Background.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
+		31B73926E91E8E01B40E8484 /* MeasurementRepositoryUseCases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeasurementRepositoryUseCases.swift; sourceTree = "<group>"; };
+		31B73AA562C4F474E548322F /* SetSalinity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetSalinity.swift; sourceTree = "<group>"; };
 		31B73ADE73A647149BEF792E /* StartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
+		31B73BB1DA6EEA488A6DA5B4 /* MeasureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeasureView.swift; sourceTree = "<group>"; };
 		31B73C06A800395EB977A286 /* SampleMeasurement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleMeasurement.swift; sourceTree = "<group>"; };
 		31B73C98C56A0E35D5381E5C /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		31B73CE8FE90F9158C4D7642 /* RealmMeasurementRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmMeasurementRepository.swift; sourceTree = "<group>"; };
 		31B73D75C9D0092FCE6105C5 /* UseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UseCase.swift; sourceTree = "<group>"; };
 		31B73D781F2AFD37CDBFE169 /* ConnectInstrument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectInstrument.swift; sourceTree = "<group>"; };
 		31B73D81A8B433DC32385709 /* NearbyInstrumentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearbyInstrumentCell.swift; sourceTree = "<group>"; };
+		31B73E9CBDFDB6D874A7C646 /* MeasurementRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeasurementRepository.swift; sourceTree = "<group>"; };
 		31B73ECB26EA30D2661A51AC /* ScanForInstruments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanForInstruments.swift; sourceTree = "<group>"; };
+		31B73F03B6657996578E537D /* MeasurementsForInstrument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeasurementsForInstrument.swift; sourceTree = "<group>"; };
+		31B73F25411F75BB332CEF81 /* RealmHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmHelper.swift; sourceTree = "<group>"; };
+		31B73FB34D6581F4372973A3 /* PhyterProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhyterProtocol.swift; sourceTree = "<group>"; };
 		31B73FD54C35355771C33A60 /* StartPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -87,6 +164,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F76020F1EDCBCD1009834FF /* RealmSwift.framework in Frameworks */,
+				1F7602101EDCBCD1009834FF /* Realm.framework in Frameworks */,
+				1F7602121EDCBCD1009834FF /* RxSwift.framework in Frameworks */,
+				1F7602131EDCBCD1009834FF /* RxCocoa.framework in Frameworks */,
+				1F7602141EDCBCD1009834FF /* RxBlocking.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,6 +196,8 @@
 				1F3CA7FC1EDB8556008EC963 /* phyterTests */,
 				1F3CA8071EDB8557008EC963 /* phyterUITests */,
 				1F3CA7E61EDB8556008EC963 /* Products */,
+				31B7325A7349906EAF1EB27A /* Cartfile */,
+				1F7602081EDCBCCF009834FF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -138,6 +222,7 @@
 				31B73C98F4E5689A427C54F3 /* scenes */,
 				31B73A159416E4A601AF6F5D /* domain */,
 				31B7374AACDE2B8477CEC039 /* bluetooth */,
+				31B732F3057B5E7A1BA0F82B /* realm */,
 			);
 			path = phyter;
 			sourceTree = "<group>";
@@ -160,11 +245,29 @@
 			path = phyterUITests;
 			sourceTree = "<group>";
 		};
+		1F7602081EDCBCCF009834FF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1F7602091EDCBCD1009834FF /* RealmSwift.framework */,
+				1F76020A1EDCBCD1009834FF /* Realm.framework */,
+				1F76020B1EDCBCD1009834FF /* RxTest.framework */,
+				1F76020C1EDCBCD1009834FF /* RxSwift.framework */,
+				1F76020D1EDCBCD1009834FF /* RxCocoa.framework */,
+				1F76020E1EDCBCD1009834FF /* RxBlocking.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		31B730BB2310E47729292B20 /* usecase */ = {
 			isa = PBXGroup;
 			children = (
 				31B73ECB26EA30D2661A51AC /* ScanForInstruments.swift */,
 				31B73D781F2AFD37CDBFE169 /* ConnectInstrument.swift */,
+				31B7366FC3F4B5318C8765E7 /* InstrumentUseCases.swift */,
+				31B73AA562C4F474E548322F /* SetSalinity.swift */,
+				31B7340113F0D0CAAB40AFAD /* ObserveSalinity.swift */,
+				31B738E2368F1FF8F908CEF7 /* Background.swift */,
+				31B733714D52834D5B4D8E69 /* Measure.swift */,
 			);
 			path = usecase;
 			sourceTree = "<group>";
@@ -180,9 +283,33 @@
 			path = start;
 			sourceTree = "<group>";
 		};
+		31B732F3057B5E7A1BA0F82B /* realm */ = {
+			isa = PBXGroup;
+			children = (
+				31B737CD29204109E5C9D329 /* RealmObjectHelper.swift */,
+				31B73F25411F75BB332CEF81 /* RealmHelper.swift */,
+				31B73A235135BC51C7EB13FF /* measurements */,
+			);
+			path = realm;
+			sourceTree = "<group>";
+		};
+		31B733E67FA61D941A9C5109 /* usecase */ = {
+			isa = PBXGroup;
+			children = (
+				31B73926E91E8E01B40E8484 /* MeasurementRepositoryUseCases.swift */,
+				31B7369A133023D04439E00C /* CreateMeasurement.swift */,
+				31B73F03B6657996578E537D /* MeasurementsForInstrument.swift */,
+			);
+			path = usecase;
+			sourceTree = "<group>";
+		};
 		31B7358D92764C64B46B1563 /* measure */ = {
 			isa = PBXGroup;
 			children = (
+				31B7335B7DCE9A39AD03A48D /* MeasureViewController.swift */,
+				31B731045FBD6A799625395C /* MeasurePresenter.swift */,
+				31B7398EB2B310B471AF05F5 /* view */,
+				31B7378A4833A87BEEFEEA20 /* history */,
 			);
 			path = measure;
 			sourceTree = "<group>";
@@ -192,13 +319,23 @@
 			children = (
 				31B731118E73A8E56607E976 /* CBInstrumentManager.swift */,
 				31B736263AFACB0B28721AFB /* CBPhyterInstrument.swift */,
+				31B734F1150FDEFF8237100A /* UUIDS.swift */,
 			);
 			path = bluetooth;
+			sourceTree = "<group>";
+		};
+		31B7378A4833A87BEEFEEA20 /* history */ = {
+			isa = PBXGroup;
+			children = (
+				31B733AE136EB8A1FD4D14A8 /* SampleMeasurementCell.swift */,
+			);
+			path = history;
 			sourceTree = "<group>";
 		};
 		31B738A9F8B54C6877471D61 /* store */ = {
 			isa = PBXGroup;
 			children = (
+				31B73E9CBDFDB6D874A7C646 /* MeasurementRepository.swift */,
 			);
 			path = store;
 			sourceTree = "<group>";
@@ -207,6 +344,14 @@
 			isa = PBXGroup;
 			children = (
 				31B73ADE73A647149BEF792E /* StartView.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		31B7398EB2B310B471AF05F5 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				31B73BB1DA6EEA488A6DA5B4 /* MeasureView.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -221,11 +366,21 @@
 			path = domain;
 			sourceTree = "<group>";
 		};
+		31B73A235135BC51C7EB13FF /* measurements */ = {
+			isa = PBXGroup;
+			children = (
+				31B73487DF5CAA50A0095B0B /* RealmSampleMeasurement.swift */,
+				31B73CE8FE90F9158C4D7642 /* RealmMeasurementRepository.swift */,
+			);
+			path = measurements;
+			sourceTree = "<group>";
+		};
 		31B73A7D8A00C873FAC1F26B /* measurements */ = {
 			isa = PBXGroup;
 			children = (
 				31B73D8FA7B7B47FB8599609 /* model */,
 				31B738A9F8B54C6877471D61 /* store */,
+				31B733E67FA61D941A9C5109 /* usecase */,
 			);
 			path = measurements;
 			sourceTree = "<group>";
@@ -261,6 +416,7 @@
 			isa = PBXGroup;
 			children = (
 				31B732D0F063B7E60D85AAFE /* PhyterInstrument.swift */,
+				31B73FB34D6581F4372973A3 /* PhyterProtocol.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -283,6 +439,7 @@
 				1F3CA7E11EDB8556008EC963 /* Sources */,
 				1F3CA7E21EDB8556008EC963 /* Frameworks */,
 				1F3CA7E31EDB8556008EC963 /* Resources */,
+				1F7602151EDCBCE2009834FF /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -386,6 +543,7 @@
 				1F3CA7F31EDB8556008EC963 /* LaunchScreen.storyboard in Resources */,
 				1F3CA7F01EDB8556008EC963 /* Assets.xcassets in Resources */,
 				1F3CA7EE1EDB8556008EC963 /* Main.storyboard in Resources */,
+				31B73143E9895FBE6845522B /* Cartfile in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -393,6 +551,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31B73EAAE9D3C54E9905233F /* Cartfile in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,10 +559,32 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31B73EC44E711F7DBA48A973 /* Cartfile in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1F7602151EDCBCE2009834FF /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(PROJECT_DIR)/Carthage/Build/iOS/Realm.framework",
+				"$(PROJECT_DIR)/Carthage/Build/iOS/RealmSwift.framework",
+				"$(PROJECT_DIR)/Carthage/Build/iOS/RxSwift.framework",
+				"$(PROJECT_DIR)/Carthage/Build/iOS/RxCocoa.framework",
+				"$(PROJECT_DIR)/Carthage/Build/iOS/RxBlocking.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1F3CA7E11EDB8556008EC963 /* Sources */ = {
@@ -423,6 +604,25 @@
 				31B73656EA9D2A913BCF2B03 /* StartPresenter.swift in Sources */,
 				31B7303F85E3B7ADC6E19422 /* StartView.swift in Sources */,
 				31B7396E01AA5909CC489AF9 /* ConnectInstrument.swift in Sources */,
+				31B7334EDD5C7B8841EB9798 /* MeasureViewController.swift in Sources */,
+				31B7328502114A7CD6A75003 /* MeasurePresenter.swift in Sources */,
+				31B738BB24F63CE046C0F635 /* MeasureView.swift in Sources */,
+				31B739F07E69CD7A616A2185 /* InstrumentUseCases.swift in Sources */,
+				31B7361E63E5D96EF675C597 /* SetSalinity.swift in Sources */,
+				31B737E4970BE297D5BC77E5 /* UUIDS.swift in Sources */,
+				31B731BE9A091D6F32FD0EC1 /* PhyterProtocol.swift in Sources */,
+				31B7327FC497E7E94D21568B /* ObserveSalinity.swift in Sources */,
+				31B73A152F0863C8D64FC453 /* Background.swift in Sources */,
+				31B73915752B12303C2B9C79 /* Measure.swift in Sources */,
+				31B73AF0C3A6E358625236AA /* MeasurementRepository.swift in Sources */,
+				31B73FDC49F9829E19BE0485 /* MeasurementRepositoryUseCases.swift in Sources */,
+				31B735141AC0D02728073BEE /* CreateMeasurement.swift in Sources */,
+				31B73010F31011CE81E4E149 /* MeasurementsForInstrument.swift in Sources */,
+				31B73290E6F1DC738D041CFC /* RealmObjectHelper.swift in Sources */,
+				31B73F9DF5745C64EFCA288F /* RealmHelper.swift in Sources */,
+				31B73EA79EAB743D3041A1B0 /* RealmSampleMeasurement.swift in Sources */,
+				31B73EA79B30A6011E5C65A1 /* RealmMeasurementRepository.swift in Sources */,
+				31B7356D95FD9BDB05B99963 /* SampleMeasurementCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,6 +642,19 @@
 				31B73CF9A540E8D34CC286C2 /* StartPresenter.swift in Sources */,
 				31B73F2D351107F9D430F34A /* StartView.swift in Sources */,
 				31B734F2B7D129C4F37EEDD0 /* ConnectInstrument.swift in Sources */,
+				31B73A55FEA4F8EC0CA9FDF4 /* MeasurePresenter.swift in Sources */,
+				31B738B84FC7469E8D54D46A /* MeasureView.swift in Sources */,
+				31B738B990A3DFA3C332B592 /* InstrumentUseCases.swift in Sources */,
+				31B734A0F7C22F16E2EFF868 /* SetSalinity.swift in Sources */,
+				31B73E88BA2CC607980D6DC2 /* UUIDS.swift in Sources */,
+				31B73FEA662006F8A22BF614 /* PhyterProtocol.swift in Sources */,
+				31B73D2D93BFDD32FB3654F9 /* ObserveSalinity.swift in Sources */,
+				31B73728B6EC6BAFCA4A5CDD /* Background.swift in Sources */,
+				31B735149A5B4BB425EE32EA /* Measure.swift in Sources */,
+				31B7336B1BE647323726FDDD /* MeasurementRepository.swift in Sources */,
+				31B73620478636331D354F59 /* MeasurementRepositoryUseCases.swift in Sources */,
+				31B737C9DDCB7CC97422B63E /* CreateMeasurement.swift in Sources */,
+				31B73980C238768C9F7293B2 /* MeasurementsForInstrument.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,6 +663,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F3CA8091EDB8557008EC963 /* phyterUITests.swift in Sources */,
+				31B73E05FA3BA5968F225C79 /* InstrumentUseCases.swift in Sources */,
+				31B73541E58303C9FBEDCA0E /* SetSalinity.swift in Sources */,
+				31B738D56C67E3D2D8603D84 /* UUIDS.swift in Sources */,
+				31B73FA151CF67B15ACFFC88 /* PhyterProtocol.swift in Sources */,
+				31B73FA9A707F283DCAF47E4 /* ObserveSalinity.swift in Sources */,
+				31B73852A1AA6B26C335EB23 /* Background.swift in Sources */,
+				31B739FE50A9F4988D75291B /* Measure.swift in Sources */,
+				31B7344F59A6292A95E78DA6 /* MeasurementRepository.swift in Sources */,
+				31B73323ABB7C682A4206AB7 /* MeasurementRepositoryUseCases.swift in Sources */,
+				31B7335ADCD5E454D170983A /* CreateMeasurement.swift in Sources */,
+				31B73FEE47AF68F64FD5744A /* MeasurementsForInstrument.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -588,6 +812,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 37R6FCG424;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = phyter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jmj.phyter;
@@ -601,6 +829,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 37R6FCG424;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = phyter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jmj.phyter;
@@ -686,6 +918,7 @@
 				1F3CA80F1EDB8557008EC963 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1F3CA8101EDB8557008EC963 /* Build configuration list for PBXNativeTarget "phyterTests" */ = {
 			isa = XCConfigurationList;
@@ -694,6 +927,7 @@
 				1F3CA8121EDB8557008EC963 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1F3CA8131EDB8557008EC963 /* Build configuration list for PBXNativeTarget "phyterUITests" */ = {
 			isa = XCConfigurationList;
@@ -702,6 +936,7 @@
 				1F3CA8151EDB8557008EC963 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
