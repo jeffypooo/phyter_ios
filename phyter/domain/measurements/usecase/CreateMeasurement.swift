@@ -10,12 +10,26 @@ class CreateMeasurementArgs: UseCaseArgs {
   let salinity:     Float32
   let pH:           Float32
   let temp:         Float32
+  let dark:         Float32
+  let a578:         Float32
+  let a434:         Float32
   
-  init(instrumentId: UUID, salinity: Float32, pH: Float32, temp: Float32) {
+  init(
+      instrumentId: UUID,
+      salinity: Float32,
+      pH: Float32,
+      temp: Float32,
+      dark: Float32,
+      a578: Float32,
+      a434: Float32
+  ) {
     self.instrumentId = instrumentId
     self.salinity = salinity
     self.pH = pH
     self.temp = temp
+    self.dark = dark
+    self.a578 = a578
+    self.a434 = a434
   }
 }
 
@@ -40,7 +54,10 @@ class CreateMeasurement: MeasurementRepositoryUseCase<CreateMeasurementArgs, Cre
         instrumentId: args.instrumentId,
         salinity: args.salinity,
         pH: args.pH,
-        temp: args.temp
+        temp: args.temp,
+        dark: args.dark,
+        a578: args.a578,
+        a434: args.a434
     )
     onSuccess(CreateMeasurementResult(measurement))
   }

@@ -8,7 +8,14 @@ import RxSwift
 import RealmSwift
 
 class RealmMeasurementRepository: RealmHelper, MeasurementRepository {
-  func createMeasurement(instrumentId: UUID, salinity: Float32, pH: Float32, temp: Float32) -> SampleMeasurement {
+  func createMeasurement(
+      instrumentId: UUID,
+      salinity: Float32,
+      pH: Float32,
+      temp: Float32,
+      dark: Float32,
+      a578: Float32,
+      a434: Float32) -> SampleMeasurement {
     var measurement: RealmSampleMeasurement!
     onRealm {
       realm in
@@ -17,6 +24,9 @@ class RealmMeasurementRepository: RealmHelper, MeasurementRepository {
       measurement.salinity = salinity
       measurement.pH = pH
       measurement.temperature = temp
+      measurement.dark = dark
+      measurement.a578 = a578
+      measurement.a434 = a434
       try! realm.write {
         realm.add(measurement, update: false)
       }
@@ -42,6 +52,30 @@ class RealmMeasurementRepository: RealmHelper, MeasurementRepository {
       }
     }
     return obsv
+  }
+  
+  func delete(measurement: SampleMeasurement) -> Bool {
+    if let realmMeasurement = measurement as? RealmSampleMeasurement {
+      onRealm {
+        realm in
+        try! realm.write {
+          realm.delete(realmMeasurement)
+        }
+      }
+      return true
+    }
+    let timePred = NSPredicate(format: "_timestamp", argumentArray: [measurement.timestamp])
+    var success  = false
+    onRealm {
+      realm in
+      if let matching = realm.objects(RealmSampleMeasurement.self).filter(timePred).first {
+        try! realm.write {
+          realm.delete(matching)
+        }
+        success = true
+      }
+    }
+    return success
   }
   
   func addObservableNotificationBlock(

@@ -24,7 +24,11 @@ class ObserveSalinity: InstrumentOngoingUseCase<UseCaseArgs, ObserveSalinityUpda
       onSuccess: @escaping (UseCaseResult) -> Void,
       onError: @escaping (Error) -> Void) {
     terminate()
-    salinitySubs = instrument.salinity.subscribe(onNext: { sal in onUpdate(ObserveSalinityUpdate(sal)) })
+    if let inst = instrumentProvider() {
+      salinitySubs = inst.salinity.subscribe(onNext: { sal in onUpdate(ObserveSalinityUpdate(sal)) })
+    } else {
+      onError(InstrumentUseCaseError.noInstrument)
+    }
   }
   
   open override func terminate() {

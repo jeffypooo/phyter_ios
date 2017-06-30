@@ -41,7 +41,7 @@ class SampleMeasurementCell: UITableViewCell {
   func bind(toMeasurement measurement: SampleMeasurement) {
     timestampLabel.text = dateFormatter.string(from: measurement.timestamp)
     infoLabel.text = String(
-        format: "pH: %.2f\nTemp: %.2f\nSalinity: %.2f",
+        format: "pH: %.3f\nTemp: %.2f\nSalinity: %.2f",
         arguments: [measurement.pH, measurement.temperature, measurement.salinity]
     )
   }

@@ -15,7 +15,15 @@ struct MeasurementLiveQuery {
 
 protocol MeasurementRepository {
   
-  func createMeasurement(instrumentId: UUID, salinity: Float32, pH: Float32, temp: Float32) -> SampleMeasurement
+  func createMeasurement(
+      instrumentId: UUID,
+      salinity: Float32,
+      pH: Float32,
+      temp: Float32,
+      dark: Float32,
+      a578: Float32,
+      a434: Float32) -> SampleMeasurement
   func measurements(forInstrumentId id: UUID) -> Observable<MeasurementLiveQuery>
+  func delete(measurement: SampleMeasurement) -> Bool
   
 }

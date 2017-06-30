@@ -6,6 +6,7 @@
 import Foundation
 import CoreBluetooth
 import RxSwift
+import Crashlytics
 
 class CBPhyterInstrument: NSObject, PhyterInstrument {
   var id: UUID {
@@ -32,12 +33,13 @@ class CBPhyterInstrument: NSObject, PhyterInstrument {
   
   let peripheral:         CBPeripheral
   var lastReadRssi:       NSNumber
-  var ioInitialized                                    = false
+  var ioInitialized                                   = false
   var sppService:         CBService?
   var txRxCharacteristic: CBCharacteristic?
   var runAfterIOInit:     (() -> Void)?
-  var backgroundHandlers: [() -> Void]                 = []
-  var measureHandlers:    [(Float32, Float32) -> Void] = []
+  var backgroundHandlers: [() -> Void]                = []
+  var measureHandlers:    [(MeasurementData) -> Void] = []
+  var currentMeasurement: MeasurementData?
   
   init(_ peripheral: CBPeripheral, rssi: NSNumber) {
     self.peripheral = peripheral
@@ -47,6 +49,7 @@ class CBPhyterInstrument: NSObject, PhyterInstrument {
   }
   
   func setSalinity(_ salinity: Float32) {
+    
     if !ioInitialized {
       runAfterIOInit = {
         self.setSalinity(salinity)
@@ -54,6 +57,7 @@ class CBPhyterInstrument: NSObject, PhyterInstrument {
       lazyInitializeIO()
       return
     }
+    Answers.logCustomEvent(withName: "Set Salinity", customAttributes: ["value": NSNumber(value: salinity)])
     sendSetSalinityCommand(salinity)
   }
   
@@ -65,11 +69,12 @@ class CBPhyterInstrument: NSObject, PhyterInstrument {
       lazyInitializeIO()
       return
     }
+    Answers.logCustomEvent(withName: "Background")
     backgroundHandlers.append(onComplete)
     sendBackgroundCommand()
   }
   
-  func measure(onComplete: @escaping (Float32, Float32) -> Void) {
+  func measure(onComplete: @escaping (MeasurementData) -> Void) {
     if !ioInitialized {
       runAfterIOInit = {
         self.measure(onComplete: onComplete)
@@ -77,12 +82,15 @@ class CBPhyterInstrument: NSObject, PhyterInstrument {
       lazyInitializeIO()
       return
     }
+    Answers.logCustomEvent(withName: "Measure")
     measureHandlers.append(onComplete)
     sendMeasureCommand()
   }
   
   private func lazyInitializeIO() {
-    guard peripheral.state == .connected else { return }
+    let connected = peripheral.state == .connected
+    Answers.logCustomEvent(withName: "IO Lazy Init", customAttributes: ["device connected": connected ? "yes" : "no"])
+    guard connected else { return }
     print("lazy initializing IO...")
     peripheral.discoverServices([PHYTER_SPP_SERVICE_UUID])
   }
@@ -131,6 +139,7 @@ extension CBPhyterInstrument: CBPeripheralDelegate {
       self.txRxCharacteristic = txRx
       peripheral.setNotifyValue(true, for: txRx)
       ioInitialized = true
+      Answers.logCustomEvent(withName: "Lazy IO Init Complete")
       DispatchQueue.global().async {
         self.runAfterIOInit?()
       }
@@ -153,26 +162,44 @@ extension CBPhyterInstrument: CBPeripheralDelegate {
     case .setSalinity:
       let sal = fromBytes([UInt8](bytes.suffix(4)), Float32.self)
       print("salinity resp: \(sal)")
+      Answers.logCustomEvent(withName: "Salinity Response", customAttributes: ["value": NSNumber(value: sal)])
       salinitySubject.onNext(sal)
       break
     case .background:
       print("background resp")
+      Answers.logCustomEvent(withName: "Background Response")
       guard backgroundHandlers.count > 0 else { break }
       let handler = backgroundHandlers.removeFirst()
       handler()
       break
     case .measure:
-      print("measure resp")
-      guard measureHandlers.count > 0 else { break }
+      print("measure resp (1/2)")
+      currentMeasurement = MeasurementData()
+      currentMeasurement!.pH = fromBytes([UInt8](bytes[1...4]), Float32.self)
+      currentMeasurement!.temp = fromBytes([UInt8](bytes[5...8]), Float32.self)
+      Answers.logCustomEvent(
+          withName: "Measure Response",
+          customAttributes: [
+            "pH": NSNumber(value: currentMeasurement!.pH),
+            "temp": NSNumber(value: currentMeasurement!.temp)
+          ]
+      )
+      break
+    case .measure2:
+      print("measure resp (2/2)")
+      guard measureHandlers.count > 0, var measurement = currentMeasurement else { return }
       let handler = measureHandlers.removeFirst()
-      let pH      = fromBytes([UInt8](bytes[1...4]), Float32.self)
-      let temp    = fromBytes([UInt8](bytes.suffix(4)), Float32.self)
-      handler(pH, temp)
+      measurement.a578 = fromBytes([UInt8](bytes[1...4]), Float32.self)
+      measurement.a434 = fromBytes([UInt8](bytes[5...8]), Float32.self)
+      measurement.dark = fromBytes([UInt8](bytes.suffix(4)), Float32.self)
+      handler(measurement)
       break
     case .ledIntensityCheck:
+      Answers.logCustomEvent(withName: "LED Intensity Check Response")
       print("led intensity check resp")
       break
     case .error:
+      Answers.logCustomEvent(withName: "Error Response")
       print("err resp")
       break
     }

@@ -8,6 +8,8 @@ import Foundation
 enum MeasureViewAction {
   case salinityChange(Float32)
   case actionButtonPress
+  case measurementClick(SampleMeasurement)
+  case measurementDelete(SampleMeasurement)
 }
 
 enum MeasureViewActionButtonStyle {
@@ -24,5 +26,6 @@ protocol MeasureView {
   func measureView(enableActionButton enable: Bool)
   func measureView(showActionButtonActivity show: Bool)
   func measureView(updateMeasurementHistory query: MeasurementLiveQuery)
+  func measureView(showMeasurementDetails measurement: SampleMeasurement)
   
 }

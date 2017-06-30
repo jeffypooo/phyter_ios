@@ -6,12 +6,10 @@
 import Foundation
 
 class MeasureResult: UseCaseResult {
-  let pH:   Float32
-  let temp: Float32
+  let data: MeasurementData
   
-  init(_ pH: Float32, temp: Float32) {
-    self.pH = pH
-    self.temp = temp
+  init(_ data: MeasurementData) {
+    self.data = data
   }
 }
 
@@ -20,6 +18,10 @@ class Measure: InstrumentUseCase<UseCaseArgs, MeasureResult> {
       _ args: UseCaseArgs?,
       onSuccess: @escaping (MeasureResult) -> Void,
       onError: @escaping (Error) -> Void) {
-    instrument.measure { pH, temp in onSuccess(MeasureResult(pH, temp: temp)) }
+    if let inst = instrumentProvider() {
+      inst.measure { data in onSuccess(MeasureResult(data)) }
+    } else {
+      onError(InstrumentUseCaseError.noInstrument)
+    }
   }
 }

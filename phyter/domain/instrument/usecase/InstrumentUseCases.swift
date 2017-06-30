@@ -6,22 +6,26 @@
 import Foundation
 
 
+enum InstrumentUseCaseError: Error {
+  case noInstrument
+}
+
 class InstrumentUseCase<A:UseCaseArgs, R:UseCaseResult>: OneShotUseCase<A, R> {
   
-  let instrument: PhyterInstrument
+  let instrumentProvider: () -> PhyterInstrument?
   
-  init(_ instrument: PhyterInstrument) {
-    self.instrument = instrument
+  init(_ provider: @escaping () -> PhyterInstrument?) {
+    self.instrumentProvider = provider
   }
   
 }
 
 class InstrumentOngoingUseCase<A:UseCaseArgs, U:UseCaseUpdate, R:UseCaseResult>: OngoingUseCase<A, U, R> {
   
-  let instrument: PhyterInstrument
+  let instrumentProvider: () -> PhyterInstrument?
   
-  init(_ instrument: PhyterInstrument) {
-    self.instrument = instrument
+  init(_ provider: @escaping () -> PhyterInstrument?) {
+    self.instrumentProvider = provider
   }
   
   

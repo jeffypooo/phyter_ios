@@ -6,6 +6,14 @@
 import Foundation
 import RxSwift
 
+struct MeasurementData {
+  var pH:   Float32 = 0
+  var temp: Float32 = 0
+  var a578: Float32 = 0
+  var a434: Float32 = 0
+  var dark: Float32 = 0
+}
+
 protocol PhyterInstrument {
   var id:        UUID { get }
   var name:      String { get }
@@ -16,7 +24,7 @@ protocol PhyterInstrument {
   
   func setSalinity(_ salinity: Float32)
   func background(onComplete: @escaping () -> Void)
-  func measure(onComplete: @escaping (_ pH: Float32, _ temp: Float32) -> Void)
+  func measure(onComplete: @escaping (_ data: MeasurementData) -> Void)
   
 }
 

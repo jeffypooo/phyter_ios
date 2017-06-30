@@ -16,7 +16,8 @@ enum Response: UInt8 {
   case setSalinity       = 0x81
   case background        = 0x82
   case measure           = 0x83
-  case ledIntensityCheck = 0x84
+  case measure2          = 0x84
+  case ledIntensityCheck = 0x85
   case error             = 0xFF
 }
 

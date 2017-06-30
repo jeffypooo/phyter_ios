@@ -10,8 +10,12 @@ class Background: InstrumentUseCase<UseCaseArgs, UseCaseResult> {
       _ args: UseCaseArgs?,
       onSuccess: @escaping (UseCaseResult) -> Void,
       onError: @escaping (Error) -> Void) {
-    instrument.background {
-      onSuccess(UseCaseResult())
+    if let inst = instrumentProvider() {
+      inst.background {
+        onSuccess(UseCaseResult())
+      }
+    } else {
+      onError(InstrumentUseCaseError.noInstrument)
     }
   }
 }

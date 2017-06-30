@@ -13,7 +13,9 @@ class RealmHelper {
   private var realmInstance: Realm
   
   init() {
-    self.realmInstance = try! Realm()
+    var config = Realm.Configuration()
+    config.deleteRealmIfMigrationNeeded = true
+    self.realmInstance = try! Realm(configuration: config)
   }
   
   func onRealm(_ block: (Realm) -> Void) {

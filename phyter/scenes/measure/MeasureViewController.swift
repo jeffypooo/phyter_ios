@@ -17,14 +17,16 @@ class MeasureViewController: UIViewController {
   @IBOutlet weak var measurementHistoryTable:       UITableView!
   
   lazy var presenter: MeasurePresenter = {
-    let repo     = RealmMeasurementRepository()
+    let repo = RealmMeasurementRepository()
     let useCases = MeasureUseCases(
-        setSalinity: SetSalinity(self.instrument),
-        observeSalinity: ObserveSalinity(self.instrument),
-        background: Background(self.instrument),
-        measure: Measure(self.instrument),
+        setSalinity: SetSalinity { self.instrument },
+        observeSalinity: ObserveSalinity { self.instrument },
+        background: Background { self.instrument },
+        measure: Measure { self.instrument },
         createMeasurement: CreateMeasurement(repo),
-        observeInstrumentMeasurements: ObserveInstrumentMeasurements(repo)
+        deleteMeasurement: DeleteMeasurement(repo),
+        observeInstrumentMeasurements: ObserveInstrumentMeasurements(repo),
+        disconnectInstrument: DisconnectInstrument(CBInstrumentManager.shared)
     )
     return MeasurePresenter(withUseCases: useCases)
   }()
@@ -162,6 +164,30 @@ extension MeasureViewController: MeasureView {
       self.measurementHistoryTable.endUpdates()
     }
   }
+  
+  func measureView(showMeasurementDetails measurement: SampleMeasurement) {
+    DispatchQueue.main.async {
+      let dateFormatter = DateFormatter()
+      dateFormatter.dateStyle = .short
+      dateFormatter.timeStyle = .short
+      let message = String(
+          format: "Created: %@\npH: %.3f\nTemp: %.2f\nSalinity: %.2f\n\nDiagnostic Info\n\nA578: %.4f\nA434: %.4f\nDark: %.4f",
+          arguments: [
+            dateFormatter.string(from: measurement.timestamp),
+            measurement.pH,
+            measurement.temperature,
+            measurement.salinity,
+            measurement.a578,
+            measurement.a434,
+            measurement.dark
+          ]
+      )
+      let alert   = UIAlertController(title: "Measurement Details", message: message, preferredStyle: .alert)
+      let ok      = UIAlertAction(title: "OK", style: .default, handler: nil)
+      alert.addAction(ok)
+      self.present(alert, animated: true)
+    }
+  }
 }
 
 extension MeasureViewController: UITableViewDataSource {
@@ -176,11 +202,24 @@ extension MeasureViewController: UITableViewDataSource {
     cell.bind(toMeasurement: measurements![indexPath.row])
     return cell
   }
+  
+  public func tableView(
+      _ tableView: UITableView,
+      commit editingStyle: UITableViewCellEditingStyle,
+      forRowAt indexPath: IndexPath) {
+    guard let sample = measurements?[indexPath.row] else {
+      print("error - no measurements")
+      return
+    }
+    presenter.didPerform(action: .measurementDelete(sample))
+  }
 }
 
 extension MeasureViewController: UITableViewDelegate {
   public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
+    guard let sample = measurements?[indexPath.row] else { return }
+    presenter.didPerform(action: .measurementClick(sample))
   }
 }
 

@@ -9,6 +9,7 @@
 import UIKit
 import CoreBluetooth
 import Dispatch
+import Crashlytics
 
 extension UIRefreshControl {
   
@@ -39,7 +40,7 @@ class StartViewController: UIViewController {
   }()
   
   lazy var presenter: StartPresenter = {
-    let manager  = CBInstrumentManager()
+    let manager  = CBInstrumentManager.shared
     let useCases = StartUseCases(
         scanForInstruments: ScanForInstruments(manager),
         connectInstrument: ConnectInstrument(manager)
@@ -64,6 +65,8 @@ class StartViewController: UIViewController {
   
   open override func viewDidDisappear(_ animated: Bool) {
     super.viewDidDisappear(animated)
+    instruments.removeAll()
+    instrumentsTable.reloadData()
     presenter.viewDidDisappear()
   }
   
@@ -83,6 +86,7 @@ class StartViewController: UIViewController {
   }
   
   func didPullToRefresh(_ sender: Any) {
+    Answers.logCustomEvent(withName: "Pull to Refresh")
     presenter.didPerform(action: .refresh)
   }
   
@@ -133,6 +137,11 @@ extension StartViewController: UITableViewDelegate {
   
   public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
+    let instrument = instruments[indexPath.row]
+    Answers.logCustomEvent(
+        withName: "Instrument Selected",
+        customAttributes: ["Name": instrument.name, "RSSI": NSNumber(value: instrument.rssi)]
+    )
     presenter.didPerform(action: .instrumentSelect(instruments[indexPath.row]))
   }
 }

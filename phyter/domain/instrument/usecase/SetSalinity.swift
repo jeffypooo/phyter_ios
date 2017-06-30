@@ -24,7 +24,11 @@ class SetSalinity: InstrumentUseCase<SetSalinityArgs, UseCaseResult> {
       onError(UseCaseError.argsRequired)
       return
     }
-    instrument.setSalinity(sal)
-    onSuccess(UseCaseResult())
+    if let inst = instrumentProvider() {
+      inst.setSalinity(sal)
+      onSuccess(UseCaseResult())
+    } else {
+      onError(InstrumentUseCaseError.noInstrument)
+    }
   }
 }

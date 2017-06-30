@@ -29,6 +29,7 @@ class StartPresenter {
   }
   
   func viewDidDisappear() {
+    discoveredInstruments.removeAll()
     useCases.scanForInstruments.terminate()
   }
   

@@ -18,11 +18,14 @@
 		1F7602121EDCBCD1009834FF /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F76020C1EDCBCD1009834FF /* RxSwift.framework */; };
 		1F7602131EDCBCD1009834FF /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F76020D1EDCBCD1009834FF /* RxCocoa.framework */; };
 		1F7602141EDCBCD1009834FF /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F76020E1EDCBCD1009834FF /* RxBlocking.framework */; };
+		1FF944A71EF5C6E70027FD3D /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FF944A51EF5C6E70027FD3D /* Fabric.framework */; };
+		1FF944A81EF5C6E70027FD3D /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FF944A61EF5C6E70027FD3D /* Crashlytics.framework */; };
 		31B73010F31011CE81E4E149 /* MeasurementsForInstrument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B73F03B6657996578E537D /* MeasurementsForInstrument.swift */; };
 		31B73012703440A5C6A473BA /* CBInstrumentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B731118E73A8E56607E976 /* CBInstrumentManager.swift */; };
 		31B7302B711098E3948C9DCA /* CBInstrumentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B731118E73A8E56607E976 /* CBInstrumentManager.swift */; };
 		31B7303F85E3B7ADC6E19422 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B73ADE73A647149BEF792E /* StartView.swift */; };
 		31B73143E9895FBE6845522B /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 31B7325A7349906EAF1EB27A /* Cartfile */; };
+		31B731AEAFBA2451C17ED56D /* DisconnectInstrument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B7382C69659F0A827EF99E /* DisconnectInstrument.swift */; };
 		31B731BE9A091D6F32FD0EC1 /* PhyterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B73FB34D6581F4372973A3 /* PhyterProtocol.swift */; };
 		31B7327FC497E7E94D21568B /* ObserveSalinity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B7340113F0D0CAAB40AFAD /* ObserveSalinity.swift */; };
 		31B7328502114A7CD6A75003 /* MeasurePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B731045FBD6A799625395C /* MeasurePresenter.swift */; };
@@ -40,8 +43,10 @@
 		31B734F2B7D129C4F37EEDD0 /* ConnectInstrument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B73D781F2AFD37CDBFE169 /* ConnectInstrument.swift */; };
 		31B735141AC0D02728073BEE /* CreateMeasurement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B7369A133023D04439E00C /* CreateMeasurement.swift */; };
 		31B735149A5B4BB425EE32EA /* Measure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B733714D52834D5B4D8E69 /* Measure.swift */; };
+		31B73518C3ED35940798ABAB /* DisconnectInstrument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B7382C69659F0A827EF99E /* DisconnectInstrument.swift */; };
 		31B73541E58303C9FBEDCA0E /* SetSalinity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B73AA562C4F474E548322F /* SetSalinity.swift */; };
 		31B7356D95FD9BDB05B99963 /* SampleMeasurementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B733AE136EB8A1FD4D14A8 /* SampleMeasurementCell.swift */; };
+		31B735BB26527B0C697C5FA4 /* DeleteMeasurement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B7360B24A2F4A418D1C587 /* DeleteMeasurement.swift */; };
 		31B7361E63E5D96EF675C597 /* SetSalinity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B73AA562C4F474E548322F /* SetSalinity.swift */; };
 		31B73620478636331D354F59 /* MeasurementRepositoryUseCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B73926E91E8E01B40E8484 /* MeasurementRepositoryUseCases.swift */; };
 		31B73656EA9D2A913BCF2B03 /* StartPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B73FD54C35355771C33A60 /* StartPresenter.swift */; };
@@ -59,6 +64,7 @@
 		31B738D56C67E3D2D8603D84 /* UUIDS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B734F1150FDEFF8237100A /* UUIDS.swift */; };
 		31B73915752B12303C2B9C79 /* Measure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B733714D52834D5B4D8E69 /* Measure.swift */; };
 		31B7391E2769B3B68256C84F /* InstrumentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B731CBA1B34988FB54E7D1 /* InstrumentManager.swift */; };
+		31B7392E6C1F3EF5C97701F5 /* DeleteMeasurement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B7360B24A2F4A418D1C587 /* DeleteMeasurement.swift */; };
 		31B7396E01AA5909CC489AF9 /* ConnectInstrument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B73D781F2AFD37CDBFE169 /* ConnectInstrument.swift */; };
 		31B73980C238768C9F7293B2 /* MeasurementsForInstrument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B73F03B6657996578E537D /* MeasurementsForInstrument.swift */; };
 		31B739F07E69CD7A616A2185 /* InstrumentUseCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B7366FC3F4B5318C8765E7 /* InstrumentUseCases.swift */; };
@@ -125,6 +131,8 @@
 		1F76020C1EDCBCD1009834FF /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		1F76020D1EDCBCD1009834FF /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		1F76020E1EDCBCD1009834FF /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
+		1FF944A51EF5C6E70027FD3D /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		1FF944A61EF5C6E70027FD3D /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		31B731045FBD6A799625395C /* MeasurePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeasurePresenter.swift; sourceTree = "<group>"; };
 		31B731118E73A8E56607E976 /* CBInstrumentManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBInstrumentManager.swift; sourceTree = "<group>"; };
 		31B731CBA1B34988FB54E7D1 /* InstrumentManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstrumentManager.swift; sourceTree = "<group>"; };
@@ -136,10 +144,12 @@
 		31B7340113F0D0CAAB40AFAD /* ObserveSalinity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObserveSalinity.swift; sourceTree = "<group>"; };
 		31B73487DF5CAA50A0095B0B /* RealmSampleMeasurement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmSampleMeasurement.swift; sourceTree = "<group>"; };
 		31B734F1150FDEFF8237100A /* UUIDS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UUIDS.swift; sourceTree = "<group>"; };
+		31B7360B24A2F4A418D1C587 /* DeleteMeasurement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteMeasurement.swift; sourceTree = "<group>"; };
 		31B736263AFACB0B28721AFB /* CBPhyterInstrument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBPhyterInstrument.swift; sourceTree = "<group>"; };
 		31B7366FC3F4B5318C8765E7 /* InstrumentUseCases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstrumentUseCases.swift; sourceTree = "<group>"; };
 		31B7369A133023D04439E00C /* CreateMeasurement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateMeasurement.swift; sourceTree = "<group>"; };
 		31B737CD29204109E5C9D329 /* RealmObjectHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmObjectHelper.swift; sourceTree = "<group>"; };
+		31B7382C69659F0A827EF99E /* DisconnectInstrument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisconnectInstrument.swift; sourceTree = "<group>"; };
 		31B738E2368F1FF8F908CEF7 /* Background.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
 		31B73926E91E8E01B40E8484 /* MeasurementRepositoryUseCases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeasurementRepositoryUseCases.swift; sourceTree = "<group>"; };
 		31B73AA562C4F474E548322F /* SetSalinity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetSalinity.swift; sourceTree = "<group>"; };
@@ -169,6 +179,8 @@
 				1F7602121EDCBCD1009834FF /* RxSwift.framework in Frameworks */,
 				1F7602131EDCBCD1009834FF /* RxCocoa.framework in Frameworks */,
 				1F7602141EDCBCD1009834FF /* RxBlocking.framework in Frameworks */,
+				1FF944A71EF5C6E70027FD3D /* Fabric.framework in Frameworks */,
+				1FF944A81EF5C6E70027FD3D /* Crashlytics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,6 +204,8 @@
 		1F3CA7DC1EDB8556008EC963 = {
 			isa = PBXGroup;
 			children = (
+				1FF944A51EF5C6E70027FD3D /* Fabric.framework */,
+				1FF944A61EF5C6E70027FD3D /* Crashlytics.framework */,
 				1F3CA7E71EDB8556008EC963 /* phyter */,
 				1F3CA7FC1EDB8556008EC963 /* phyterTests */,
 				1F3CA8071EDB8557008EC963 /* phyterUITests */,
@@ -268,6 +282,7 @@
 				31B7340113F0D0CAAB40AFAD /* ObserveSalinity.swift */,
 				31B738E2368F1FF8F908CEF7 /* Background.swift */,
 				31B733714D52834D5B4D8E69 /* Measure.swift */,
+				31B7382C69659F0A827EF99E /* DisconnectInstrument.swift */,
 			);
 			path = usecase;
 			sourceTree = "<group>";
@@ -299,6 +314,7 @@
 				31B73926E91E8E01B40E8484 /* MeasurementRepositoryUseCases.swift */,
 				31B7369A133023D04439E00C /* CreateMeasurement.swift */,
 				31B73F03B6657996578E537D /* MeasurementsForInstrument.swift */,
+				31B7360B24A2F4A418D1C587 /* DeleteMeasurement.swift */,
 			);
 			path = usecase;
 			sourceTree = "<group>";
@@ -440,6 +456,7 @@
 				1F3CA7E21EDB8556008EC963 /* Frameworks */,
 				1F3CA7E31EDB8556008EC963 /* Resources */,
 				1F7602151EDCBCE2009834FF /* ShellScript */,
+				1FF944A41EF5C6C40027FD3D /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -584,6 +601,19 @@
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
 		};
+		1FF944A41EF5C6C40027FD3D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run a289cbad0cbc4895658b3b005e316b59f11e3fa4 ca345913c519331cd37425ba63acda3eedc23773abda42dabd394083eaa07a7a";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -623,6 +653,8 @@
 				31B73EA79EAB743D3041A1B0 /* RealmSampleMeasurement.swift in Sources */,
 				31B73EA79B30A6011E5C65A1 /* RealmMeasurementRepository.swift in Sources */,
 				31B7356D95FD9BDB05B99963 /* SampleMeasurementCell.swift in Sources */,
+				31B731AEAFBA2451C17ED56D /* DisconnectInstrument.swift in Sources */,
+				31B735BB26527B0C697C5FA4 /* DeleteMeasurement.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -655,6 +687,8 @@
 				31B73620478636331D354F59 /* MeasurementRepositoryUseCases.swift in Sources */,
 				31B737C9DDCB7CC97422B63E /* CreateMeasurement.swift in Sources */,
 				31B73980C238768C9F7293B2 /* MeasurementsForInstrument.swift in Sources */,
+				31B73518C3ED35940798ABAB /* DisconnectInstrument.swift in Sources */,
+				31B7392E6C1F3EF5C97701F5 /* DeleteMeasurement.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -815,6 +849,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = phyter/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -822,6 +857,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.jmjproductdev.phyter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -833,6 +869,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = phyter/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -840,6 +877,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.jmjproductdev.phyter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
