@@ -19,7 +19,10 @@ class MeasureViewController: UIViewController {
   lazy var presenter: MeasurePresenter = {
     let repo     = RealmMeasurementRepository()
     let exporter = DocumentsFileExporter()
+    let locationController = CLLocationController()
     let useCases = MeasureUseCases(
+        requestLocationAccess: RequestLocationAccess(controller: locationController),
+        locationUpdates: LocationUpdates(controller: locationController),
         setSalinity: SetSalinity { self.instrument },
         observeSalinity: ObserveSalinity { self.instrument },
         background: Background { self.instrument },
