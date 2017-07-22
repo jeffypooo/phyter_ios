@@ -5,11 +5,17 @@
 
 import Foundation
 
+enum ExportFormat {
+  case csv
+}
+
 enum MeasureViewAction {
   case salinityChange(Float32)
   case actionButtonPress
   case measurementClick(SampleMeasurement)
   case measurementDelete(SampleMeasurement)
+  case share
+  case export(ExportFormat)
 }
 
 enum MeasureViewActionButtonStyle {
@@ -27,5 +33,7 @@ protocol MeasureView {
   func measureView(showActionButtonActivity show: Bool)
   func measureView(updateMeasurementHistory query: MeasurementLiveQuery)
   func measureView(showMeasurementDetails measurement: SampleMeasurement)
+  func measureViewShowExportOptions()
+  func measureView(showSharingOptionsForFile: URL)
   
 }

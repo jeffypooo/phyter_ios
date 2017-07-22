@@ -18,8 +18,10 @@
 		1F7602121EDCBCD1009834FF /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F76020C1EDCBCD1009834FF /* RxSwift.framework */; };
 		1F7602131EDCBCD1009834FF /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F76020D1EDCBCD1009834FF /* RxCocoa.framework */; };
 		1F7602141EDCBCD1009834FF /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F76020E1EDCBCD1009834FF /* RxBlocking.framework */; };
-		1FF944A71EF5C6E70027FD3D /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FF944A51EF5C6E70027FD3D /* Fabric.framework */; };
-		1FF944A81EF5C6E70027FD3D /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FF944A61EF5C6E70027FD3D /* Crashlytics.framework */; };
+		280062F7AE401FB29297373C /* CBWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2800603FC392F316BF82E2AD /* CBWrapper.swift */; };
+		280064724E0DD9E7153A0BED /* FileExporterUseCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28006BF258524BF67EC1CD13 /* FileExporterUseCases.swift */; };
+		280068480F64D6009AEB8001 /* FileExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280068319CBE51E9A181EC38 /* FileExporter.swift */; };
+		28006D85E7F3BC996C22B13A /* DocumentsFileExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28006B07857E892C108C5462 /* DocumentsFileExporter.swift */; };
 		31B73010F31011CE81E4E149 /* MeasurementsForInstrument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B73F03B6657996578E537D /* MeasurementsForInstrument.swift */; };
 		31B73012703440A5C6A473BA /* CBInstrumentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B731118E73A8E56607E976 /* CBInstrumentManager.swift */; };
 		31B7302B711098E3948C9DCA /* CBInstrumentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B731118E73A8E56607E976 /* CBInstrumentManager.swift */; };
@@ -93,6 +95,8 @@
 		31B73FDC49F9829E19BE0485 /* MeasurementRepositoryUseCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B73926E91E8E01B40E8484 /* MeasurementRepositoryUseCases.swift */; };
 		31B73FEA662006F8A22BF614 /* PhyterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B73FB34D6581F4372973A3 /* PhyterProtocol.swift */; };
 		31B73FEE47AF68F64FD5744A /* MeasurementsForInstrument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B73F03B6657996578E537D /* MeasurementsForInstrument.swift */; };
+		E21A644D1F0C3A0100B50B5D /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E21A644B1F0C3A0100B50B5D /* Fabric.framework */; };
+		E21A644E1F0C3A0100B50B5D /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E21A644C1F0C3A0100B50B5D /* Crashlytics.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,12 +135,14 @@
 		1F76020C1EDCBCD1009834FF /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		1F76020D1EDCBCD1009834FF /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		1F76020E1EDCBCD1009834FF /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
-		1FF944A51EF5C6E70027FD3D /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
-		1FF944A61EF5C6E70027FD3D /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		2800603FC392F316BF82E2AD /* CBWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBWrapper.swift; sourceTree = "<group>"; };
+		280068319CBE51E9A181EC38 /* FileExporter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileExporter.swift; sourceTree = "<group>"; };
+		28006B07857E892C108C5462 /* DocumentsFileExporter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentsFileExporter.swift; sourceTree = "<group>"; };
+		28006BF258524BF67EC1CD13 /* FileExporterUseCases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileExporterUseCases.swift; sourceTree = "<group>"; };
 		31B731045FBD6A799625395C /* MeasurePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeasurePresenter.swift; sourceTree = "<group>"; };
 		31B731118E73A8E56607E976 /* CBInstrumentManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBInstrumentManager.swift; sourceTree = "<group>"; };
 		31B731CBA1B34988FB54E7D1 /* InstrumentManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstrumentManager.swift; sourceTree = "<group>"; };
-		31B7325A7349906EAF1EB27A /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
+		31B7325A7349906EAF1EB27A /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 1; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		31B732D0F063B7E60D85AAFE /* PhyterInstrument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhyterInstrument.swift; sourceTree = "<group>"; };
 		31B7335B7DCE9A39AD03A48D /* MeasureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeasureViewController.swift; sourceTree = "<group>"; };
 		31B733714D52834D5B4D8E69 /* Measure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Measure.swift; sourceTree = "<group>"; };
@@ -167,6 +173,9 @@
 		31B73F25411F75BB332CEF81 /* RealmHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmHelper.swift; sourceTree = "<group>"; };
 		31B73FB34D6581F4372973A3 /* PhyterProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhyterProtocol.swift; sourceTree = "<group>"; };
 		31B73FD54C35355771C33A60 /* StartPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartPresenter.swift; sourceTree = "<group>"; };
+		E21A644B1F0C3A0100B50B5D /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		E21A644C1F0C3A0100B50B5D /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		E21A644F1F0C46DD00B50B5D /* CSVParser.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CSVParser.framework; path = Carthage/Build/iOS/CSVParser.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,8 +188,8 @@
 				1F7602121EDCBCD1009834FF /* RxSwift.framework in Frameworks */,
 				1F7602131EDCBCD1009834FF /* RxCocoa.framework in Frameworks */,
 				1F7602141EDCBCD1009834FF /* RxBlocking.framework in Frameworks */,
-				1FF944A71EF5C6E70027FD3D /* Fabric.framework in Frameworks */,
-				1FF944A81EF5C6E70027FD3D /* Crashlytics.framework in Frameworks */,
+				E21A644D1F0C3A0100B50B5D /* Fabric.framework in Frameworks */,
+				E21A644E1F0C3A0100B50B5D /* Crashlytics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,8 +213,6 @@
 		1F3CA7DC1EDB8556008EC963 = {
 			isa = PBXGroup;
 			children = (
-				1FF944A51EF5C6E70027FD3D /* Fabric.framework */,
-				1FF944A61EF5C6E70027FD3D /* Crashlytics.framework */,
 				1F3CA7E71EDB8556008EC963 /* phyter */,
 				1F3CA7FC1EDB8556008EC963 /* phyterTests */,
 				1F3CA8071EDB8557008EC963 /* phyterUITests */,
@@ -237,6 +244,7 @@
 				31B73A159416E4A601AF6F5D /* domain */,
 				31B7374AACDE2B8477CEC039 /* bluetooth */,
 				31B732F3057B5E7A1BA0F82B /* realm */,
+				28006DD4956BDF9E3F8A849E /* export */,
 			);
 			path = phyter;
 			sourceTree = "<group>";
@@ -262,6 +270,9 @@
 		1F7602081EDCBCCF009834FF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E21A644F1F0C46DD00B50B5D /* CSVParser.framework */,
+				E21A644B1F0C3A0100B50B5D /* Fabric.framework */,
+				E21A644C1F0C3A0100B50B5D /* Crashlytics.framework */,
 				1F7602091EDCBCD1009834FF /* RealmSwift.framework */,
 				1F76020A1EDCBCD1009834FF /* Realm.framework */,
 				1F76020B1EDCBCD1009834FF /* RxTest.framework */,
@@ -270,6 +281,31 @@
 				1F76020E1EDCBCD1009834FF /* RxBlocking.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		28006345F3FC16EA1F9EB287 /* usecase */ = {
+			isa = PBXGroup;
+			children = (
+				28006BF258524BF67EC1CD13 /* FileExporterUseCases.swift */,
+			);
+			path = usecase;
+			sourceTree = "<group>";
+		};
+		28006639166906319C80C0FA /* export */ = {
+			isa = PBXGroup;
+			children = (
+				280068319CBE51E9A181EC38 /* FileExporter.swift */,
+				28006345F3FC16EA1F9EB287 /* usecase */,
+			);
+			path = export;
+			sourceTree = "<group>";
+		};
+		28006DD4956BDF9E3F8A849E /* export */ = {
+			isa = PBXGroup;
+			children = (
+				28006B07857E892C108C5462 /* DocumentsFileExporter.swift */,
+			);
+			path = export;
 			sourceTree = "<group>";
 		};
 		31B730BB2310E47729292B20 /* usecase */ = {
@@ -336,6 +372,7 @@
 				31B731118E73A8E56607E976 /* CBInstrumentManager.swift */,
 				31B736263AFACB0B28721AFB /* CBPhyterInstrument.swift */,
 				31B734F1150FDEFF8237100A /* UUIDS.swift */,
+				2800603FC392F316BF82E2AD /* CBWrapper.swift */,
 			);
 			path = bluetooth;
 			sourceTree = "<group>";
@@ -397,6 +434,7 @@
 				31B73D8FA7B7B47FB8599609 /* model */,
 				31B738A9F8B54C6877471D61 /* store */,
 				31B733E67FA61D941A9C5109 /* usecase */,
+				28006639166906319C80C0FA /* export */,
 			);
 			path = measurements;
 			sourceTree = "<group>";
@@ -456,7 +494,7 @@
 				1F3CA7E21EDB8556008EC963 /* Frameworks */,
 				1F3CA7E31EDB8556008EC963 /* Resources */,
 				1F7602151EDCBCE2009834FF /* ShellScript */,
-				1FF944A41EF5C6C40027FD3D /* ShellScript */,
+				E21A644A1F0C39EB00B50B5D /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -601,7 +639,7 @@
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
 		};
-		1FF944A41EF5C6C40027FD3D /* ShellScript */ = {
+		E21A644A1F0C39EB00B50B5D /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -655,6 +693,10 @@
 				31B7356D95FD9BDB05B99963 /* SampleMeasurementCell.swift in Sources */,
 				31B731AEAFBA2451C17ED56D /* DisconnectInstrument.swift in Sources */,
 				31B735BB26527B0C697C5FA4 /* DeleteMeasurement.swift in Sources */,
+				280062F7AE401FB29297373C /* CBWrapper.swift in Sources */,
+				280068480F64D6009AEB8001 /* FileExporter.swift in Sources */,
+				28006D85E7F3BC996C22B13A /* DocumentsFileExporter.swift in Sources */,
+				280064724E0DD9E7153A0BED /* FileExporterUseCases.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

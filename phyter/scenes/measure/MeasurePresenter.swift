@@ -13,55 +13,63 @@ struct MeasureUseCases {
   let createMeasurement:             CreateMeasurement
   let deleteMeasurement:             DeleteMeasurement
   let observeInstrumentMeasurements: ObserveInstrumentMeasurements
+  let exportToCSV:                   ExportToCSV
   let disconnectInstrument:          DisconnectInstrument
 }
 
 class MeasurePresenter {
-  
-  private let useCases:           MeasureUseCases
-  private var currentActionStyle: MeasureViewActionButtonStyle = .background
-  private var view:               MeasureView?
-  private var instrument:         PhyterInstrument?
-  private var currentSalinity:    Float32                      = 35.0
-  
+
+  private let useCases:              MeasureUseCases
+  private var currentActionStyle:    MeasureViewActionButtonStyle = .background
+  private var view:                  MeasureView?
+  private var instrument:            PhyterInstrument?
+  private var lastMeasurementsQuery: MeasurementLiveQuery?
+  private var currentSalinity:       Float32                      = 35.0
+
   init(withUseCases useCases: MeasureUseCases) {
     self.useCases = useCases
   }
-  
+
   func viewDidLoad(_ view: MeasureView) {
     self.view = view
   }
-  
+
   func viewDidAppear(_ instrument: PhyterInstrument) {
     self.instrument = instrument
     defaultConfigureView()
     observeSalinity()
     observeInstrumentMeasurements()
   }
-  
+
   func viewDidDisappear() {
     print("view disappeared")
     view = nil
     disconnect()
   }
-  
+
   func didPerform(action: MeasureViewAction) {
     switch action {
-    case .salinityChange(let sal):
-      setSalinity(sal)
-      break
-    case .actionButtonPress:
-      actionButtonPressed()
-      break
-    case .measurementClick(let measurement):
-      viewShowMeasurementDetails(measurement)
-      break
-    case .measurementDelete(let measurement):
-      deleteMeasurement(measurement)
-      break
+      case .salinityChange(let sal):
+        setSalinity(sal)
+        break
+      case .actionButtonPress:
+        actionButtonPressed()
+        break
+      case .measurementClick(let measurement):
+        viewShowMeasurementDetails(measurement)
+        break
+      case .measurementDelete(let measurement):
+        deleteMeasurement(measurement)
+        break
+      case .share:
+        viewShowExportOptions()
+        break
+      case .export(let format):
+        exportMeasurements(format)
+        break
     }
   }
-  
+
   private func setSalinity(_ sal: Float32) {
     print("setting salinity to \(sal)")
     let args = SetSalinityArgs(salinity: sal)
@@ -77,7 +85,7 @@ class MeasurePresenter {
           print("error setting salinity: \(error)")
         })
   }
-  
+
   private func observeSalinity() {
     print("observing salinity")
     useCases.observeSalinity.execute(
@@ -92,18 +100,18 @@ class MeasurePresenter {
         onError: { error in }
     )
   }
-  
+
   private func actionButtonPressed() {
     switch currentActionStyle {
-    case .background:
-      background()
-      break
-    case .measure:
-      measure()
-      break
+      case .background:
+        background()
+        break
+      case .measure:
+        measure()
+        break
     }
   }
-  
+
   private func background() {
     print("performing background")
     viewEnableActionButton(false)
@@ -116,7 +124,7 @@ class MeasurePresenter {
       self.viewSetActionButtonStyle(.measure)
     }, onError: { _ in print("error during background") })
   }
-  
+
   private func measure() {
     print("measuring...")
     viewEnableActionButton(false)
@@ -134,7 +142,7 @@ class MeasurePresenter {
         onError: { _ in print("error during measurement") }
     )
   }
-  
+
   private func createMeasurement(fromResult result: MeasureResult) {
     guard let instrumentId = instrument?.id else { return }
     let data = result.data
@@ -159,7 +167,7 @@ class MeasurePresenter {
         }
     )
   }
-  
+
   private func deleteMeasurement(_ measurement: SampleMeasurement) {
     let args = DeleteMeasurementArgs(measurement: measurement)
     useCases.deleteMeasurement.execute(
@@ -174,7 +182,7 @@ class MeasurePresenter {
         }
     )
   }
-  
+
   private func observeInstrumentMeasurements() {
     print("observing measurements")
     guard let instrumentId = self.instrument?.id else { return }
@@ -183,13 +191,43 @@ class MeasurePresenter {
         args,
         onUpdate: {
           update in
+          self.lastMeasurementsQuery = update.liveQuery
           self.viewUpdateMeasurementHistory(update.liveQuery)
         },
         onSuccess: { _ in },
         onError: { _ in }
     )
   }
-  
+
+  private func exportMeasurements(_ format: ExportFormat) {
+    switch format {
+      case .csv:
+        exportMeasurementsToCSV()
+        break
+    }
+  }
+
+  private func exportMeasurementsToCSV() {
+    print("exporting to CSV file")
+    guard let instName = instrument?.name, let data = lastMeasurementsQuery?.results else {
+      print("missing required fields for export!")
+      return
+    }
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "yyyy_MM_dd_hh_mm_ss"
+    let fileName = dateFormatter.string(from: Date()) + "-\(instName)"
+    let args     = ExportToCSVArgs(data: data, fileName: fileName)
+    useCases.exportToCSV.execute(
+        args,
+        onSuccess: {
+          res in
+          print("file exported to \(res.fileURL)")
+          self.viewShowSharingOptions(file: res.fileURL)
+        },
+        onError: { error in print("error exporting \(error.localizedDescription)") }
+    )
+  }
+
   private func disconnect() {
     guard let inst = instrument else { return }
     useCases.disconnectInstrument.execute(
@@ -206,52 +244,62 @@ class MeasurePresenter {
         }
     )
   }
-  
+
   private func defaultConfigureView() {
     print("configuring default view values")
     viewSetInstrumentName(instrument?.name)
     viewSetSalinityText("35.0")
     viewSetActionButtonStyle(.background)
   }
-  
+
   private func viewSetInstrumentName(_ name: String?) {
     print("setting instrument name '\(String(describing: name))'")
     view?.measureView(setInstrumentName: name)
   }
-  
+
   private func viewSetSalinityText(_ text: String?) {
     print("setting salinity text '\(text ?? " ")'")
     view?.measureView(setSalinityFieldText: text)
   }
-  
+
   private func viewShowSalinityActivity(_ show: Bool) {
     view?.measureView(showSalinityActivity: show)
   }
-  
+
   private func viewSetActionButtonStyle(_ style: MeasureViewActionButtonStyle) {
     print("setting action button style: \(style)")
     currentActionStyle = style
     view?.measureView(setActionButtonStyle: style)
   }
-  
+
   private func viewEnableActionButton(_ enable: Bool) {
     print("enabling action button: \(enable)")
     view?.measureView(enableActionButton: enable)
   }
-  
+
   private func viewShowActionButtonActivity(_ show: Bool) {
     print("showing action button activity: \(show)")
     view?.measureView(showActionButtonActivity: show)
   }
-  
+
   private func viewUpdateMeasurementHistory(_ query: MeasurementLiveQuery) {
     print("updating measurement history (\(query.results.count) items)")
     view?.measureView(updateMeasurementHistory: query)
   }
-  
+
   private func viewShowMeasurementDetails(_ measurement: SampleMeasurement) {
     print("showing measurement details for \(measurement)")
     view?.measureView(showMeasurementDetails: measurement)
   }
-  
+
+  private func viewShowExportOptions() {
+    print("showing sharing options")
+    view?.measureViewShowExportOptions()
+  }
+
+  private func viewShowSharingOptions(file: URL) {
+    print("showing sharing options for file '\(file.lastPathComponent)'")
+    view?.measureView(showSharingOptionsForFile: file)
+  }
+
 }
