@@ -22,7 +22,8 @@ protocol MeasurementRepository {
       temp: Float32,
       dark: Float32,
       a578: Float32,
-      a434: Float32) -> SampleMeasurement
+      a434: Float32,
+      location: Location?) -> SampleMeasurement
   func measurements(forInstrumentId id: UUID) -> Observable<MeasurementLiveQuery>
   func delete(measurement: SampleMeasurement) -> Bool
   

@@ -167,7 +167,7 @@ extension CBPhyterInstrument: CBPeripheralDelegate {
       break
     case .background:
       print("background resp")
-      Answers.logCustomEvent(withName: "Background Response")
+//      Answers.logCustomEvent(withName: "Background Response")
       guard backgroundHandlers.count > 0 else { break }
       let handler = backgroundHandlers.removeFirst()
       handler()

@@ -14,5 +14,5 @@ protocol SampleMeasurement {
   var dark:         Float32 { get set }
   var a578:         Float32 { get set }
   var a434:         Float32 { get set }
-  
+  var location:     Location? { get set }
 }

@@ -40,7 +40,7 @@ class StartViewController: UIViewController {
   }()
   
   lazy var presenter: StartPresenter = {
-    let manager  = CBInstrumentManager.shared
+    let manager  = CBWrapper.shared.instrumentManager()
     let useCases = StartUseCases(
         scanForInstruments: ScanForInstruments(manager),
         connectInstrument: ConnectInstrument(manager)
