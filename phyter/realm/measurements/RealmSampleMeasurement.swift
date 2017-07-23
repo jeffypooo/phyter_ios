@@ -4,6 +4,7 @@
 //
 
 import Foundation
+import RealmSwift
 
 class RealmSampleMeasurement: RealmObjectHelper, SampleMeasurement {
   var instrumentId: UUID {
@@ -118,7 +119,33 @@ class RealmSampleMeasurement: RealmObjectHelper, SampleMeasurement {
       }
     }
   }
-  
+  var location: Location? {
+    get {
+      var val: Location?
+      runOnMainQueue {
+        val = _loc
+      }
+      return val
+    }
+    set {
+      writeSafely {
+        if let rlmLoc = newValue as? RealmLocation {
+          self._loc = rlmLoc
+        } else if let loc = newValue {
+          let rlmLoc = RealmLocation()
+          rlmLoc._lat = loc.latitude
+          rlmLoc._lon = loc.longitude
+          rlmLoc._alt = loc.altitude
+          rlmLoc._hA = loc.horizontalAccuracy
+          rlmLoc._vA = loc.verticalAccuracy
+          rlmLoc._ts = loc.timestamp
+          self._loc = rlmLoc
+        } else {
+          self._loc = nil
+        }
+      }
+    }
+  }
   dynamic var _instIdStr: String = ""
   dynamic var _timestamp: Date   = Date()
   dynamic var _sal:       Double = 0
@@ -127,9 +154,10 @@ class RealmSampleMeasurement: RealmObjectHelper, SampleMeasurement {
   dynamic var _dark:      Double = 0
   dynamic var _a578:      Double = 0
   dynamic var _a434:      Double = 0
-  
+  dynamic var _loc:       RealmLocation?
+
   open override class func ignoredProperties() -> [String] {
-    return ["instrumentId", "timestamp", "salinity", "pH", "temperature", "dark", "a578", "a434"]
+    return ["instrumentId", "timestamp", "salinity", "pH", "temperature", "dark", "a578", "a434", "location"]
   }
-  
+
 }

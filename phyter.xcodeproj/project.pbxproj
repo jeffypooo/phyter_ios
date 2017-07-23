@@ -18,9 +18,22 @@
 		1F7602121EDCBCD1009834FF /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F76020C1EDCBCD1009834FF /* RxSwift.framework */; };
 		1F7602131EDCBCD1009834FF /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F76020D1EDCBCD1009834FF /* RxCocoa.framework */; };
 		1F7602141EDCBCD1009834FF /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F76020E1EDCBCD1009834FF /* RxBlocking.framework */; };
+		28006143A4618BAD5C229092 /* LocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2800668D3FD216765835E0B1 /* LocationController.swift */; };
+		28006238A4B6014D6330E447 /* LocationUpdates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28006520A58B29785923A1B7 /* LocationUpdates.swift */; };
+		28006279E5D5131E6D02F541 /* RequestLocationAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28006D546CA9E5E123A3E376 /* RequestLocationAccess.swift */; };
 		280062F7AE401FB29297373C /* CBWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2800603FC392F316BF82E2AD /* CBWrapper.swift */; };
 		280064724E0DD9E7153A0BED /* FileExporterUseCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28006BF258524BF67EC1CD13 /* FileExporterUseCases.swift */; };
+		280064F7E195F1E3D114AC71 /* RequestLocationAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28006D546CA9E5E123A3E376 /* RequestLocationAccess.swift */; };
+		2800665F110FEDACE05ECA1E /* LocationUseCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28006297495EEFCD73A893FB /* LocationUseCases.swift */; };
+		280066EC9FB1E7E9DBE53AAB /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28006A4AB77479B5B222D676 /* Location.swift */; };
+		2800681E4356DA0FE4D80506 /* CLLocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280068A179F48B9BA616F711 /* CLLocationController.swift */; };
 		280068480F64D6009AEB8001 /* FileExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280068319CBE51E9A181EC38 /* FileExporter.swift */; };
+		2800689072262DB3635F7CDC /* RealmLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280062F4BFC40DC7E678D600 /* RealmLocation.swift */; };
+		28006945F7E9ED1A6D9A6004 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28006A4AB77479B5B222D676 /* Location.swift */; };
+		2800695E960315485DB49E26 /* CLLocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280068A179F48B9BA616F711 /* CLLocationController.swift */; };
+		28006BA6369BB17DBA122DD0 /* LocationUpdates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28006520A58B29785923A1B7 /* LocationUpdates.swift */; };
+		28006C73EF9AA5A0D15F2240 /* LocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2800668D3FD216765835E0B1 /* LocationController.swift */; };
+		28006D4C8F9A21B984A60939 /* LocationUseCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28006297495EEFCD73A893FB /* LocationUseCases.swift */; };
 		28006D85E7F3BC996C22B13A /* DocumentsFileExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28006B07857E892C108C5462 /* DocumentsFileExporter.swift */; };
 		31B73010F31011CE81E4E149 /* MeasurementsForInstrument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B73F03B6657996578E537D /* MeasurementsForInstrument.swift */; };
 		31B73012703440A5C6A473BA /* CBInstrumentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B731118E73A8E56607E976 /* CBInstrumentManager.swift */; };
@@ -95,8 +108,8 @@
 		31B73FDC49F9829E19BE0485 /* MeasurementRepositoryUseCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B73926E91E8E01B40E8484 /* MeasurementRepositoryUseCases.swift */; };
 		31B73FEA662006F8A22BF614 /* PhyterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B73FB34D6581F4372973A3 /* PhyterProtocol.swift */; };
 		31B73FEE47AF68F64FD5744A /* MeasurementsForInstrument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B73F03B6657996578E537D /* MeasurementsForInstrument.swift */; };
-		E21A644D1F0C3A0100B50B5D /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E21A644B1F0C3A0100B50B5D /* Fabric.framework */; };
-		E21A644E1F0C3A0100B50B5D /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E21A644C1F0C3A0100B50B5D /* Crashlytics.framework */; };
+		E289EAA41F24178500C61EE3 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E289EAA21F24178500C61EE3 /* Crashlytics.framework */; };
+		E289EAA51F24178500C61EE3 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E289EAA31F24178500C61EE3 /* Fabric.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -136,9 +149,16 @@
 		1F76020D1EDCBCD1009834FF /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		1F76020E1EDCBCD1009834FF /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
 		2800603FC392F316BF82E2AD /* CBWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBWrapper.swift; sourceTree = "<group>"; };
+		28006297495EEFCD73A893FB /* LocationUseCases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationUseCases.swift; sourceTree = "<group>"; };
+		280062F4BFC40DC7E678D600 /* RealmLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmLocation.swift; sourceTree = "<group>"; };
+		28006520A58B29785923A1B7 /* LocationUpdates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationUpdates.swift; sourceTree = "<group>"; };
+		2800668D3FD216765835E0B1 /* LocationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationController.swift; sourceTree = "<group>"; };
 		280068319CBE51E9A181EC38 /* FileExporter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileExporter.swift; sourceTree = "<group>"; };
+		280068A179F48B9BA616F711 /* CLLocationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLLocationController.swift; sourceTree = "<group>"; };
+		28006A4AB77479B5B222D676 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		28006B07857E892C108C5462 /* DocumentsFileExporter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentsFileExporter.swift; sourceTree = "<group>"; };
 		28006BF258524BF67EC1CD13 /* FileExporterUseCases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileExporterUseCases.swift; sourceTree = "<group>"; };
+		28006D546CA9E5E123A3E376 /* RequestLocationAccess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestLocationAccess.swift; sourceTree = "<group>"; };
 		31B731045FBD6A799625395C /* MeasurePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeasurePresenter.swift; sourceTree = "<group>"; };
 		31B731118E73A8E56607E976 /* CBInstrumentManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBInstrumentManager.swift; sourceTree = "<group>"; };
 		31B731CBA1B34988FB54E7D1 /* InstrumentManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstrumentManager.swift; sourceTree = "<group>"; };
@@ -173,9 +193,8 @@
 		31B73F25411F75BB332CEF81 /* RealmHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmHelper.swift; sourceTree = "<group>"; };
 		31B73FB34D6581F4372973A3 /* PhyterProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhyterProtocol.swift; sourceTree = "<group>"; };
 		31B73FD54C35355771C33A60 /* StartPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartPresenter.swift; sourceTree = "<group>"; };
-		E21A644B1F0C3A0100B50B5D /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
-		E21A644C1F0C3A0100B50B5D /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
-		E21A644F1F0C46DD00B50B5D /* CSVParser.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CSVParser.framework; path = Carthage/Build/iOS/CSVParser.framework; sourceTree = "<group>"; };
+		E289EAA21F24178500C61EE3 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		E289EAA31F24178500C61EE3 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,13 +202,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E289EAA51F24178500C61EE3 /* Fabric.framework in Frameworks */,
 				1F76020F1EDCBCD1009834FF /* RealmSwift.framework in Frameworks */,
 				1F7602101EDCBCD1009834FF /* Realm.framework in Frameworks */,
 				1F7602121EDCBCD1009834FF /* RxSwift.framework in Frameworks */,
 				1F7602131EDCBCD1009834FF /* RxCocoa.framework in Frameworks */,
+				E289EAA41F24178500C61EE3 /* Crashlytics.framework in Frameworks */,
 				1F7602141EDCBCD1009834FF /* RxBlocking.framework in Frameworks */,
-				E21A644D1F0C3A0100B50B5D /* Fabric.framework in Frameworks */,
-				E21A644E1F0C3A0100B50B5D /* Crashlytics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,6 +232,8 @@
 		1F3CA7DC1EDB8556008EC963 = {
 			isa = PBXGroup;
 			children = (
+				E289EAA21F24178500C61EE3 /* Crashlytics.framework */,
+				E289EAA31F24178500C61EE3 /* Fabric.framework */,
 				1F3CA7E71EDB8556008EC963 /* phyter */,
 				1F3CA7FC1EDB8556008EC963 /* phyterTests */,
 				1F3CA8071EDB8557008EC963 /* phyterUITests */,
@@ -245,6 +266,7 @@
 				31B7374AACDE2B8477CEC039 /* bluetooth */,
 				31B732F3057B5E7A1BA0F82B /* realm */,
 				28006DD4956BDF9E3F8A849E /* export */,
+				28006127390B8B07AF6B65FE /* location */,
 			);
 			path = phyter;
 			sourceTree = "<group>";
@@ -270,9 +292,6 @@
 		1F7602081EDCBCCF009834FF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E21A644F1F0C46DD00B50B5D /* CSVParser.framework */,
-				E21A644B1F0C3A0100B50B5D /* Fabric.framework */,
-				E21A644C1F0C3A0100B50B5D /* Crashlytics.framework */,
 				1F7602091EDCBCD1009834FF /* RealmSwift.framework */,
 				1F76020A1EDCBCD1009834FF /* Realm.framework */,
 				1F76020B1EDCBCD1009834FF /* RxTest.framework */,
@@ -281,6 +300,22 @@
 				1F76020E1EDCBCD1009834FF /* RxBlocking.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		280060928A5EEB96E614A58B /* location */ = {
+			isa = PBXGroup;
+			children = (
+				280062F4BFC40DC7E678D600 /* RealmLocation.swift */,
+			);
+			path = location;
+			sourceTree = "<group>";
+		};
+		28006127390B8B07AF6B65FE /* location */ = {
+			isa = PBXGroup;
+			children = (
+				280068A179F48B9BA616F711 /* CLLocationController.swift */,
+			);
+			path = location;
 			sourceTree = "<group>";
 		};
 		28006345F3FC16EA1F9EB287 /* usecase */ = {
@@ -300,12 +335,40 @@
 			path = export;
 			sourceTree = "<group>";
 		};
+		28006C40F78A1DCD3ED8801F /* model */ = {
+			isa = PBXGroup;
+			children = (
+				28006A4AB77479B5B222D676 /* Location.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		28006C64B68D33B7F1C40E0F /* location */ = {
+			isa = PBXGroup;
+			children = (
+				28006C40F78A1DCD3ED8801F /* model */,
+				28006E7D08DF07E46A70BC7B /* usecase */,
+				2800668D3FD216765835E0B1 /* LocationController.swift */,
+			);
+			path = location;
+			sourceTree = "<group>";
+		};
 		28006DD4956BDF9E3F8A849E /* export */ = {
 			isa = PBXGroup;
 			children = (
 				28006B07857E892C108C5462 /* DocumentsFileExporter.swift */,
 			);
 			path = export;
+			sourceTree = "<group>";
+		};
+		28006E7D08DF07E46A70BC7B /* usecase */ = {
+			isa = PBXGroup;
+			children = (
+				28006520A58B29785923A1B7 /* LocationUpdates.swift */,
+				28006297495EEFCD73A893FB /* LocationUseCases.swift */,
+				28006D546CA9E5E123A3E376 /* RequestLocationAccess.swift */,
+			);
+			path = usecase;
 			sourceTree = "<group>";
 		};
 		31B730BB2310E47729292B20 /* usecase */ = {
@@ -340,6 +403,7 @@
 				31B737CD29204109E5C9D329 /* RealmObjectHelper.swift */,
 				31B73F25411F75BB332CEF81 /* RealmHelper.swift */,
 				31B73A235135BC51C7EB13FF /* measurements */,
+				280060928A5EEB96E614A58B /* location */,
 			);
 			path = realm;
 			sourceTree = "<group>";
@@ -415,6 +479,7 @@
 				31B73DA6CEFACB4071221192 /* instrument */,
 				31B73A7D8A00C873FAC1F26B /* measurements */,
 				31B73D75C9D0092FCE6105C5 /* UseCase.swift */,
+				28006C64B68D33B7F1C40E0F /* location */,
 			);
 			path = domain;
 			sourceTree = "<group>";
@@ -650,7 +715,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "./Fabric.framework/run a289cbad0cbc4895658b3b005e316b59f11e3fa4 ca345913c519331cd37425ba63acda3eedc23773abda42dabd394083eaa07a7a";
+			shellScript = "\"${PROJECT_DIR}/Fabric.framework/run\" a289cbad0cbc4895658b3b005e316b59f11e3fa4 ca345913c519331cd37425ba63acda3eedc23773abda42dabd394083eaa07a7a";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -697,6 +762,13 @@
 				280068480F64D6009AEB8001 /* FileExporter.swift in Sources */,
 				28006D85E7F3BC996C22B13A /* DocumentsFileExporter.swift in Sources */,
 				280064724E0DD9E7153A0BED /* FileExporterUseCases.swift in Sources */,
+				28006945F7E9ED1A6D9A6004 /* Location.swift in Sources */,
+				28006BA6369BB17DBA122DD0 /* LocationUpdates.swift in Sources */,
+				28006D4C8F9A21B984A60939 /* LocationUseCases.swift in Sources */,
+				28006279E5D5131E6D02F541 /* RequestLocationAccess.swift in Sources */,
+				28006143A4618BAD5C229092 /* LocationController.swift in Sources */,
+				2800695E960315485DB49E26 /* CLLocationController.swift in Sources */,
+				2800689072262DB3635F7CDC /* RealmLocation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -731,6 +803,12 @@
 				31B73980C238768C9F7293B2 /* MeasurementsForInstrument.swift in Sources */,
 				31B73518C3ED35940798ABAB /* DisconnectInstrument.swift in Sources */,
 				31B7392E6C1F3EF5C97701F5 /* DeleteMeasurement.swift in Sources */,
+				280066EC9FB1E7E9DBE53AAB /* Location.swift in Sources */,
+				28006238A4B6014D6330E447 /* LocationUpdates.swift in Sources */,
+				2800665F110FEDACE05ECA1E /* LocationUseCases.swift in Sources */,
+				280064F7E195F1E3D114AC71 /* RequestLocationAccess.swift in Sources */,
+				28006C73EF9AA5A0D15F2240 /* LocationController.swift in Sources */,
+				2800681E4356DA0FE4D80506 /* CLLocationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

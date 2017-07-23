@@ -20,15 +20,14 @@ struct MeasureUseCases {
 }
 
 class MeasurePresenter {
-  
-  private let useCases:           MeasureUseCases
-  private var currentActionStyle: MeasureViewActionButtonStyle = .background
-  private var view:               MeasureView?
-  private var instrument:         PhyterInstrument?
+
+  private let useCases:              MeasureUseCases
+  private var currentActionStyle:    MeasureViewActionButtonStyle = .background
+  private var view:                  MeasureView?
+  private var instrument:            PhyterInstrument?
   private var lastMeasurementsQuery: MeasurementLiveQuery?
-  private var currentLocation:    Location?
-  private var currentSalinity:    Float32                      = 35.0
-  
+  private var currentLocation:       Location?
+  private var currentSalinity:       Float32                      = 35.0
 
   init(withUseCases useCases: MeasureUseCases) {
     self.useCases = useCases
@@ -39,8 +38,8 @@ class MeasurePresenter {
   }
 
   func viewDidAppear(_ instrument: PhyterInstrument) {
-    startLocationUpdates()
     self.instrument = instrument
+    startLocationUpdates()
     defaultConfigureView()
     observeSalinity()
     observeInstrumentMeasurements()
@@ -75,6 +74,7 @@ class MeasurePresenter {
         break
     }
   }
+
   private func startLocationUpdates() {
     checkLocationAccess {
       [weak self] auth in
@@ -117,6 +117,7 @@ class MeasurePresenter {
     logMsg("terminating location updates")
     useCases.locationUpdates.terminate()
   }
+
   private func setSalinity(_ sal: Float32) {
     logMsg("setting salinity to \(sal)")
     let args = SetSalinityArgs(salinity: sal)
@@ -200,7 +201,8 @@ class MeasurePresenter {
         temp: data.temp,
         dark: data.dark,
         a578: data.a578,
-        a434: data.a434
+        a434: data.a434,
+        location: currentLocation
     )
     useCases.createMeasurement.execute(
         args,
@@ -353,6 +355,6 @@ class MeasurePresenter {
 
 extension MeasurePresenter {
   fileprivate func logMsg(_ msg: String) {
-    logMsg("MeasurePresenter - \(msg)")
+    print("MeasurePresenter - \(msg)")
   }
 }

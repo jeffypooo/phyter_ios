@@ -15,7 +15,8 @@ class RealmMeasurementRepository: RealmHelper, MeasurementRepository {
       temp: Float32,
       dark: Float32,
       a578: Float32,
-      a434: Float32) -> SampleMeasurement {
+      a434: Float32,
+      location: Location?) -> SampleMeasurement {
     var measurement: RealmSampleMeasurement!
     onRealm {
       realm in
@@ -27,13 +28,14 @@ class RealmMeasurementRepository: RealmHelper, MeasurementRepository {
       measurement.dark = dark
       measurement.a578 = a578
       measurement.a434 = a434
+      measurement.location = location
       try! realm.write {
         realm.add(measurement, update: false)
       }
     }
     return measurement
   }
-  
+
   func measurements(forInstrumentId id: UUID) -> Observable<MeasurementLiveQuery> {
     var obsv: Observable<MeasurementLiveQuery>!
     onRealm {
@@ -53,7 +55,7 @@ class RealmMeasurementRepository: RealmHelper, MeasurementRepository {
     }
     return obsv
   }
-  
+
   func delete(measurement: SampleMeasurement) -> Bool {
     if let realmMeasurement = measurement as? RealmSampleMeasurement {
       onRealm {
@@ -77,40 +79,40 @@ class RealmMeasurementRepository: RealmHelper, MeasurementRepository {
     }
     return success
   }
-  
+
   func addObservableNotificationBlock(
       forResults res: Results<RealmSampleMeasurement>,
       observer: AnyObserver<MeasurementLiveQuery>) -> NotificationToken {
     let token = res.addNotificationBlock {
       collectionChange in
       switch collectionChange {
-      case .initial(let res):
-        let query = MeasurementLiveQuery(
-            results: self.toSampleMeasurements(res),
-            insertions: [],
-            deletions: [],
-            modifications: []
-        )
-        observer.onNext(query)
-        break
-      case .update(let res, let dels, let ins, let mods):
-        let query = MeasurementLiveQuery(
-            results: self.toSampleMeasurements(res),
-            insertions: ins,
-            deletions: dels,
-            modifications: mods
-        )
-        observer.onNext(query)
-        break
-      case .error(let err):
-        print("error in notification block for measurement results: \(err)")
-        observer.onError(err)
-        break
+        case .initial(let res):
+          let query = MeasurementLiveQuery(
+              results: self.toSampleMeasurements(res),
+              insertions: [],
+              deletions: [],
+              modifications: []
+          )
+          observer.onNext(query)
+          break
+        case .update(let res, let dels, let ins, let mods):
+          let query = MeasurementLiveQuery(
+              results: self.toSampleMeasurements(res),
+              insertions: ins,
+              deletions: dels,
+              modifications: mods
+          )
+          observer.onNext(query)
+          break
+        case .error(let err):
+          print("error in notification block for measurement results: \(err)")
+          observer.onError(err)
+          break
       }
     }
     return token
   }
-  
+
   private func toSampleMeasurements(_ results: Results<RealmSampleMeasurement>) -> [SampleMeasurement] {
     var measurements: [SampleMeasurement] = []
     for realmObj in results {

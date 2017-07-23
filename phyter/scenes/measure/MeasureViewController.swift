@@ -17,8 +17,8 @@ class MeasureViewController: UIViewController {
   @IBOutlet weak var measurementHistoryTable:       UITableView!
 
   lazy var presenter: MeasurePresenter = {
-    let repo     = RealmMeasurementRepository()
-    let exporter = DocumentsFileExporter()
+    let repo               = RealmMeasurementRepository()
+    let exporter           = DocumentsFileExporter()
     let locationController = CLLocationController()
     let useCases = MeasureUseCases(
         requestLocationAccess: RequestLocationAccess(controller: locationController),
@@ -193,18 +193,29 @@ extension MeasureViewController: MeasureView {
       let dateFormatter = DateFormatter()
       dateFormatter.dateStyle = .short
       dateFormatter.timeStyle = .short
-      let message = String(
-          format: "Created: %@\npH: %.3f\nTemp: %.2f\nSalinity: %.2f\n\nDiagnostic Info\n\nA578: %.4f\nA434: %.4f\nDark: %.4f",
+      let dataStr = String(
+          format: "Created: %@\npH: %.3f\nTemp: %.2f\nSalinity: %.2f",
           arguments: [
             dateFormatter.string(from: measurement.timestamp),
             measurement.pH,
             measurement.temperature,
-            measurement.salinity,
-            measurement.a578,
-            measurement.a434,
-            measurement.dark
+            measurement.salinity
           ]
       )
+      var locStr: String!
+      if let location = measurement.location {
+        locStr = String(
+            format: "Lat/Long: %.5f/%.5f\nAltitude: %.1fm",
+            arguments: [location.latitude, location.longitude, location.altitude]
+        )
+      } else {
+        locStr = "N/A"
+      }
+      let diagStr = String(
+          format: "A578: %.4f\nA434: %.4f\nDark: %.4f",
+          arguments: [measurement.a578, measurement.a434, measurement.dark]
+      )
+      let message = String(format: "%@\n\nLocation:\n\n%@\n\nDiagnostic:\n\n%@", arguments: [dataStr, locStr, diagStr])
       let alert   = UIAlertController(title: "Measurement Details", message: message, preferredStyle: .alert)
       let ok      = UIAlertAction(title: "OK", style: .default, handler: nil)
       alert.addAction(ok)
