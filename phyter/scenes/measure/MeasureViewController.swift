@@ -79,8 +79,26 @@ class MeasureViewController: UIViewController {
   }
 
   private func configureViews() {
+    configureActionButton()
     configureShareButton()
     configureSalinityField()
+  }
+  
+  private func configureActionButton() {
+    actionButton.layer.cornerRadius = 8
+    actionButton.layer.borderColor = AppColors.COLOR_ACCENT.cgColor
+    actionButton.layer.backgroundColor = AppColors.COLOR_ACCENT.cgColor
+    configureActionButtonShadow()
+  }
+  
+  fileprivate func configureActionButtonShadow() {
+    actionButton.layoutIfNeeded()
+    let shadowPath = UIBezierPath(rect: actionButton.bounds)
+    actionButton.layer.masksToBounds = false
+    actionButton.layer.shadowColor = UIColor.darkGray.cgColor
+    actionButton.layer.shadowOffset = CGSize(width: 0, height: 2)
+    actionButton.layer.shadowOpacity = 0.5
+    actionButton.layer.shadowPath = shadowPath.cgPath
   }
 
   private func configureShareButton() {
@@ -141,10 +159,12 @@ extension MeasureViewController: MeasureView {
     DispatchQueue.main.async {
       switch style {
         case .background:
-          self.actionButton.setTitle("Background", for: .normal)
+          self.actionButton.setTitle("Measure background", for: .normal)
+          self.configureActionButtonShadow()
           break
         case .measure:
-          self.actionButton.setTitle("Measure", for: .normal)
+          self.actionButton.setTitle("Measure pH", for: .normal)
+          self.configureActionButtonShadow()
           break
       }
     }
