@@ -63,16 +63,16 @@ class MeasureViewController: UIViewController {
   @IBAction func didPressActionButton(_ sender: Any) {
     presenter.didPerform(action: .actionButtonPress)
   }
-
-  func didPressShareButton(_ sender: Any) {
+  
+  @objc func didPressShareButton(_ sender: Any) {
     presenter.didPerform(action: .share)
   }
-
-  func cancelSalinityInput() {
+  
+  @objc func cancelSalinityInput() {
     salinityField.resignFirstResponder()
   }
-
-  func confirmSalinityInput() {
+  
+  @objc func confirmSalinityInput() {
     salinityField.resignFirstResponder()
     let salinity = Float32(salinityField.text ?? "") ?? 35.0
     presenter.didPerform(action: .salinityChange(salinity))

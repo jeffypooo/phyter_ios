@@ -85,7 +85,7 @@ class StartViewController: UIViewController {
     super.didReceiveMemoryWarning()
   }
   
-  func didPullToRefresh(_ sender: Any) {
+  @objc func didPullToRefresh(_ sender: Any) {
     Answers.logCustomEvent(withName: "Pull to Refresh")
     presenter.didPerform(action: .refresh)
   }
