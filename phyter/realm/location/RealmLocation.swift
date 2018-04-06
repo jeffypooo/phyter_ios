@@ -49,13 +49,13 @@ class RealmLocation: RealmObjectHelper, Location {
     }
     return val
   }
-
-  dynamic var _lat: Double = 0
-  dynamic var _lon: Double = 0
-  dynamic var _alt: Double = 0
-  dynamic var _hA:  Double = 0
-  dynamic var _vA:  Double = 0
-  dynamic var _ts:  Date   = Date()
+  
+  @objc dynamic var _lat: Double = 0
+  @objc dynamic var _lon: Double = 0
+  @objc dynamic var _alt: Double = 0
+  @objc dynamic var _hA:  Double = 0
+  @objc dynamic var _vA:  Double = 0
+  @objc dynamic var _ts:  Date   = Date()
 
   open override class func ignoredProperties() -> [String] {
     return ["latitude", "longitude", "altitude", "horizontalAccuracy", "verticalAccuracy", "timestamp"]

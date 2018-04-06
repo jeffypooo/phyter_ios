@@ -59,6 +59,9 @@ class CBInstrumentManager: NSObject, InstrumentManager {
         withName: "Connect to Peripheral",
         customAttributes: ["name": matchingPeripherals[0].name ?? "?"]
     )
+    if cbManager.isScanning {
+      stopScanForInstruments()
+    }
     cbManager.connect(matchingPeripherals[0])
   }
   

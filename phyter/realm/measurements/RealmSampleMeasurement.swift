@@ -146,15 +146,15 @@ class RealmSampleMeasurement: RealmObjectHelper, SampleMeasurement {
       }
     }
   }
-  dynamic var _instIdStr: String = ""
-  dynamic var _timestamp: Date   = Date()
-  dynamic var _sal:       Double = 0
-  dynamic var _pH:        Double = 0
-  dynamic var _temp:      Double = 0
-  dynamic var _dark:      Double = 0
-  dynamic var _a578:      Double = 0
-  dynamic var _a434:      Double = 0
-  dynamic var _loc:       RealmLocation?
+  @objc dynamic var _instIdStr: String = ""
+  @objc dynamic var _timestamp: Date   = Date()
+  @objc dynamic var _sal:       Double = 0
+  @objc dynamic var _pH:        Double = 0
+  @objc dynamic var _temp:      Double = 0
+  @objc dynamic var _dark:      Double = 0
+  @objc dynamic var _a578:      Double = 0
+  @objc dynamic var _a434:      Double = 0
+  @objc dynamic var _loc:       RealmLocation?
 
   open override class func ignoredProperties() -> [String] {
     return ["instrumentId", "timestamp", "salinity", "pH", "temperature", "dark", "a578", "a434", "location"]
