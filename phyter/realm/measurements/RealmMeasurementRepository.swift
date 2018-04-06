@@ -49,7 +49,7 @@ class RealmMeasurementRepository: RealmHelper, MeasurementRepository {
         )
         let token   = self.addObservableNotificationBlock(forResults: results, observer: observer)
         return Disposables.create {
-          token.stop()
+          token.invalidate()
         }
       }
     }
@@ -83,7 +83,7 @@ class RealmMeasurementRepository: RealmHelper, MeasurementRepository {
   func addObservableNotificationBlock(
       forResults res: Results<RealmSampleMeasurement>,
       observer: AnyObserver<MeasurementLiveQuery>) -> NotificationToken {
-    let token = res.addNotificationBlock {
+    let token = res.observe {
       collectionChange in
       switch collectionChange {
         case .initial(let res):
