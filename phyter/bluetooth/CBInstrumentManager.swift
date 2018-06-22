@@ -28,7 +28,6 @@ class CBInstrumentManager: NSObject, InstrumentManager {
     cbManager = CBCentralManager()
     super.init()
     cbManager.delegate = self
-    
   }
   
   func scanForInstruments() {
@@ -99,6 +98,7 @@ extension CBInstrumentManager: CBCentralManagerDelegate {
     Answers.logCustomEvent(withName: "Discovered Peripheral", customAttributes: ["name": peripheral.name ?? "?"])
     let instrument = CBPhyterInstrument(peripheral, rssi: RSSI)
     delegate?.instrumentManager(didDiscoverInstrument: instrument)
+    stopScanForInstruments()
   }
   
   public func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {

@@ -18,7 +18,7 @@ class CBPhyterInstrument: NSObject, PhyterInstrument {
   }
   
   var rssi: Int {
-    return Int(lastReadRssi)
+    return Int(truncating: lastReadRssi)
   }
   
   var connected: Bool {
@@ -114,8 +114,6 @@ class CBPhyterInstrument: NSObject, PhyterInstrument {
     guard let txRx = self.txRxCharacteristic else { return }
     peripheral.writeValue(Data(bytes: [Command.measure.rawValue]), for: txRx, type: .withoutResponse)
   }
-  
-  
 }
 
 extension CBPhyterInstrument: CBPeripheralDelegate {
@@ -130,7 +128,6 @@ extension CBPhyterInstrument: CBPeripheralDelegate {
       self.sppService = sppService
       peripheral.discoverCharacteristics([PHYTER_SPP_TX_RX_UUID], for: sppService)
     }
-    
   }
   
   public func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
@@ -177,21 +174,26 @@ extension CBPhyterInstrument: CBPeripheralDelegate {
       currentMeasurement = MeasurementData()
       currentMeasurement!.pH = fromBytes([UInt8](bytes[1...4]), Float32.self)
       currentMeasurement!.temp = fromBytes([UInt8](bytes[5...8]), Float32.self)
+      currentMeasurement!.dark = fromBytes([UInt8](bytes[9...12]), Float32.self)
       Answers.logCustomEvent(
           withName: "Measure Response",
           customAttributes: [
             "pH": NSNumber(value: currentMeasurement!.pH),
-            "temp": NSNumber(value: currentMeasurement!.temp)
+            "temp": NSNumber(value: currentMeasurement!.temp),
+            "dark": NSNumber(value: currentMeasurement!.dark)
           ]
       )
       break
     case .measure2:
       print("measure resp (2/2)")
+      print(bytes)
+      print(value.count)
       guard measureHandlers.count > 0, var measurement = currentMeasurement else { return }
       let handler = measureHandlers.removeFirst()
       measurement.a578 = fromBytes([UInt8](bytes[1...4]), Float32.self)
       measurement.a434 = fromBytes([UInt8](bytes[5...8]), Float32.self)
-      measurement.dark = fromBytes([UInt8](bytes.suffix(4)), Float32.self)
+      measurement.s578 = fromBytes([UInt8](bytes[9...12]), Float32.self)
+      measurement.s434 = fromBytes([UInt8](bytes[13...16]), Float32.self)
       handler(measurement)
       break
     case .ledIntensityCheck:

@@ -81,7 +81,7 @@ class RealmSampleMeasurement: RealmObjectHelper, SampleMeasurement {
     get {
       var d: Float32!
       runOnMainQueue {
-        d = Float32(_dark)
+        d = Float32(self._dark)
       }
       return d
     }
@@ -89,6 +89,34 @@ class RealmSampleMeasurement: RealmObjectHelper, SampleMeasurement {
       writeSafely {
         self._dark = Double(newValue)
       }
+    }
+  }
+    var s578: Float32 {
+    get {
+        var s: Float32!
+        runOnMainQueue {
+            s = Float32(_s578)
+        }
+        return s
+    }
+    set {
+        writeSafely {
+            self._s578 = Double(newValue)
+        }
+    }
+  }
+    var s434: Float32 {
+    get {
+        var s: Float32!
+        runOnMainQueue {
+            s = Float32(_s434)
+        }
+        return s
+    }
+    set {
+        writeSafely {
+            self._s434 = Double(newValue)
+        }
     }
   }
   var a578: Float32 {
@@ -152,12 +180,14 @@ class RealmSampleMeasurement: RealmObjectHelper, SampleMeasurement {
   @objc dynamic var _pH:        Double = 0
   @objc dynamic var _temp:      Double = 0
   @objc dynamic var _dark:      Double = 0
+  @objc dynamic var _s578:      Double = 0
+  @objc dynamic var _s434:      Double = 0
   @objc dynamic var _a578:      Double = 0
   @objc dynamic var _a434:      Double = 0
   @objc dynamic var _loc:       RealmLocation?
 
   open override class func ignoredProperties() -> [String] {
-    return ["instrumentId", "timestamp", "salinity", "pH", "temperature", "dark", "a578", "a434", "location"]
+    return ["instrumentId", "timestamp", "salinity", "pH", "temperature", "dark", "s578", "s434", "a578", "a434", "location"]
   }
 
 }

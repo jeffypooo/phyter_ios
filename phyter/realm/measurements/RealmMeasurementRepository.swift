@@ -14,6 +14,8 @@ class RealmMeasurementRepository: RealmHelper, MeasurementRepository {
       pH: Float32,
       temp: Float32,
       dark: Float32,
+      s578: Float32,
+      s434: Float32,
       a578: Float32,
       a434: Float32,
       location: Location?) -> SampleMeasurement {
@@ -26,6 +28,8 @@ class RealmMeasurementRepository: RealmHelper, MeasurementRepository {
       measurement.pH = pH
       measurement.temperature = temp
       measurement.dark = dark
+      measurement.s578 = s578
+      measurement.s434 = s434
       measurement.a578 = a578
       measurement.a434 = a434
       measurement.location = location

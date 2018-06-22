@@ -31,7 +31,8 @@ class MeasureViewController: UIViewController {
         deleteMeasurement: DeleteMeasurement(repo),
         observeInstrumentMeasurements: ObserveInstrumentMeasurements(repo),
         exportToCSV: ExportToCSV(exporter),
-        disconnectInstrument: DisconnectInstrument(CBInstrumentManager.shared)
+        disconnectInstrument: DisconnectInstrument(CBInstrumentManager.shared),
+        connectInstrument: ConnectInstrument(CBInstrumentManager.shared)
     )
     return MeasurePresenter(withUseCases: useCases)
   }()
@@ -232,8 +233,8 @@ extension MeasureViewController: MeasureView {
         locStr = "N/A"
       }
       let diagStr = String(
-          format: "A578: %.4f\nA434: %.4f\nDark: %.4f",
-          arguments: [measurement.a578, measurement.a434, measurement.dark]
+          format: "S578: %i\tS434: %i\nA578: %.4f\tA434: %.4f\nDark: %i",
+          arguments: [UInt16(measurement.s578), UInt16(measurement.s434), measurement.a578, measurement.a434, UInt16(measurement.dark)]
       )
       let message = String(format: "%@\n\nLocation:\n\n%@\n\nDiagnostic:\n\n%@", arguments: [dataStr, locStr, diagStr])
       let alert   = UIAlertController(title: "Measurement Details", message: message, preferredStyle: .alert)

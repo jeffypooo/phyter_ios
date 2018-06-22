@@ -111,7 +111,7 @@ class StubInstrument: PhyterInstrument {
 
   func measure(onComplete: @escaping (MeasurementData) -> Void) {
     delayAsync {
-      let data = MeasurementData(pH: 7.9, temp: 74, a578: 1, a434: 1, dark: 1)
+        let data = MeasurementData(pH: 7.9, temp: 74, s578: 1, s434: 1, a578: 1, a434: 1, dark: 1)
       onComplete(data)
     }
   }

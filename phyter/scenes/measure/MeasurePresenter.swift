@@ -17,6 +17,7 @@ struct MeasureUseCases {
   let observeInstrumentMeasurements: ObserveInstrumentMeasurements
   let exportToCSV:                   ExportToCSV
   let disconnectInstrument:          DisconnectInstrument
+  let connectInstrument:             ConnectInstrument
 }
 
 class MeasurePresenter {
@@ -152,6 +153,7 @@ class MeasurePresenter {
   private func actionButtonPressed() {
     switch currentActionStyle {
       case .background:
+//        connect()
         background()
         break
       case .measure:
@@ -200,6 +202,8 @@ class MeasurePresenter {
         pH: data.pH,
         temp: data.temp,
         dark: data.dark,
+        s578: data.s578,
+        s434: data.s434,
         a578: data.a578,
         a434: data.a434,
         location: currentLocation
@@ -277,6 +281,23 @@ class MeasurePresenter {
     )
   }
 
+  private func connect() {
+    guard let inst = instrument else { return }
+    useCases.connectInstrument.execute(
+        ConnectInstrumentArgs(toConnect: inst),
+        onSuccess: {
+          result in
+          self.logMsg("instrument connected")
+          self.instrument = nil
+        },
+        onError: {
+          error in
+          self.logMsg("error connecting instrument")
+          self.instrument = nil
+        }
+    )
+  }
+  
   private func disconnect() {
     guard let inst = instrument else { return }
     useCases.disconnectInstrument.execute(
