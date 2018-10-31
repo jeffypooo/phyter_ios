@@ -5,6 +5,8 @@
 
 import Foundation
 
+fileprivate let TAG = "DocumentsFileExporter"
+
 class DocumentsFileExporter: FileExporter {
   func export(measurements: [SampleMeasurement], fileName: String, format: FileExportFormat) -> URL? {
     guard let exportsDir = getExportsDirectory() else { return nil }
@@ -14,7 +16,7 @@ class DocumentsFileExporter: FileExporter {
         return exportToCSV(dir: exportsDir, name: fileName, data: measurements)
     }
   }
-
+  
   private func exportToCSV(dir: URL, name: String, data: [SampleMeasurement]) -> URL? {
     let fileName      = dir.appendingPathComponent(name + ".csv")
     let dateFormatter = DateFormatter()
@@ -46,24 +48,24 @@ class DocumentsFileExporter: FileExporter {
       try fileOutput.write(to: fileName, atomically: false, encoding: .utf8)
       return fileName
     } catch let e {
-      print("error occurred writing CSV file to '\(fileName)': \(e.localizedDescription)")
+      consoleLog(TAG, "error occurred writing CSV file to '\(fileName)': \(e.localizedDescription)")
       return nil
     }
   }
-
+  
   private func createDirectory(_ dir: URL) {
     do {
       try FileManager.default.createDirectory(at: dir, withIntermediateDirectories: true)
     } catch let e {
-      print("error occurred creating directory at path '\(dir)': \(e.localizedDescription)")
+      consoleLog(TAG, "error occurred creating directory at path '\(dir)': \(e.localizedDescription)")
     }
   }
-
+  
   private func getExportsDirectory() -> URL? {
     guard let docsPath = getDocumentsPath() else { return nil }
     return URL(fileURLWithPath: docsPath).appendingPathComponent("PhyterDataLogger")
   }
-
+  
   private func getDocumentsPath() -> String? {
     return NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first
   }

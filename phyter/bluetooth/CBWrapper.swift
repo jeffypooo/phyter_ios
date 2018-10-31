@@ -8,8 +8,7 @@ import Foundation
 class CBWrapper {
 
   static let shared = CBWrapper()
-
-  private let realManager = CBInstrumentManager()
+  
   private var stubManager: InstrumentManager?
 
   private init() {
@@ -17,7 +16,7 @@ class CBWrapper {
 
   func instrumentManager() -> InstrumentManager {
     if let stub = stubManager { return stub }
-    return realManager
+    return CBInstrumentManager.shared
   }
 
   func stubManager(_ manager: InstrumentManager) {

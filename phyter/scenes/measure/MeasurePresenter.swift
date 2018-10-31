@@ -16,27 +16,30 @@ struct MeasureUseCases {
   let deleteMeasurement:             DeleteMeasurement
   let observeInstrumentMeasurements: ObserveInstrumentMeasurements
   let exportToCSV:                   ExportToCSV
+  let connectInstrument:             ConnectInstrument
   let disconnectInstrument:          DisconnectInstrument
 }
 
-class MeasurePresenter {
+fileprivate let TAG = "MeasurePresenter"
 
+class MeasurePresenter {
+  
   private let useCases:              MeasureUseCases
   private var currentActionStyle:    MeasureViewActionButtonStyle = .background
   private var view:                  MeasureView?
-  private var instrument:            PhyterInstrument?
+  private var instrument:            PhyterInstrument!
   private var lastMeasurementsQuery: MeasurementLiveQuery?
   private var currentLocation:       Location?
   private var currentSalinity:       Float32                      = 35.0
-
+  
   init(withUseCases useCases: MeasureUseCases) {
     self.useCases = useCases
   }
-
+  
   func viewDidLoad(_ view: MeasureView) {
     self.view = view
   }
-
+  
   func viewDidAppear(_ instrument: PhyterInstrument) {
     self.instrument = instrument
     startLocationUpdates()
@@ -44,14 +47,16 @@ class MeasurePresenter {
     observeSalinity()
     observeInstrumentMeasurements()
   }
-
+  
   func viewDidDisappear() {
-    logMsg("view disappeared")
+    consoleLog(TAG, "view disappeared")
     view = nil
     disconnect()
     stopLocationUpdates()
+    useCases.observeSalinity.terminate()
+    useCases.observeInstrumentMeasurements.terminate()
   }
-
+  
   func didPerform(action: MeasureViewAction) {
     switch action {
       case .salinityChange(let sal):
@@ -74,26 +79,26 @@ class MeasurePresenter {
         break
     }
   }
-
+  
   private func startLocationUpdates() {
     checkLocationAccess {
       [weak self] auth in
       if auth {
-        self?.logMsg("starting location updates")
+        consoleLog(TAG, "starting location updates")
         self?.useCases.locationUpdates.execute(
             nil,
             onUpdate: { update in self?.locationUpdated(update: update.location) },
             onSuccess: { _ in },
-            onError: { error in self?.logMsg("error during location updates: \(error)") }
+            onError: { consoleLog(TAG, "error during location updates: \($0)") }
         )
       } else {
-        self?.logMsg("location access denied")
+        consoleLog(TAG, "location access denied")
       }
     }
   }
-
+  
   private func checkLocationAccess(_ cb: @escaping (Bool) -> Void) {
-    logMsg("checking location access")
+    consoleLog(TAG, "checking location access")
     useCases.requestLocationAccess.execute(
         nil,
         onUpdate: {
@@ -107,90 +112,126 @@ class MeasurePresenter {
         }
     )
   }
-
+  
   private func locationUpdated(update: Location) {
-    logMsg("location updated")
+    consoleLog(TAG, "location updated")
     self.currentLocation = update
   }
-
+  
   private func stopLocationUpdates() {
-    logMsg("terminating location updates")
+    consoleLog(TAG, "terminating location updates")
     useCases.locationUpdates.terminate()
   }
-
+  
   private func setSalinity(_ sal: Float32) {
-    logMsg("setting salinity to \(sal)")
+    consoleLog(TAG, "setting salinity to \(sal)")
     let args = SetSalinityArgs(salinity: sal)
     viewShowSalinityActivity(true)
     useCases.setSalinity.execute(
         args,
         onSuccess: {
           _ in
-          self.logMsg("salinity set")
+          consoleLog(TAG, "salinity set")
         },
         onError: {
           error in
-          self.logMsg("error setting salinity: \(error)")
+          consoleLog(TAG, "error setting salinity: \(error)")
         })
   }
-
+  
   private func observeSalinity() {
-    logMsg("observing salinity")
+    consoleLog(TAG, "observing salinity")
     useCases.observeSalinity.execute(
         nil,
         onUpdate: {
-          update in
-          self.currentSalinity = update.salinity
-          self.viewShowSalinityActivity(false)
-          self.viewSetSalinityText(String(format: "%.2f", arguments: [update.salinity]))
+          [weak self] update in
+          self?.currentSalinity = update.salinity
+          self?.viewShowSalinityActivity(false)
+          self?.viewSetSalinityText(String(format: "%.2f", arguments: [update.salinity]))
         },
         onSuccess: { result in },
         onError: { error in }
     )
   }
-
+  
   private func actionButtonPressed() {
     switch currentActionStyle {
       case .background:
-        background()
+        guard let instrument = self.instrument else { break }
+        if !instrument.connected {
+          reconnectAndPerformBackground()
+        } else {
+          background()
+        }
         break
       case .measure:
         measure()
         break
     }
   }
-
-  private func background() {
-    logMsg("performing background")
+  
+  private func reconnectAndPerformBackground() {
     viewEnableActionButton(false)
     viewShowActionButtonActivity(true)
-    useCases.background.execute(nil, onSuccess: {
-      _ in
-      self.logMsg("background complete")
-      self.viewEnableActionButton(true)
-      self.viewShowActionButtonActivity(false)
-      self.viewSetActionButtonStyle(.measure)
-    }, onError: { _ in self.logMsg("error during background") })
+    let args = ConnectInstrumentArgs(toConnect: instrument)
+    useCases.connectInstrument.execute(
+        args,
+        onSuccess: { [weak self] _ in self?.background() },
+        onError: { consoleLog(TAG, "error re-connecting instrument: \($0)") }
+    )
   }
-
+  
+  private func background() {
+    consoleLog(TAG, "performing background")
+    viewEnableActionButton(false)
+    viewShowActionButtonActivity(true)
+    useCases.background.execute(
+        nil,
+        onSuccess: { [weak self] _ in self?.backgroundCompleted() },
+        onError: { [weak self] err in self?.backgroundFailed(err) }
+    )
+  }
+  
+  private func backgroundFailed(_ err: Error) {
+    consoleLog(TAG, "error during background: \(err)")
+    view?.measureView(showErrorAlert: "An error occurred during the background process. Please try again.")
+    viewEnableActionButton(true)
+    viewShowActionButtonActivity(false)
+  }
+  
+  private func backgroundCompleted() {
+    consoleLog(TAG, "background complete")
+    self.viewEnableActionButton(true)
+    self.viewShowActionButtonActivity(false)
+    self.viewSetActionButtonStyle(.measure)
+  }
+  
   private func measure() {
-    logMsg("measuring...")
+    consoleLog(TAG, "measuring...")
     viewEnableActionButton(false)
     viewShowActionButtonActivity(true)
     useCases.measure.execute(
         nil,
-        onSuccess: {
-          result in
-          self.logMsg("pH = \(result.data.pH), temp = \(result.data.temp)")
-          self.viewEnableActionButton(true)
-          self.viewShowActionButtonActivity(false)
-          self.viewSetActionButtonStyle(.background)
-          self.createMeasurement(fromResult: result)
-        },
-        onError: { _ in self.logMsg("error during measurement") }
+        onSuccess: { [weak self] res in self?.measureSucceeded(res) },
+        onError: { [weak self] err in self?.measureFailed(err) }
     )
   }
-
+  
+  private func measureFailed(_ err: Error) {
+    consoleLog(TAG, "error during measurement: \(err)")
+    viewEnableActionButton(true)
+    viewShowActionButtonActivity(false)
+    view?.measureView(showErrorAlert: "An error occurred during the measurement.")
+  }
+  
+  private func measureSucceeded(_ result: MeasureResult) {
+    consoleLog(TAG, "pH = \(result.data.pH), temp = \(result.data.temp)")
+    viewEnableActionButton(true)
+    viewShowActionButtonActivity(false)
+    viewSetActionButtonStyle(.background)
+    createMeasurement(fromResult: result)
+  }
+  
   private func createMeasurement(fromResult result: MeasureResult) {
     guard let instrumentId = instrument?.id else { return }
     let data = result.data
@@ -206,48 +247,41 @@ class MeasurePresenter {
     )
     useCases.createMeasurement.execute(
         args,
-        onSuccess: {
-          result in
-          self.logMsg("created new measurement")
-        },
-        onError: {
-          error in
-          self.logMsg("error creating new measurement: \(error)")
-        }
+        onSuccess: { _ in consoleLog(TAG, "created new measurement") },
+        onError: { consoleLog(TAG, "error creating new measurement: \($0)") }
     )
   }
-
+  
   private func deleteMeasurement(_ measurement: SampleMeasurement) {
     let args = DeleteMeasurementArgs(measurement: measurement)
     useCases.deleteMeasurement.execute(
         args,
         onSuccess: {
           result in
-          self.logMsg("measurement deleted")
+          consoleLog(TAG, "measurement deleted")
         },
         onError: {
           error in
-          self.logMsg("error deleting measurement: \(error)")
+          consoleLog(TAG, "error deleting measurement: \(error)")
         }
     )
   }
-
+  
   private func observeInstrumentMeasurements() {
-    logMsg("observing measurements")
+    consoleLog(TAG, "observing measurements")
     guard let instrumentId = self.instrument?.id else { return }
     let args = ObserveInstrumentMeasurementsArgs(instrumentId: instrumentId)
     useCases.observeInstrumentMeasurements.execute(
         args,
-        onUpdate: {
-          update in
-          self.lastMeasurementsQuery = update.liveQuery
-          self.viewUpdateMeasurementHistory(update.liveQuery)
+        onUpdate: { [weak self] update in
+          self?.lastMeasurementsQuery = update.liveQuery
+          self?.viewUpdateMeasurementHistory(update.liveQuery)
         },
         onSuccess: { _ in },
         onError: { _ in }
     )
   }
-
+  
   private func exportMeasurements(_ format: ExportFormat) {
     switch format {
       case .csv:
@@ -255,11 +289,11 @@ class MeasurePresenter {
         break
     }
   }
-
+  
   private func exportMeasurementsToCSV() {
-    print("exporting to CSV file")
+    consoleLog(TAG, "exporting to CSV file")
     guard let instName = instrument?.name, let data = lastMeasurementsQuery?.results else {
-      print("missing required fields for export!")
+      consoleLog(TAG, "missing required fields for export!")
       return
     }
     let dateFormatter = DateFormatter()
@@ -270,91 +304,87 @@ class MeasurePresenter {
         args,
         onSuccess: {
           res in
-          print("file exported to \(res.fileURL)")
+          consoleLog(TAG, "file exported to \(res.fileURL)")
           self.viewShowSharingOptions(file: res.fileURL)
         },
-        onError: { error in print("error exporting \(error.localizedDescription)") }
+        onError: { error in consoleLog(TAG, "error exporting \(error.localizedDescription)") }
     )
   }
-
+  
   private func disconnect() {
     guard let inst = instrument else { return }
     useCases.disconnectInstrument.execute(
         DisconnectInstrumentArgs(inst),
         onSuccess: {
           result in
-          self.logMsg("instrument disconnected")
+          consoleLog(TAG, "instrument disconnected")
           self.instrument = nil
         },
         onError: {
           error in
-          self.logMsg("error disconnecting instrument")
+          consoleLog(TAG, "error disconnecting instrument")
           self.instrument = nil
         }
     )
   }
-
+  
   private func defaultConfigureView() {
-    logMsg("configuring default view values")
+    consoleLog(TAG, "configuring default view values")
     viewSetInstrumentName(instrument?.name)
     viewSetSalinityText("35.0")
     viewSetActionButtonStyle(.background)
   }
-
+  
   private func viewSetInstrumentName(_ name: String?) {
-    logMsg("setting instrument name '\(String(describing: name))'")
+    consoleLog(TAG, "setting instrument name '\(String(describing: name))'")
     view?.measureView(setInstrumentName: name)
   }
-
+  
   private func viewSetSalinityText(_ text: String?) {
-    logMsg("setting salinity text '\(text ?? " ")'")
+    consoleLog(TAG, "setting salinity text '\(text ?? " ")'")
     view?.measureView(setSalinityFieldText: text)
   }
-
+  
   private func viewShowSalinityActivity(_ show: Bool) {
     view?.measureView(showSalinityActivity: show)
   }
-
+  
   private func viewSetActionButtonStyle(_ style: MeasureViewActionButtonStyle) {
-    logMsg("setting action button style: \(style)")
+    consoleLog(TAG, "setting action button style: \(style)")
     currentActionStyle = style
     view?.measureView(setActionButtonStyle: style)
   }
-
+  
   private func viewEnableActionButton(_ enable: Bool) {
-    logMsg("enabling action button: \(enable)")
+    consoleLog(TAG, "enabling action button: \(enable)")
     view?.measureView(enableActionButton: enable)
   }
-
+  
   private func viewShowActionButtonActivity(_ show: Bool) {
-    logMsg("showing action button activity: \(show)")
+    consoleLog(TAG, "showing action button activity: \(show)")
     view?.measureView(showActionButtonActivity: show)
   }
-
+  
   private func viewUpdateMeasurementHistory(_ query: MeasurementLiveQuery) {
-    logMsg("updating measurement history (\(query.results.count) items)")
+    consoleLog(TAG, "updating measurement history (\(query.results.count) items)")
     view?.measureView(updateMeasurementHistory: query)
   }
-
+  
   private func viewShowMeasurementDetails(_ measurement: SampleMeasurement) {
-    logMsg("showing measurement details for \(measurement)")
+    consoleLog(TAG, "showing measurement details for \(measurement)")
     view?.measureView(showMeasurementDetails: measurement)
   }
-
+  
   private func viewShowExportOptions() {
-    print("showing sharing options")
+    consoleLog(TAG, "showing sharing options")
     view?.measureViewShowExportOptions()
   }
-
+  
   private func viewShowSharingOptions(file: URL) {
-    print("showing sharing options for file '\(file.lastPathComponent)'")
+    consoleLog(TAG, "showing sharing options for file '\(file.lastPathComponent)'")
     view?.measureView(showSharingOptionsForFile: file)
   }
-
+  
 }
 
-extension MeasurePresenter {
-  fileprivate func logMsg(_ msg: String) {
-    print("MeasurePresenter - \(msg)")
-  }
-}
+

@@ -8,6 +8,8 @@ import CoreBluetooth
 import RxSwift
 import Crashlytics
 
+fileprivate let TAG = "CBPhyterInstrument"
+
 class CBPhyterInstrument: NSObject, PhyterInstrument {
   var id: UUID {
     return peripheral.identifier
@@ -18,7 +20,7 @@ class CBPhyterInstrument: NSObject, PhyterInstrument {
   }
   
   var rssi: Int {
-    return Int(lastReadRssi)
+    return Int(truncating: lastReadRssi)
   }
   
   var connected: Bool {
@@ -33,12 +35,12 @@ class CBPhyterInstrument: NSObject, PhyterInstrument {
   
   let peripheral:         CBPeripheral
   var lastReadRssi:       NSNumber
-  var ioInitialized                                   = false
   var sppService:         CBService?
   var txRxCharacteristic: CBCharacteristic?
   var runAfterIOInit:     (() -> Void)?
-  var backgroundHandlers: [() -> Void]                = []
-  var measureHandlers:    [(MeasurementData) -> Void] = []
+  var ioInitialized                                       = false
+  var backgroundSubject:  PublishSubject<()>              = PublishSubject()
+  var measureSubject:     PublishSubject<MeasurementData> = PublishSubject()
   var currentMeasurement: MeasurementData?
   
   init(_ peripheral: CBPeripheral, rssi: NSNumber) {
@@ -49,7 +51,6 @@ class CBPhyterInstrument: NSObject, PhyterInstrument {
   }
   
   func setSalinity(_ salinity: Float32) {
-    
     if !ioInitialized {
       runAfterIOInit = {
         self.setSalinity(salinity)
@@ -61,29 +62,41 @@ class CBPhyterInstrument: NSObject, PhyterInstrument {
     sendSetSalinityCommand(salinity)
   }
   
-  func background(onComplete: @escaping () -> Void) {
+  func background() -> Completable {
+    return Completable.deferred { [weak self] in
+      guard let this = self else { return .empty() }
+      guard this.connected else { return .error(InstrumentError.disconnected) }
+      this.doBackground()
+      return this.backgroundSubject.take(1).ignoreElements()
+    }
+  }
+  
+  func measure() -> Single<MeasurementData> {
+    return Single.deferred { [weak self] in
+      guard let this = self else { return .never() }
+      guard this.connected else { return .error(InstrumentError.disconnected) }
+      this.doMeasure()
+      return this.measureSubject.take(1).asSingle()
+    }
+  }
+  
+  private func doBackground() {
     if !ioInitialized {
-      runAfterIOInit = {
-        self.background(onComplete: onComplete)
-      }
+      runAfterIOInit = { self.doBackground() }
       lazyInitializeIO()
       return
     }
     Answers.logCustomEvent(withName: "Background")
-    backgroundHandlers.append(onComplete)
     sendBackgroundCommand()
   }
   
-  func measure(onComplete: @escaping (MeasurementData) -> Void) {
+  private func doMeasure() {
     if !ioInitialized {
-      runAfterIOInit = {
-        self.measure(onComplete: onComplete)
-      }
+      runAfterIOInit = { self.doMeasure() }
       lazyInitializeIO()
       return
     }
     Answers.logCustomEvent(withName: "Measure")
-    measureHandlers.append(onComplete)
     sendMeasureCommand()
   }
   
@@ -91,12 +104,12 @@ class CBPhyterInstrument: NSObject, PhyterInstrument {
     let connected = peripheral.state == .connected
     Answers.logCustomEvent(withName: "IO Lazy Init", customAttributes: ["device connected": connected ? "yes" : "no"])
     guard connected else { return }
-    print("lazy initializing IO...")
+    consoleLog(TAG, "lazy initializing IO...")
     peripheral.discoverServices([PHYTER_SPP_SERVICE_UUID])
   }
   
   private func sendSetSalinityCommand(_ sal: Float32) {
-    print("sending set salinity cmd")
+    consoleLog(TAG, "sending set salinity cmd")
     var data: [UInt8] = [Command.setSalinity.rawValue]
     data.append(contentsOf: toBytes(sal))
     guard let txRx = self.txRxCharacteristic else { return }
@@ -104,17 +117,29 @@ class CBPhyterInstrument: NSObject, PhyterInstrument {
   }
   
   private func sendBackgroundCommand() {
-    print("sending background cmd")
+    consoleLog(TAG, "sending background cmd")
     guard let txRx = self.txRxCharacteristic else { return }
     peripheral.writeValue(Data(bytes: [Command.background.rawValue]), for: txRx, type: .withoutResponse)
   }
   
   private func sendMeasureCommand() {
-    print("sending measure cmd")
+    consoleLog(TAG, "sending measure cmd")
     guard let txRx = self.txRxCharacteristic else { return }
     peripheral.writeValue(Data(bytes: [Command.measure.rawValue]), for: txRx, type: .withoutResponse)
   }
   
+  private func emitErrorAndResetSubjects(_ error: Error) {
+    if backgroundSubject.hasObservers {
+      backgroundSubject.onError(error)
+      backgroundSubject.dispose()
+    }
+    if measureSubject.hasObservers {
+      measureSubject.onError(error)
+      measureSubject.dispose()
+    }
+    backgroundSubject = PublishSubject()
+    measureSubject = PublishSubject()
+  }
   
 }
 
@@ -126,7 +151,6 @@ extension CBPhyterInstrument: CBPeripheralDelegate {
   
   public func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
     if let sppService = peripheral.services?.first(where: { service in service.uuid == PHYTER_SPP_SERVICE_UUID }) {
-      print("discovered SPP service...")
       self.sppService = sppService
       peripheral.discoverCharacteristics([PHYTER_SPP_TX_RX_UUID], for: sppService)
     }
@@ -135,7 +159,7 @@ extension CBPhyterInstrument: CBPeripheralDelegate {
   
   public func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
     if let txRx = service.characteristics?.first(where: { char in char.uuid == PHYTER_SPP_TX_RX_UUID }) {
-      print("discovered TX/RX characteristic")
+      consoleLog(TAG, "discovered TX/RX characteristic")
       self.txRxCharacteristic = txRx
       peripheral.setNotifyValue(true, for: txRx)
       ioInitialized = true
@@ -159,53 +183,62 @@ extension CBPhyterInstrument: CBPeripheralDelegate {
     value.copyBytes(to: &bytes, count: value.count)
     guard let resp = Response(rawValue: bytes[0]) else { return }
     switch resp {
-    case .setSalinity:
-      let sal = fromBytes([UInt8](bytes.suffix(4)), Float32.self)
-      print("salinity resp: \(sal)")
-      Answers.logCustomEvent(withName: "Salinity Response", customAttributes: ["value": NSNumber(value: sal)])
-      salinitySubject.onNext(sal)
-      break
-    case .background:
-      print("background resp")
-//      Answers.logCustomEvent(withName: "Background Response")
-      guard backgroundHandlers.count > 0 else { break }
-      let handler = backgroundHandlers.removeFirst()
-      handler()
-      break
-    case .measure:
-      print("measure resp (1/2)")
-      currentMeasurement = MeasurementData()
-      currentMeasurement!.pH = fromBytes([UInt8](bytes[1...4]), Float32.self)
-      currentMeasurement!.temp = fromBytes([UInt8](bytes[5...8]), Float32.self)
-      Answers.logCustomEvent(
-          withName: "Measure Response",
-          customAttributes: [
-            "pH": NSNumber(value: currentMeasurement!.pH),
-            "temp": NSNumber(value: currentMeasurement!.temp)
-          ]
-      )
-      break
-    case .measure2:
-      print("measure resp (2/2)")
-      guard measureHandlers.count > 0, var measurement = currentMeasurement else { return }
-      let handler = measureHandlers.removeFirst()
-      measurement.a578 = fromBytes([UInt8](bytes[1...4]), Float32.self)
-      measurement.a434 = fromBytes([UInt8](bytes[5...8]), Float32.self)
-      measurement.dark = fromBytes([UInt8](bytes.suffix(4)), Float32.self)
-      handler(measurement)
-      break
-    case .ledIntensityCheck:
-      Answers.logCustomEvent(withName: "LED Intensity Check Response")
-      print("led intensity check resp")
-      break
-    case .error:
-      Answers.logCustomEvent(withName: "Error Response")
-      print("err resp")
-      break
+      case .setSalinity:
+        let sal = fromBytes([UInt8](bytes.suffix(4)), Float32.self)
+        consoleLog(TAG, "salinity resp: \(sal)")
+        Answers.logCustomEvent(withName: "Salinity Response", customAttributes: ["value": NSNumber(value: sal)])
+        salinitySubject.onNext(sal)
+        break
+      case .background:
+        consoleLog(TAG, "background resp")
+        Answers.logCustomEvent(withName: "Background Response")
+        backgroundSubject.onNext(())
+        break
+      case .measure:
+        consoleLog(TAG, "measure resp (1/2)")
+        currentMeasurement = MeasurementData()
+        currentMeasurement!.pH = fromBytes([UInt8](bytes[1...4]), Float32.self)
+        currentMeasurement!.temp = fromBytes([UInt8](bytes[5...8]), Float32.self)
+        Answers.logCustomEvent(
+            withName: "Measure Response",
+            customAttributes: [
+              "pH": NSNumber(value: currentMeasurement!.pH),
+              "temp": NSNumber(value: currentMeasurement!.temp)
+            ]
+        )
+        break
+      case .measure2:
+        consoleLog(TAG, "measure resp (2/2)")
+        guard var measurement = currentMeasurement else { return }
+        measurement.a578 = fromBytes([UInt8](bytes[1...4]), Float32.self)
+        measurement.a434 = fromBytes([UInt8](bytes[5...8]), Float32.self)
+        measurement.dark = fromBytes([UInt8](bytes.suffix(4)), Float32.self)
+        measureSubject.onNext(measurement)
+        break
+      case .ledIntensityCheck:
+        Answers.logCustomEvent(withName: "LED Intensity Check Response")
+        consoleLog(TAG, "led intensity check resp")
+        break
+      case .error:
+        Answers.logCustomEvent(withName: "Error Response")
+        consoleLog(TAG, "err resp")
+        emitErrorAndResetSubjects(InstrumentError.commandError)
+        break
     }
   }
 }
 
+extension CBPhyterInstrument {
+  func notifyDisconnected() {
+    consoleLog(TAG, "received disconnect notification")
+    ioInitialized = false
+    sppService = nil
+    txRxCharacteristic = nil
+    runAfterIOInit = nil
+    currentMeasurement = nil
+    emitErrorAndResetSubjects(InstrumentError.disconnected)
+  }
+}
 
 func toBytes<T>(_ value: T) -> [UInt8] {
   var mv: T = value

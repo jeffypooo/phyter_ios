@@ -25,7 +25,7 @@ class ObserveInstrumentMeasurementsUpdate: UseCaseUpdate {
 class ObserveInstrumentMeasurements:
     MeasurementRepositoryOngoingUseCase<ObserveInstrumentMeasurementsArgs, ObserveInstrumentMeasurementsUpdate, UseCaseResult> {
   
-  var querySubs: Disposable?
+  var querySubs: DisposeBag!
   
   open override func execute(
       _ args: ObserveInstrumentMeasurementsArgs?,
@@ -36,14 +36,13 @@ class ObserveInstrumentMeasurements:
       onError(UseCaseError.argsRequired)
       return
     }
-    terminate()
-    querySubs = repo.measurements(forInstrumentId: id).subscribe(onNext: {
-      query in
-      onUpdate(ObserveInstrumentMeasurementsUpdate(query))
-    })
+    querySubs = DisposeBag()
+    repo.measurements(forInstrumentId: id)
+        .subscribe(onNext: { onUpdate(ObserveInstrumentMeasurementsUpdate($0)) })
+        .disposed(by: querySubs)
   }
   
   open override func terminate() {
-    querySubs?.dispose()
+    querySubs = nil
   }
 }

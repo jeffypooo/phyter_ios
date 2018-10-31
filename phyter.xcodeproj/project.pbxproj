@@ -39,6 +39,7 @@
 		31B73012703440A5C6A473BA /* CBInstrumentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B731118E73A8E56607E976 /* CBInstrumentManager.swift */; };
 		31B7302B711098E3948C9DCA /* CBInstrumentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B731118E73A8E56607E976 /* CBInstrumentManager.swift */; };
 		31B7303F85E3B7ADC6E19422 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B73ADE73A647149BEF792E /* StartView.swift */; };
+		31B730685E0CF87D3F77B47B /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B7330FB8CDA09CA6857D46 /* Log.swift */; };
 		31B73143E9895FBE6845522B /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 31B7325A7349906EAF1EB27A /* Cartfile */; };
 		31B731AEAFBA2451C17ED56D /* DisconnectInstrument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B7382C69659F0A827EF99E /* DisconnectInstrument.swift */; };
 		31B731BE9A091D6F32FD0EC1 /* PhyterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B73FB34D6581F4372973A3 /* PhyterProtocol.swift */; };
@@ -165,6 +166,7 @@
 		31B731CBA1B34988FB54E7D1 /* InstrumentManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstrumentManager.swift; sourceTree = "<group>"; };
 		31B7325A7349906EAF1EB27A /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 1; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		31B732D0F063B7E60D85AAFE /* PhyterInstrument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhyterInstrument.swift; sourceTree = "<group>"; };
+		31B7330FB8CDA09CA6857D46 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		31B7335B7DCE9A39AD03A48D /* MeasureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeasureViewController.swift; sourceTree = "<group>"; };
 		31B733714D52834D5B4D8E69 /* Measure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Measure.swift; sourceTree = "<group>"; };
 		31B733AE136EB8A1FD4D14A8 /* SampleMeasurementCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleMeasurementCell.swift; sourceTree = "<group>"; };
@@ -482,6 +484,7 @@
 				31B73A7D8A00C873FAC1F26B /* measurements */,
 				31B73D75C9D0092FCE6105C5 /* UseCase.swift */,
 				28006C64B68D33B7F1C40E0F /* location */,
+				31B7330FB8CDA09CA6857D46 /* Log.swift */,
 			);
 			path = domain;
 			sourceTree = "<group>";
@@ -773,6 +776,7 @@
 				28006143A4618BAD5C229092 /* LocationController.swift in Sources */,
 				2800695E960315485DB49E26 /* CLLocationController.swift in Sources */,
 				2800689072262DB3635F7CDC /* RealmLocation.swift in Sources */,
+				31B730685E0CF87D3F77B47B /* Log.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -917,6 +921,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -960,6 +965,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -980,7 +986,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jmjproductdev.phyter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1000,7 +1006,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jmjproductdev.phyter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

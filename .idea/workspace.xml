@@ -2,108 +2,93 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="14bcb336-3dc0-4064-ba99-d1fe91e45ece" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/phyter/realm/location/RealmLocation.swift" beforeDir="false" afterPath="$PROJECT_DIR$/phyter/realm/location/RealmLocation.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phyter/realm/measurements/RealmSampleMeasurement.swift" beforeDir="false" afterPath="$PROJECT_DIR$/phyter/realm/measurements/RealmSampleMeasurement.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/phyter/domain/Log.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cartfile.resolved" beforeDir="false" afterPath="$PROJECT_DIR$/Cartfile.resolved" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phyter.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/phyter.xcodeproj/project.pbxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phyter.xcodeproj/xcuserdata/jeff.xcuserdatad/xcschemes/phyter.xcscheme" beforeDir="false" afterPath="$PROJECT_DIR$/phyter.xcodeproj/xcuserdata/jeff.xcuserdatad/xcschemes/phyter.xcscheme" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phyter/AppDelegate.swift" beforeDir="false" afterPath="$PROJECT_DIR$/phyter/AppDelegate.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phyter/Base.lproj/Main.storyboard" beforeDir="false" afterPath="$PROJECT_DIR$/phyter/Base.lproj/Main.storyboard" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phyter/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/phyter/Info.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phyter/bluetooth/CBInstrumentManager.swift" beforeDir="false" afterPath="$PROJECT_DIR$/phyter/bluetooth/CBInstrumentManager.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phyter/bluetooth/CBPhyterInstrument.swift" beforeDir="false" afterPath="$PROJECT_DIR$/phyter/bluetooth/CBPhyterInstrument.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phyter/bluetooth/CBWrapper.swift" beforeDir="false" afterPath="$PROJECT_DIR$/phyter/bluetooth/CBWrapper.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phyter/domain/instrument/model/PhyterInstrument.swift" beforeDir="false" afterPath="$PROJECT_DIR$/phyter/domain/instrument/model/PhyterInstrument.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phyter/domain/instrument/usecase/Background.swift" beforeDir="false" afterPath="$PROJECT_DIR$/phyter/domain/instrument/usecase/Background.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phyter/domain/instrument/usecase/Measure.swift" beforeDir="false" afterPath="$PROJECT_DIR$/phyter/domain/instrument/usecase/Measure.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phyter/domain/instrument/usecase/ObserveSalinity.swift" beforeDir="false" afterPath="$PROJECT_DIR$/phyter/domain/instrument/usecase/ObserveSalinity.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phyter/domain/measurements/usecase/MeasurementsForInstrument.swift" beforeDir="false" afterPath="$PROJECT_DIR$/phyter/domain/measurements/usecase/MeasurementsForInstrument.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phyter/export/DocumentsFileExporter.swift" beforeDir="false" afterPath="$PROJECT_DIR$/phyter/export/DocumentsFileExporter.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phyter/location/CLLocationController.swift" beforeDir="false" afterPath="$PROJECT_DIR$/phyter/location/CLLocationController.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phyter/scenes/measure/MeasurePresenter.swift" beforeDir="false" afterPath="$PROJECT_DIR$/phyter/scenes/measure/MeasurePresenter.swift" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/phyter/scenes/measure/MeasureViewController.swift" beforeDir="false" afterPath="$PROJECT_DIR$/phyter/scenes/measure/MeasureViewController.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phyter/scenes/start/StartViewController.swift" beforeDir="false" afterPath="$PROJECT_DIR$/phyter/scenes/start/StartViewController.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phyter/scenes/measure/history/SampleMeasurementCell.swift" beforeDir="false" afterPath="$PROJECT_DIR$/phyter/scenes/measure/history/SampleMeasurementCell.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phyter/scenes/measure/view/MeasureView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/phyter/scenes/measure/view/MeasureView.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phyter/scenes/start/StartPresenter.swift" beforeDir="false" afterPath="$PROJECT_DIR$/phyter/scenes/start/StartPresenter.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phyter/scenes/start/table/NearbyInstrumentCell.swift" beforeDir="false" afterPath="$PROJECT_DIR$/phyter/scenes/start/table/NearbyInstrumentCell.swift" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="iphonesimulator_DBD96724-9A4E-4ABA-AE17-1200D4FAD28E" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="iphoneos_57e9f95e5dfa04954600c325d330eac3089625d8" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MeasureViewController.swift" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/phyter/scenes/measure/MeasureViewController.swift">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/phyter/location/CLLocationController.swift">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="302">
-              <caret line="74" column="8" selection-start-line="74" selection-start-column="8" selection-end-line="74" selection-end-column="8" />
+            <state relative-caret-position="274">
+              <caret line="66" column="41" lean-forward="true" selection-start-line="66" selection-start-column="41" selection-end-line="66" selection-end-column="41" />
+              <folding>
+                <element signature="e#952#1100#0" expanded="true" />
+                <element signature="e#1110#1432#0" expanded="true" />
+                <element signature="e#1438#1672#0" expanded="true" />
+                <element signature="e#1981#2249#0" expanded="true" />
+                <element signature="e#2255#2483#0" expanded="true" />
+                <element signature="e#2489#2648#0" expanded="true" />
+                <element signature="e#3170#3207#0" expanded="true" />
+                <element signature="e#3257#3324#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/phyter/bluetooth/CBPhyterInstrument.swift">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="710">
+              <caret line="238" column="59" lean-forward="true" selection-start-line="238" selection-start-column="59" selection-end-line="238" selection-end-column="59" />
               <folding>
                 <element signature="e#0#2#0" />
-                <element signature="e#2339#2425#0" expanded="true" />
-                <element signature="e#3531#3746#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FileExporterUseCases.swift" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/phyter/domain/measurements/export/usecase/FileExporterUseCases.swift">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/phyter/domain/instrument/usecase/Background.swift">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="595">
-              <caret line="52" column="3" selection-start-line="52" selection-start-column="3" selection-end-line="52" selection-end-column="3" />
+            <state relative-caret-position="259">
+              <caret line="17" column="23" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
               <folding>
-                <element signature="e#755#1237#0" expanded="true" />
+                <element signature="e#109#126#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FileExporter.swift" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/phyter/domain/measurements/export/FileExporter.swift">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/phyter/scenes/measure/MeasurePresenter.swift">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" column="100" selection-start-line="13" selection-start-column="100" selection-end-line="13" selection-end-column="100" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DocumentsFileExporter.swift" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/phyter/export/DocumentsFileExporter.swift">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="41" column="10" selection-start-line="41" selection-start-column="10" selection-end-line="41" selection-end-column="10" />
+            <state relative-caret-position="611">
+              <caret line="141" column="33" lean-forward="true" selection-start-line="141" selection-start-column="33" selection-end-line="141" selection-end-column="33" />
               <folding>
-                <element signature="e#168#496#0" expanded="true" />
-                <element signature="e#1743#2007#0" expanded="true" />
-                <element signature="e#2011#2208#0" expanded="true" />
-                <element signature="e#2212#2356#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AppDelegate.swift" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/phyter/AppDelegate.swift">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1139">
-              <caret line="127" selection-start-line="127" selection-end-line="127" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RealmSampleMeasurement.swift" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/phyter/realm/measurements/RealmSampleMeasurement.swift">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="156" column="8" selection-start-line="156" selection-start-column="8" selection-end-line="156" selection-end-column="8" />
-              <folding>
-                <element signature="e#2232#2752#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RealmLocation.swift" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/phyter/realm/location/RealmLocation.swift">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="303">
-              <caret line="57" column="8" selection-start-line="57" selection-start-column="8" selection-end-line="57" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StartViewController.swift" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/phyter/scenes/start/StartViewController.swift">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="87" column="8" selection-start-line="87" selection-start-column="8" selection-end-line="87" selection-end-column="8" />
-              <folding>
-                <element signature="e#2393#2534#0" expanded="true" />
+                <element signature="e#0#2#0" />
+                <element signature="e#1656#1879#0" expanded="true" />
+                <element signature="e#4061#4511#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -119,12 +104,19 @@
       <find>let</find>
       <find>private(set)</find>
       <find>newValue</find>
+      <find>print</find>
+      <find>self.logMsg(</find>
+      <find>print(</find>
+      <find>logMsg(</find>
     </findStrings>
     <replaceStrings>
       <replace>blue</replace>
       <replace>data</replace>
       <replace>var</replace>
       <replace>loc</replace>
+      <replace>consoleLog(TAG, $0</replace>
+      <replace>consoleLog(TAG, $</replace>
+      <replace>consoleLog(TAG,</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -138,7 +130,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/phyter/domain/instrument/Phyter.swift" />
         <option value="$PROJECT_DIR$/phyter/domain/instrument/model/Measurement.swift" />
         <option value="$PROJECT_DIR$/phyter/StartViewController.swift" />
         <option value="$PROJECT_DIR$/phyter/scenes/start/BLEManager.swift" />
@@ -155,52 +146,49 @@
         <option value="$PROJECT_DIR$/phyter/domain/measurements/store/SampleMeasurementRepository.swift" />
         <option value="$PROJECT_DIR$/phyter/domain/measurements/usecase/MeasurementRepositoryUseCases.swift" />
         <option value="$PROJECT_DIR$/phyter/realm/RealmObjectHelper.swift" />
-        <option value="$PROJECT_DIR$/phyter/domain/measurements/usecase/MeasurementsForInstrument.swift" />
         <option value="$PROJECT_DIR$/phyter/domain/instrument/InstrumentManager.swift" />
         <option value="$PROJECT_DIR$/phyter/domain/instrument/usecase/DisconnectInstrument.swift" />
         <option value="$PROJECT_DIR$/phyter/domain/instrument/usecase/InstrumentUseCases.swift" />
-        <option value="$PROJECT_DIR$/phyter/domain/instrument/usecase/ObserveSalinity.swift" />
         <option value="$PROJECT_DIR$/phyter/domain/instrument/usecase/SetSalinity.swift" />
-        <option value="$PROJECT_DIR$/phyter/domain/instrument/usecase/Background.swift" />
-        <option value="$PROJECT_DIR$/phyter/scenes/start/StartPresenter.swift" />
         <option value="$PROJECT_DIR$/phyter/domain/measurements/usecase/DeleteMeasurement.swift" />
         <option value="$PROJECT_DIR$/phyter/realm/RealmHelper.swift" />
         <option value="$PROJECT_DIR$/phyter/scenes/measure/history/SampleMeasurementCell.swift" />
-        <option value="$PROJECT_DIR$/phyter/domain/instrument/usecase/Measure.swift" />
         <option value="$PROJECT_DIR$/phyter/domain/instrument/model/PhyterProtocol.swift" />
-        <option value="$PROJECT_DIR$/phyter/domain/instrument/model/PhyterInstrument.swift" />
-        <option value="$PROJECT_DIR$/phyter/bluetooth/CBInstrumentManager.swift" />
-        <option value="$PROJECT_DIR$/phyter/bluetooth/CBPhyterInstrument.swift" />
-        <option value="$PROJECT_DIR$/phyter/bluetooth/CBWrapper.swift" />
         <option value="$PROJECT_DIR$/Cartfile" />
         <option value="$PROJECT_DIR$/phyter/domain/measurements/export/FileExporter.swift" />
         <option value="$PROJECT_DIR$/phyter/domain/measurements/export/FileSpec.swift" />
         <option value="$PROJECT_DIR$/phyter/domain/measurements/export/usecase/FileExporterUseCases.swift" />
-        <option value="$PROJECT_DIR$/phyter/scenes/measure/view/MeasureView.swift" />
         <option value="$PROJECT_DIR$/phyter/domain/measurements/model/SampleMeasurement.swift" />
         <option value="$PROJECT_DIR$/phyter/domain/measurements/store/MeasurementRepository.swift" />
         <option value="$PROJECT_DIR$/phyter/realm/measurements/RealmMeasurementRepository.swift" />
         <option value="$PROJECT_DIR$/phyter/domain/measurements/usecase/CreateMeasurement.swift" />
-        <option value="$PROJECT_DIR$/phyter/scenes/measure/MeasurePresenter.swift" />
-        <option value="$PROJECT_DIR$/phyter/export/DocumentsFileExporter.swift" />
-        <option value="$PROJECT_DIR$/phyter/AppDelegate.swift" />
         <option value="$PROJECT_DIR$/phyter/realm/measurements/RealmSampleMeasurement.swift" />
         <option value="$PROJECT_DIR$/phyter/realm/location/RealmLocation.swift" />
         <option value="$PROJECT_DIR$/phyter/scenes/start/StartViewController.swift" />
+        <option value="$PROJECT_DIR$/phyter/bluetooth/CBWrapper.swift" />
+        <option value="$PROJECT_DIR$/phyter/domain/instrument/usecase/Measure.swift" />
+        <option value="$PROJECT_DIR$/phyter/AppDelegate.swift" />
+        <option value="$PROJECT_DIR$/phyter/domain/instrument/model/PhyterInstrument.swift" />
+        <option value="$PROJECT_DIR$/phyter/scenes/measure/view/MeasureView.swift" />
+        <option value="$PROJECT_DIR$/phyter/domain/Log.swift" />
         <option value="$PROJECT_DIR$/phyter/scenes/measure/MeasureViewController.swift" />
+        <option value="$PROJECT_DIR$/phyter/bluetooth/CBInstrumentManager.swift" />
+        <option value="$PROJECT_DIR$/phyter/scenes/start/StartPresenter.swift" />
+        <option value="$PROJECT_DIR$/phyter/domain/measurements/usecase/MeasurementsForInstrument.swift" />
+        <option value="$PROJECT_DIR$/phyter/domain/instrument/usecase/ObserveSalinity.swift" />
+        <option value="$PROJECT_DIR$/phyter/scenes/measure/MeasurePresenter.swift" />
+        <option value="$PROJECT_DIR$/phyter/export/DocumentsFileExporter.swift" />
+        <option value="$PROJECT_DIR$/phyter/location/CLLocationController.swift" />
+        <option value="$PROJECT_DIR$/phyter/domain/instrument/usecase/Background.swift" />
+        <option value="$PROJECT_DIR$/phyter/bluetooth/CBPhyterInstrument.swift" />
       </list>
     </option>
   </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
-  </component>
-  <component name="ProjectFrameBounds">
-    <option name="y" value="22" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="6" />
+    <option name="y" value="-1282" />
     <option name="width" value="1120" />
-    <option name="height" value="1028" />
+    <option name="height" value="989" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -217,6 +205,58 @@
               <item name="" type="efc3779f:XcodeRootNode" />
               <item name="phyter" type="1d218c8b:XcodeProjectNode" />
             </path>
+            <path>
+              <item name="" type="efc3779f:XcodeRootNode" />
+              <item name="phyter" type="1d218c8b:XcodeProjectNode" />
+              <item name="phyter" type="fcab9f18:XcodeViewNode" />
+            </path>
+            <path>
+              <item name="" type="efc3779f:XcodeRootNode" />
+              <item name="phyter" type="1d218c8b:XcodeProjectNode" />
+              <item name="phyter" type="fcab9f18:XcodeViewNode" />
+              <item name="domain" type="fcab9f18:XcodeViewNode" />
+            </path>
+            <path>
+              <item name="" type="efc3779f:XcodeRootNode" />
+              <item name="phyter" type="1d218c8b:XcodeProjectNode" />
+              <item name="phyter" type="fcab9f18:XcodeViewNode" />
+              <item name="domain" type="fcab9f18:XcodeViewNode" />
+              <item name="instrument" type="fcab9f18:XcodeViewNode" />
+            </path>
+            <path>
+              <item name="" type="efc3779f:XcodeRootNode" />
+              <item name="phyter" type="1d218c8b:XcodeProjectNode" />
+              <item name="phyter" type="fcab9f18:XcodeViewNode" />
+              <item name="domain" type="fcab9f18:XcodeViewNode" />
+              <item name="instrument" type="fcab9f18:XcodeViewNode" />
+              <item name="usecase" type="fcab9f18:XcodeViewNode" />
+            </path>
+            <path>
+              <item name="" type="efc3779f:XcodeRootNode" />
+              <item name="phyter" type="1d218c8b:XcodeProjectNode" />
+              <item name="phyter" type="fcab9f18:XcodeViewNode" />
+              <item name="domain" type="fcab9f18:XcodeViewNode" />
+              <item name="measurements" type="fcab9f18:XcodeViewNode" />
+            </path>
+            <path>
+              <item name="" type="efc3779f:XcodeRootNode" />
+              <item name="phyter" type="1d218c8b:XcodeProjectNode" />
+              <item name="phyter" type="fcab9f18:XcodeViewNode" />
+              <item name="domain" type="fcab9f18:XcodeViewNode" />
+              <item name="measurements" type="fcab9f18:XcodeViewNode" />
+              <item name="usecase" type="fcab9f18:XcodeViewNode" />
+            </path>
+            <path>
+              <item name="" type="efc3779f:XcodeRootNode" />
+              <item name="phyter" type="1d218c8b:XcodeProjectNode" />
+              <item name="phyter" type="fcab9f18:XcodeViewNode" />
+              <item name="location" type="fcab9f18:XcodeViewNode" />
+            </path>
+            <path>
+              <item name="" type="efc3779f:XcodeRootNode" />
+              <item name="phyter" type="1d218c8b:XcodeProjectNode" />
+              <item name="phyterTests" type="fcab9f18:XcodeViewNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -230,6 +270,7 @@
     <property name="OverrideImplement.combined" value="true" />
     <property name="SearchEverywhereHistoryKey" value="MeasureV&#9;FILE&#9;file:///Users/jeffjones/Development/iOS/phyter_ios/phyter/scenes/measure/MeasureViewController.swift" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="restartRequiresConfirmation" value="false" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -244,18 +285,21 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="AppleRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" IS_LOCATION_SIMULATION_ALLOWED="true" MAKE_ACTIVE="TRUE">
+    <configuration default="true" type="AppleRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" IS_LOCATION_SIMULATION_ALLOWED="true" MAKE_ACTIVE="TRUE" SHOULD_DEBUG_EXTENSIONS="false">
       <EXTENSION ID="org.jetbrains.appcode.reveal.RevealRunConfigurationExtension">
         <REVEAL_SETTINGS autoInject="false" autoInstall="true" askToEnableAutoInstall="true" />
       </EXTENSION>
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
     </configuration>
-    <configuration name="phyter" type="AppleRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="phyter" TARGET_NAME="phyter" CONFIG_NAME="Debug" SCHEME_NAME="phyter" IS_LOCATION_SIMULATION_ALLOWED="true" LOCATION_SCENARIO_ID="com.apple.dt.IDEFoundation.CurrentLocationScenarioIdentifier" LOCATION_SCENARIO_TYPE="1" RUN_TARGET_PROJECT_NAME="phyter" RUN_TARGET_NAME="phyter" MAKE_ACTIVE="TRUE">
-      <envs>
-        <env name="DemoMode" value="YES" />
-      </envs>
+    <configuration name="phyter" type="AppleRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="phyter" TARGET_NAME="phyter" CONFIG_NAME="Debug" SCHEME_NAME="phyter" IS_LOCATION_SIMULATION_ALLOWED="true" LOCATION_SCENARIO_ID="com.apple.dt.IDEFoundation.CurrentLocationScenarioIdentifier" LOCATION_SCENARIO_TYPE="1" RUN_TARGET_PROJECT_NAME="phyter" RUN_TARGET_NAME="phyter" MAKE_ACTIVE="TRUE" SHOULD_DEBUG_EXTENSIONS="false">
       <EXTENSION ID="org.jetbrains.appcode.reveal.RevealRunConfigurationExtension">
         <REVEAL_SETTINGS autoInject="false" autoInstall="true" askToEnableAutoInstall="true" />
       </EXTENSION>
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
     </configuration>
   </component>
   <component name="SvnConfiguration">
@@ -288,7 +332,8 @@
       <workItem from="1501482501682" duration="55000" />
       <workItem from="1501482587830" duration="12000" />
       <workItem from="1504382827927" duration="12000" />
-      <workItem from="1522976020446" duration="272000" />
+      <workItem from="1522976020446" duration="757000" />
+      <workItem from="1540948705052" duration="9024000" />
     </task>
     <task id="LOCAL-00001" summary="app is about 80% complete and usable as this point">
       <created>1496108547127</created>
@@ -308,73 +353,45 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="64991000" />
+    <option name="totallyTimeSpent" value="74500000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1120" height="1028" extended-state="0" />
+    <frame x="-654" y="-1669" width="3008" height="1669" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info active="true" anchor="bottom" id="Messages" order="7" visible="true" weight="0.30871004" />
-      <window_info anchor="right" id="Palette&#9;" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.31047383" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.5181918" />
-      <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.34121928" />
-      <window_info anchor="bottom" id="Tail" order="8" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12609576" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32947233" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3809524" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.518018" />
+      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.3082368" />
+      <window_info anchor="bottom" id="Tail" order="11" />
+      <window_info anchor="right" id="Database" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32967925" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette&#9;" order="3" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
-  </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="app is about 80% complete and usable as this point" />
     <MESSAGE value="Release 1.4" />
     <option name="LAST_COMMIT_MESSAGE" value="Release 1.4" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <option name="time" value="3" />
-    </breakpoint-manager>
-  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/phyter/scenes/start/BLEManager.swift" />
-    <entry file="file://$PROJECT_DIR$/phyter/domain/instrument/InstrumentManager.swift">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="27" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/phyter/scenes/start/table/NearbyInstrumentCell.swift">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/phyter/domain/measurements/model/SampleMeasurement.swift">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="21" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/phyter/scenes/start/BLEManager.swift" />
     <entry file="file://$PROJECT_DIR$/phyter/domain/instrument/controller/PhyterController.swift" />
     <entry file="file://$PROJECT_DIR$/phyter/domain/instrument/connection/InstrumentConnection.swift" />
@@ -406,13 +423,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/phyter/domain/instrument/usecase/ConnectInstrument.swift">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="33" column="17" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/phyter/domain/instrument/InstrumentManager.swift">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -427,38 +437,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/phyter/domain/instrument/usecase/InstrumentUseCases.swift">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="9" column="19" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/phyter/domain/instrument/usecase/ObserveSalinity.swift">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="31" column="3" lean-forward="true" selection-start-line="31" selection-start-column="3" selection-end-line="31" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/phyter/domain/instrument/usecase/SetSalinity.swift">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
           <caret line="31" column="5" lean-forward="true" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/phyter/domain/measurements/usecase/MeasurementsForInstrument.swift">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="24" column="20" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/phyter/domain/instrument/usecase/Background.swift">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
         </state>
       </provider>
     </entry>
@@ -469,24 +451,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/phyter/scenes/start/StartPresenter.swift">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="31" column="37" selection-start-line="31" selection-start-column="37" selection-end-line="31" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/phyter/domain/measurements/usecase/MeasurementRepositoryUseCases.swift">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="24" column="2" selection-start-line="24" selection-start-column="2" selection-end-line="24" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/phyter/domain/UseCase.swift">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="12" selection-start-line="21" selection-start-column="12" selection-end-line="21" selection-end-column="12" />
         </state>
       </provider>
     </entry>
@@ -511,45 +479,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/phyter/domain/instrument/usecase/Measure.swift">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="57" selection-start-line="21" selection-start-column="57" selection-end-line="21" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/phyter/domain/instrument/model/PhyterProtocol.swift">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="20" selection-start-line="20" selection-end-line="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/phyter/domain/instrument/model/PhyterInstrument.swift">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="13" column="23" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/phyter/bluetooth/CBInstrumentManager.swift">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/phyter/bluetooth/CBPhyterInstrument.swift">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1380">
-          <caret line="85" column="38" selection-start-line="85" selection-start-column="38" selection-end-line="85" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/phyter/bluetooth/CBWrapper.swift">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="25" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -565,13 +498,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/phyter/domain/measurements/export/csv/CSVFileSpec.swift" />
     <entry file="file://$PROJECT_DIR$/phyter/domain/measurements/export/FileSpec.swift" />
-    <entry file="file://$PROJECT_DIR$/phyter/scenes/measure/view/MeasureView.swift">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="36" column="50" selection-start-line="36" selection-start-column="50" selection-end-line="36" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/phyter/domain/measurements/model/SampleMeasurement.swift">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -607,13 +533,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/phyter/scenes/measure/MeasurePresenter.swift">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="313">
-          <caret line="204" column="33" selection-start-line="204" selection-start-column="33" selection-end-line="204" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/phyter/domain/measurements/export/usecase/FileExporterUseCases.swift">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="595">
@@ -631,29 +550,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/phyter/export/DocumentsFileExporter.swift">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="41" column="10" selection-start-line="41" selection-start-column="10" selection-end-line="41" selection-end-column="10" />
-          <folding>
-            <element signature="e#168#496#0" expanded="true" />
-            <element signature="e#1743#2007#0" expanded="true" />
-            <element signature="e#2011#2208#0" expanded="true" />
-            <element signature="e#2212#2356#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/phyter/AppDelegate.swift">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1139">
-          <caret line="127" selection-start-line="127" selection-end-line="127" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/phyter/realm/measurements/RealmSampleMeasurement.swift">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
+        <state relative-caret-position="884">
           <caret line="156" column="8" selection-start-line="156" selection-start-column="8" selection-end-line="156" selection-end-column="8" />
           <folding>
             <element signature="e#2232#2752#0" expanded="true" />
@@ -663,29 +562,237 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/phyter/realm/location/RealmLocation.swift">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
+        <state relative-caret-position="340">
           <caret line="57" column="8" selection-start-line="57" selection-start-column="8" selection-end-line="57" selection-end-column="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/phyter/scenes/start/StartViewController.swift">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
+        <state relative-caret-position="850">
           <caret line="87" column="8" selection-start-line="87" selection-start-column="8" selection-end-line="87" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/Resources/module_cache.zip!/ModuleCache/10A255/4.2/arm64/iphoneos12.0/Foundation/Foundation.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="344">
+          <caret line="7311" column="14" selection-start-line="7311" selection-start-column="14" selection-end-line="7311" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phyter/bluetooth/CBWrapper.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="16" column="19" lean-forward="true" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
           <folding>
-            <element signature="e#2393#2534#0" expanded="true" />
+            <element signature="e#299#419#0" expanded="true" />
+            <element signature="e#423#501#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phyter/domain/UseCase.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="434">
+          <caret line="30" column="11" selection-start-line="30" selection-start-column="11" selection-end-line="30" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phyter/domain/instrument/usecase/InstrumentUseCases.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="16" column="2" selection-start-line="16" selection-start-column="2" selection-end-line="16" selection-end-column="2" />
+          <folding>
+            <element signature="e#327#423#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phyter/domain/instrument/usecase/Measure.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="451">
+          <caret line="30" column="27" selection-start-line="30" selection-start-column="27" selection-end-line="30" selection-end-column="27" />
+          <folding>
+            <element signature="e#109#126#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phyter/AppDelegate.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="658">
+          <caret line="118" column="3" lean-forward="true" selection-start-line="118" selection-start-column="3" selection-end-line="118" selection-end-column="3" />
+          <folding>
+            <element signature="e#145#157#0" expanded="true" />
+            <element signature="e#3803#3902#0" expanded="true" />
+            <element signature="e#3908#3993#0" expanded="true" />
+            <element signature="e#3999#4093#0" expanded="true" />
+            <element signature="e#4193#4251#0" expanded="true" />
+            <element signature="e#4352#4494#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phyter/scenes/measure/view/MeasureView.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="36" column="50" selection-start-line="36" selection-start-column="50" selection-end-line="36" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phyter/domain/Log.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="33" selection-start-line="8" selection-start-column="33" selection-end-line="8" selection-end-column="33" />
+          <folding>
+            <element signature="e#132#184#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/phyter/scenes/measure/MeasureViewController.swift">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="74" column="8" selection-start-line="74" selection-start-column="8" selection-end-line="74" selection-end-column="8" />
+        <state relative-caret-position="944">
+          <caret line="266" column="5" lean-forward="true" selection-start-line="266" selection-start-column="5" selection-end-line="266" selection-end-column="5" />
           <folding>
             <element signature="e#0#2#0" />
-            <element signature="e#2339#2425#0" expanded="true" />
-            <element signature="e#3531#3746#0" expanded="true" />
+            <element signature="e#7685#8257#0" expanded="true" />
+            <element signature="e#8263#8515#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phyter/domain/instrument/model/PhyterInstrument.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="19" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
+          <folding>
+            <element signature="e#109#126#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phyter/bluetooth/CBInstrumentManager.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="407">
+          <caret line="99" column="70" selection-start-line="99" selection-start-column="70" selection-end-line="99" selection-end-column="70" />
+          <folding>
+            <element signature="e#1387#1498#0" expanded="true" />
+            <element signature="e#1504#2063#0" expanded="true" />
+            <element signature="e#2069#2670#0" expanded="true" />
+            <element signature="e#2737#2939#0" expanded="true" />
+            <element signature="e#3508#3943#0" expanded="true" />
+            <element signature="e#3949#4456#0" expanded="true" />
+            <element signature="e#4462#4994#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phyter/scenes/start/StartPresenter.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="833">
+          <caret line="72" column="5" selection-start-line="72" selection-start-column="5" selection-end-line="72" selection-end-column="5" />
+          <folding>
+            <element signature="e#642#753#0" expanded="true" />
+            <element signature="e#759#981#0" expanded="true" />
+            <element signature="e#987#1332#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phyter/domain/measurements/usecase/MeasurementsForInstrument.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="659">
+          <caret line="44" column="34" lean-forward="true" selection-start-line="44" selection-start-column="34" selection-end-line="44" selection-end-column="34" />
+          <folding>
+            <element signature="e#228#295#0" expanded="true" />
+            <element signature="e#684#1211#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phyter/domain/instrument/usecase/ObserveSalinity.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="34" column="22" selection-start-line="34" selection-start-column="22" selection-end-line="34" selection-end-column="22" />
+          <folding>
+            <element signature="e#422#865#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phyter/export/DocumentsFileExporter.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="44" selection-start-line="7" selection-start-column="44" selection-end-line="7" selection-end-column="44" />
+          <folding>
+            <element signature="e#168#496#0" expanded="true" />
+            <element signature="e#500#1749#0" expanded="true" />
+            <element signature="e#1753#2027#0" expanded="true" />
+            <element signature="e#2011#2208#0" expanded="true" />
+            <element signature="e#2212#2356#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phyter/domain/instrument/usecase/ConnectInstrument.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="24" column="21" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="21" />
+          <folding>
+            <element signature="e#210#280#0" expanded="true" />
+            <element signature="e#406#473#0" expanded="true" />
+            <element signature="e#479#921#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phyter/location/CLLocationController.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="66" column="41" lean-forward="true" selection-start-line="66" selection-start-column="41" selection-end-line="66" selection-end-column="41" />
+          <folding>
+            <element signature="e#952#1100#0" expanded="true" />
+            <element signature="e#1110#1432#0" expanded="true" />
+            <element signature="e#1438#1672#0" expanded="true" />
+            <element signature="e#1981#2249#0" expanded="true" />
+            <element signature="e#2255#2483#0" expanded="true" />
+            <element signature="e#2489#2648#0" expanded="true" />
+            <element signature="e#3170#3207#0" expanded="true" />
+            <element signature="e#3257#3324#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phyter/domain/instrument/usecase/Background.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="259">
+          <caret line="17" column="23" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
+          <folding>
+            <element signature="e#109#126#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phyter/scenes/measure/MeasurePresenter.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="611">
+          <caret line="141" column="33" lean-forward="true" selection-start-line="141" selection-start-column="33" selection-end-line="141" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#2#0" />
+            <element signature="e#1656#1879#0" expanded="true" />
+            <element signature="e#4061#4511#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phyter/bluetooth/CBPhyterInstrument.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="710">
+          <caret line="238" column="59" lean-forward="true" selection-start-line="238" selection-start-column="59" selection-end-line="238" selection-end-column="59" />
+          <folding>
+            <element signature="e#0#2#0" />
           </folding>
         </state>
       </provider>

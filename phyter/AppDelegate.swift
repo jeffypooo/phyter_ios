@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func application(
       _ application: UIApplication,
-      didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     // Override point for customization after application launch.
     if ProcessInfo.processInfo.environment["DemoMode"] == "YES" {
       print("using stubbed instrument manager")
@@ -104,16 +104,14 @@ class StubInstrument: PhyterInstrument {
   func setSalinity(_ salinity: Float32) {
     delayAsync { self.salinitySource.onNext(salinity) }
   }
-
-  func background(onComplete: @escaping () -> Void) {
-    delayAsync { onComplete() }
+  
+  func background() -> Completable {
+    return Completable.empty().delay(1, scheduler: ConcurrentDispatchQueueScheduler(qos: .userInitiated))
   }
-
-  func measure(onComplete: @escaping (MeasurementData) -> Void) {
-    delayAsync {
-      let data = MeasurementData(pH: 7.9, temp: 74, a578: 1, a434: 1, dark: 1)
-      onComplete(data)
-    }
+  
+  func measure() -> Single<MeasurementData> {
+    let data = MeasurementData(pH: 7.9, temp: 74, a578: 1, a434: 1, dark: 1)
+    return Single.just(data).delay(1, scheduler: ConcurrentDispatchQueueScheduler(qos: .userInitiated))
   }
 
   func setConnected(_ conn: Bool) {

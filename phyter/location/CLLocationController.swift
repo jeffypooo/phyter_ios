@@ -7,6 +7,8 @@ import Foundation
 import RxSwift
 import CoreLocation
 
+fileprivate let TAG = "CLLocationController"
+
 class CLLocationController: NSObject, LocationController {
   var locationAccessAuthorized: Bool {
     return CLLocationManager.authorizationStatus() == .authorizedWhenInUse
@@ -36,7 +38,7 @@ class CLLocationController: NSObject, LocationController {
   }
   
   deinit {
-    self.logMsg("deinit: cleaning up")
+    consoleLog(TAG, "deinit: cleaning up")
     self.stopUpdates()
     self.authSubject.onCompleted()
     self.locationSubject.onCompleted()
@@ -44,59 +46,50 @@ class CLLocationController: NSObject, LocationController {
   
   func requestLocationAccess() -> Observable<Bool> {
     guard !locationAccessAuthorized else {
-      logMsg("requestLocationAccess: already authorized")
+      consoleLog(TAG, "requestLocationAccess: already authorized")
       return Observable.just(true)
     }
-    logMsg("requesting authorization")
+    consoleLog(TAG, "requesting authorization")
     clManager.requestWhenInUseAuthorization()
     return authSubject
   }
   
   func startUpdates() {
     guard locationAccessAuthorized else {
-      logMsg("can't start updates, not authorized")
+      consoleLog(TAG, "can't start updates, not authorized")
       return
     }
-    logMsg("starting location updates")
+    consoleLog(TAG, "starting location updates")
     clManager.startUpdatingLocation()
   }
   
   func stopUpdates() {
     guard locationAccessAuthorized else {
-      logMsg("can't stop updates, not authorized")
+      consoleLog(TAG, "can't stop updates, not authorized")
       return
     }
-    logMsg("stopping location updates")
+    consoleLog(TAG, "stopping location updates")
     clManager.stopUpdatingLocation()
   }
   
 }
 
-
 extension CLLocationController: CLLocationManagerDelegate {
   
   func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-    logMsg("locations updated: \(locations.last!)")
+//    consoleLog(TAG, "locations updated: \(locations.last!)")
     let mostRecent = CLLocationWrapper(clLocation: locations.last!)
     locationSubject.onNext(mostRecent)
   }
   
   func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-    logMsg("authorization status changed: \(status)")
+    consoleLog(TAG, "authorization status changed: \(status)")
     authSubject.onNext(status == .authorizedWhenInUse)
   }
   
   func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-    logMsg("CLLocationManager encountered an error: \(error)")
+    consoleLog(TAG, "CLLocationManager encountered an error: \(error)")
   }
-}
-
-extension CLLocationController {
-  
-  fileprivate func logMsg(_ msg: String) {
-    print("CLLocationController - \(msg)")
-  }
-  
 }
 
 fileprivate class CLLocationWrapper: Location {

@@ -13,7 +13,7 @@ class SampleMeasurementCell: UITableViewCell {
   
   private var dateFormatter: DateFormatter!
   
-  public override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+  public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
     super.init(style: style, reuseIdentifier: reuseIdentifier)
     configure()
   }

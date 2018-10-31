@@ -16,22 +16,22 @@ class ObserveSalinityUpdate: UseCaseUpdate {
 
 class ObserveSalinity: InstrumentOngoingUseCase<UseCaseArgs, ObserveSalinityUpdate, UseCaseResult> {
   
-  var salinitySubs: Disposable?
+  var salinitySubs: DisposeBag!
   
   open override func execute(
       _ args: UseCaseArgs?,
       onUpdate: @escaping (ObserveSalinityUpdate) -> Void,
       onSuccess: @escaping (UseCaseResult) -> Void,
       onError: @escaping (Error) -> Void) {
-    terminate()
+    salinitySubs = DisposeBag()
     if let inst = instrumentProvider() {
-      salinitySubs = inst.salinity.subscribe(onNext: { sal in onUpdate(ObserveSalinityUpdate(sal)) })
+      inst.salinity.subscribe(onNext: { onUpdate(ObserveSalinityUpdate($0)) }).disposed(by: salinitySubs)
     } else {
       onError(InstrumentUseCaseError.noInstrument)
     }
   }
   
   open override func terminate() {
-    salinitySubs?.dispose()
+    salinitySubs = nil
   }
 }

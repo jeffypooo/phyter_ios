@@ -6,6 +6,11 @@
 import Foundation
 import RxSwift
 
+enum InstrumentError: Error {
+  case disconnected
+  case commandError
+}
+
 struct MeasurementData {
   var pH:   Float32 = 0
   var temp: Float32 = 0
@@ -23,8 +28,8 @@ protocol PhyterInstrument {
   var salinity: Observable<Float32> { get }
   
   func setSalinity(_ salinity: Float32)
-  func background(onComplete: @escaping () -> Void)
-  func measure(onComplete: @escaping (_ data: MeasurementData) -> Void)
+  func background() -> Completable
+  func measure() -> Single<MeasurementData>
   
 }
 

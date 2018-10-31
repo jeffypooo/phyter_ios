@@ -35,5 +35,6 @@ protocol MeasureView {
   func measureView(showMeasurementDetails measurement: SampleMeasurement)
   func measureViewShowExportOptions()
   func measureView(showSharingOptionsForFile: URL)
+  func measureView(showErrorAlert message: String)
   
 }

@@ -10,6 +10,8 @@ struct StartUseCases {
   let connectInstrument:  ConnectInstrument
 }
 
+fileprivate let TAG = "StartPresenter"
+
 class StartPresenter {
   
   private let useCases:              StartUseCases
@@ -35,12 +37,12 @@ class StartPresenter {
   
   func didPerform(action: StartViewAction) {
     switch action {
-    case .refresh:
-      scanForInstruments()
-      break
-    case .instrumentSelect(let instrument):
-      connectInstrument(instrument)
-      break
+      case .refresh:
+        scanForInstruments()
+        break
+      case .instrumentSelect(let instrument):
+        connectInstrument(instrument)
+        break
     }
   }
   
@@ -48,14 +50,8 @@ class StartPresenter {
     viewSetRefreshing(true)
     useCases.scanForInstruments.execute(
         ScanForInstrumentsArgs(),
-        onUpdate: {
-          update in
-          self.instrumentDiscovered(update.instrument)
-        },
-        onSuccess: {
-          result in
-          self.viewSetRefreshing(false)
-        }
+        onUpdate: { [weak self] update in self?.instrumentDiscovered(update.instrument) },
+        onSuccess: { [weak self] _ in self?.viewSetRefreshing(false) }
     )
   }
   
@@ -69,15 +65,11 @@ class StartPresenter {
     let args = ConnectInstrumentArgs(toConnect: instrument)
     useCases.connectInstrument.execute(
         args,
-        onSuccess: {
-          _ in
-          print("connected to \(instrument.name)")
-          self.viewPerformSegue(.measure(instrument))
+        onSuccess: { [weak self] _ in
+          consoleLog(TAG, "connected to \(instrument.name)")
+          self?.viewPerformSegue(.measure(instrument))
         },
-        onError: {
-          error in
-          print("error connecting to \(instrument.name): \(error)")
-        }
+        onError: { consoleLog(TAG, "failed to connect to \(instrument.name): \($0)") }
     )
   }
   
