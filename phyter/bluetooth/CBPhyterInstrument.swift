@@ -200,11 +200,13 @@ extension CBPhyterInstrument: CBPeripheralDelegate {
         currentMeasurement = MeasurementData()
         currentMeasurement!.pH = fromBytes([UInt8](bytes[1...4]), Float32.self)
         currentMeasurement!.temp = fromBytes([UInt8](bytes[5...8]), Float32.self)
+        currentMeasurement!.dark = fromBytes([UInt8](bytes[9...12]), Float32.self)
         Answers.logCustomEvent(
             withName: "Measure Response",
             customAttributes: [
               "pH": NSNumber(value: currentMeasurement!.pH),
-              "temp": NSNumber(value: currentMeasurement!.temp)
+              "temp": NSNumber(value: currentMeasurement!.temp),
+              "dark": NSNumber(value: currentMeasurement!.dark)
             ]
         )
         break
@@ -213,7 +215,8 @@ extension CBPhyterInstrument: CBPeripheralDelegate {
         guard var measurement = currentMeasurement else { return }
         measurement.a578 = fromBytes([UInt8](bytes[1...4]), Float32.self)
         measurement.a434 = fromBytes([UInt8](bytes[5...8]), Float32.self)
-        measurement.dark = fromBytes([UInt8](bytes.suffix(4)), Float32.self)
+        measurement.s578 = fromBytes([UInt8](bytes[9...12]), Float32.self)
+        measurement.s434 = fromBytes([UInt8](bytes[13...16]), Float32.self)
         measureSubject.onNext(measurement)
         break
       case .ledIntensityCheck:

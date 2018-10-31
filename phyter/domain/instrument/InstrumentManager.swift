@@ -4,6 +4,7 @@
 //
 
 import Foundation
+import RxSwift
 
 protocol InstrumentManagerDelegate {
   func instrumentManager(didDiscoverInstrument instrument: PhyterInstrument)
@@ -15,7 +16,7 @@ protocol InstrumentManager {
   
   func scanForInstruments()
   func stopScanForInstruments()
-  func connect(toInstrument instrument: PhyterInstrument, onComplete: @escaping (Error?) -> Void)
-  func disconnect(fromInstrument instrument: PhyterInstrument, onComplete: @escaping (Error?) -> Void)
+  func connect(toInstrument instrument: PhyterInstrument) -> Completable
+  func disconnect(fromInstrument instrument: PhyterInstrument) -> Completable
   
 }

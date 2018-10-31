@@ -239,6 +239,8 @@ class MeasurePresenter {
         pH: data.pH,
         temp: data.temp,
         dark: data.dark,
+        s578: data.s578,
+        s434: data.s434,
         a578: data.a578,
         a434: data.a434,
         location: currentLocation

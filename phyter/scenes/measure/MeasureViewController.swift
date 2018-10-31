@@ -222,8 +222,8 @@ extension MeasureViewController: MeasureView {
         locStr = "N/A"
       }
       let diagStr = String(
-          format: "A578: %.4f\nA434: %.4f\nDark: %.4f",
-          arguments: [measurement.a578, measurement.a434, measurement.dark]
+          format: "S578: %.4f\nS434: %.4f\nA578: %.4f\nA434: %.4f\nDark: %.4f",
+          arguments: [measurement.s578, measurement.s434, measurement.a578, measurement.a434, measurement.dark]
       )
       let message = String(format: "%@\n\nLocation:\n\n%@\n\nDiagnostic:\n\n%@", arguments: [dataStr, locStr, diagStr])
       let alert   = UIAlertController(title: "Measurement Details", message: message, preferredStyle: .alert)

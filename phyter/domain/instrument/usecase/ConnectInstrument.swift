@@ -4,6 +4,7 @@
 //
 
 import Foundation
+import RxSwift
 
 class ConnectInstrumentArgs: UseCaseArgs {
   let toConnect: PhyterInstrument
@@ -13,10 +14,10 @@ class ConnectInstrumentArgs: UseCaseArgs {
   }
 }
 
-
 class ConnectInstrument: OneShotUseCase<ConnectInstrumentArgs, UseCaseResult> {
   
-  let manager: InstrumentManager
+  let manager:     InstrumentManager
+  var connectSubs: DisposeBag!
   
   init(_ manager: InstrumentManager) {
     self.manager = manager
@@ -30,13 +31,9 @@ class ConnectInstrument: OneShotUseCase<ConnectInstrumentArgs, UseCaseResult> {
       onError(UseCaseError.argsRequired)
       return
     }
-    manager.connect(toInstrument: inst) {
-      maybeErr in
-      if let err = maybeErr {
-        onError(err)
-        return
-      }
-      onSuccess(UseCaseResult())
-    }
+    connectSubs = DisposeBag()
+    manager.connect(toInstrument: inst)
+        .subscribe(onCompleted: { onSuccess(.empty) }, onError: { onError($0) })
+        .disposed(by: connectSubs)
   }
 }

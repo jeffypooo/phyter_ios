@@ -14,6 +14,8 @@ enum InstrumentError: Error {
 struct MeasurementData {
   var pH:   Float32 = 0
   var temp: Float32 = 0
+  var s578: Float32 = 0
+  var s434: Float32 = 0
   var a578: Float32 = 0
   var a434: Float32 = 0
   var dark: Float32 = 0

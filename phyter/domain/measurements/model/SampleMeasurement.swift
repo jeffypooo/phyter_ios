@@ -12,6 +12,8 @@ protocol SampleMeasurement {
   var pH:           Float32 { get set }
   var temperature:  Float32 { get set }
   var dark:         Float32 { get set }
+  var s578:         Float32 { get set }
+  var s434:         Float32 { get set }
   var a578:         Float32 { get set }
   var a434:         Float32 { get set }
   var location:     Location? { get set }

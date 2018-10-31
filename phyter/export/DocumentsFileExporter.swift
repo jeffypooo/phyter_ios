@@ -21,8 +21,8 @@ class DocumentsFileExporter: FileExporter {
     let fileName      = dir.appendingPathComponent(name + ".csv")
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "MM/dd/yyyy h:mm:ss"
-    let rowFormat  = "%@,%.4f,%.4f,%.4f,%.4f,%.4f,%.4f,%.5f,%.5f,%.1f\n"
-    var fileOutput = "Date,Salinity,pH,Temperature,Dark,A578,A434,Latitude,Longitude,Altitude\n"
+    let rowFormat  = "%@,%.4f,%.4f,%.4f,%i,%i,%i,%.4f,%.4f,%.5f,%.5f,%.1f\n"
+    var fileOutput = "Date,Salinity,pH,Temperature,Dark,S578,S434,A578,A434,Latitude,Longitude,Altitude\n"
     for sample in data {
       let dateStr = dateFormatter.string(from: sample.timestamp)
       let lat     = sample.location?.latitude ?? 0
@@ -35,7 +35,9 @@ class DocumentsFileExporter: FileExporter {
             sample.salinity,
             sample.pH,
             sample.temperature,
-            sample.dark,
+            UInt16(sample.dark),
+            UInt16(sample.s578),
+            UInt16(sample.s434),
             sample.a578,
             sample.a434,
             lat,

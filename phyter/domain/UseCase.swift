@@ -10,6 +10,8 @@ open class UseCaseArgs {
 open class UseCaseUpdate {
 }
 open class UseCaseResult {
+  
+  static let empty = UseCaseResult()
 }
 
 enum UseCaseError: Error {

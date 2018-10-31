@@ -11,6 +11,8 @@ class CreateMeasurementArgs: UseCaseArgs {
   let pH:           Float32
   let temp:         Float32
   let dark:         Float32
+  let s578:         Float32
+  let s434:         Float32
   let a578:         Float32
   let a434:         Float32
   let location:     Location?
@@ -21,6 +23,8 @@ class CreateMeasurementArgs: UseCaseArgs {
       pH: Float32,
       temp: Float32,
       dark: Float32,
+      s578: Float32,
+      s434: Float32,
       a578: Float32,
       a434: Float32,
       location: Location?
@@ -30,6 +34,8 @@ class CreateMeasurementArgs: UseCaseArgs {
     self.pH = pH
     self.temp = temp
     self.dark = dark
+    self.s578 = s578
+    self.s434 = s434
     self.a578 = a578
     self.a434 = a434
     self.location = location
@@ -59,6 +65,8 @@ class CreateMeasurement: MeasurementRepositoryUseCase<CreateMeasurementArgs, Cre
         pH: args.pH,
         temp: args.temp,
         dark: args.dark,
+        s578: args.s578,
+        s434: args.s434,
         a578: args.a578,
         a434: args.a434,
         location: args.location

@@ -6,6 +6,7 @@
 import Foundation
 import CoreBluetooth
 import Crashlytics
+import RxSwift
 
 enum CBInstrumentManagerError: Error {
   case unknownPeripheralUUID
@@ -23,8 +24,8 @@ class CBInstrumentManager: NSObject, InstrumentManager {
   private let cbManager:             CBCentralManager
   private let phyterServiceUUID                                 = CBUUID(string: "FFE0")
   private var discoveredInstruments: [UUID: CBPhyterInstrument] = [:]
-  private var connectCallbacks:      [UUID: (Error?) -> Void]   = [:]
-  private var disconnectCallbacks:   [UUID: (Error?) -> Void]   = [:]
+  private var connectSubjects:       [UUID: PublishSubject<()>] = [:]
+  private var disconnectSubjects:    [UUID: PublishSubject<()>] = [:]
   private var shouldScanOnPowerOn                               = false
   
   private override init() {
@@ -49,35 +50,41 @@ class CBInstrumentManager: NSObject, InstrumentManager {
     cbManager.stopScan()
   }
   
-  func connect(
-      toInstrument instrument: PhyterInstrument,
-      onComplete: @escaping (Error?) -> Void) {
+  func connect(toInstrument instrument: PhyterInstrument) -> Completable {
     guard let instrument = discoveredInstruments[instrument.id] else {
-      onComplete(CBInstrumentManagerError.unknownPeripheralUUID)
-      return
+      return .error(CBInstrumentManagerError.unknownPeripheralUUID)
     }
-    connectCallbacks[instrument.id] = onComplete
-    Answers.logCustomEvent(
-        withName: "Connect to Peripheral",
-        customAttributes: ["name": instrument.name]
-    )
-    if cbManager.isScanning {
-      stopScanForInstruments()
+    return Completable.deferred { [weak self] in
+      guard let this = self else { return .never() }
+      let subject = PublishSubject<()>()
+      this.connectSubjects[instrument.id] = subject
+      Answers.logCustomEvent(
+          withName: "Connect to Peripheral",
+          customAttributes: ["name": instrument.name]
+      )
+      if this.cbManager.isScanning {
+        this.stopScanForInstruments()
+      }
+      this.cbManager.connect(instrument.peripheral)
+      return subject.take(1).ignoreElements()
     }
-    cbManager.connect(instrument.peripheral)
   }
   
-  func disconnect(fromInstrument instrument: PhyterInstrument, onComplete: @escaping (Error?) -> Void) {
+  func disconnect(fromInstrument instrument: PhyterInstrument) -> Completable {
     guard let instrument = discoveredInstruments[instrument.id] else {
-      onComplete(CBInstrumentManagerError.unknownPeripheralUUID)
-      return
+      return .error(CBInstrumentManagerError.unknownPeripheralUUID)
     }
-    disconnectCallbacks[instrument.id] = onComplete
-    Answers.logCustomEvent(
-        withName: "Disconnect from Peripheral",
-        customAttributes: ["name": instrument.name]
-    )
-    cbManager.cancelPeripheralConnection(instrument.peripheral)
+    return Completable.deferred { [weak self] in
+      guard let this = self else { return .never() }
+      let subject = PublishSubject<()>()
+      this.disconnectSubjects[instrument.id] = subject
+      Answers.logCustomEvent(
+          withName: "Disconnect from Peripheral",
+          customAttributes: ["name": instrument.name]
+      )
+      this.cbManager.cancelPeripheralConnection(instrument.peripheral)
+      return subject.take(1).ignoreElements()
+    }
   }
 }
 
@@ -105,19 +112,16 @@ extension CBInstrumentManager: CBCentralManagerDelegate {
   public func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
     Answers.logCustomEvent(withName: "Peripheral Connected", customAttributes: ["name": peripheral.name ?? "?"])
     consoleLog(TAG, "connected to peripheral '\(peripheral.name ?? "?")'")
-    let key = peripheral.identifier
-    guard let callback = connectCallbacks[key] else { return }
-    callback(nil)
-    connectCallbacks[key] = nil
+    guard let subject = connectSubjects.removeValue(forKey: peripheral.identifier) else { return }
+    subject.onNext(())
+    subject.onCompleted()
   }
   
   public func centralManager(_ central: CBCentralManager, didFailToConnect peripheral: CBPeripheral, error: Error?) {
     Answers.logCustomEvent(withName: "Peripheral Connection Failed", customAttributes: ["name": peripheral.name ?? "?"])
     consoleLog(TAG, "failed to connect peripheral '\(peripheral.name ?? "?")'")
-    let key = peripheral.identifier
-    guard let callback = connectCallbacks[key] else { return }
-    callback(CBInstrumentManagerError.connectionFailed)
-    connectCallbacks[key] = nil
+    guard let subject = connectSubjects.removeValue(forKey: peripheral.identifier) else { return }
+    subject.onError(CBInstrumentManagerError.connectionFailed)
   }
   
   public func centralManager(
@@ -126,11 +130,10 @@ extension CBInstrumentManager: CBCentralManagerDelegate {
       error: Error?) {
     Answers.logCustomEvent(withName: "Peripheral Disconnected", customAttributes: ["name": peripheral.name ?? "?"])
     consoleLog(TAG, "disconnected peripheral '\(peripheral.name ?? "?")'")
-    let key = peripheral.identifier
-    discoveredInstruments[key]?.notifyDisconnected()
-    guard let cb = disconnectCallbacks[key] else { return }
-    cb(nil)
-    disconnectCallbacks[key] = nil
+    discoveredInstruments[peripheral.identifier]?.notifyDisconnected()
+    guard let subject = disconnectSubjects.removeValue(forKey: peripheral.identifier) else { return }
+    subject.onNext(())
+    subject.onCompleted()
   }
 }
 
