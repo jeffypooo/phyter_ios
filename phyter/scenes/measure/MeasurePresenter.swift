@@ -58,6 +58,10 @@ class MeasurePresenter {
   func didPerform(action: MeasureViewAction) {
     switch action {
       case .salinityChange(let sal):
+        guard instrument.connected else {
+          reconnectAndSetSalinity(sal)
+          break
+        }
         setSalinity(sal)
         break
       case .actionButtonPress:
@@ -121,20 +125,24 @@ class MeasurePresenter {
     useCases.locationUpdates.terminate()
   }
   
+  private func reconnectAndSetSalinity(_ sal: Float32) {
+    viewShowSalinityActivity(true)
+    let args = ConnectInstrumentArgs(toConnect: instrument)
+    useCases.connectInstrument.execute(
+        args,
+        onSuccess: { [weak self] _ in self?.setSalinity(sal) },
+        onError: { consoleLog(TAG, "error re-connecting instrument: \($0)") }
+    )
+  }
+  
   private func setSalinity(_ sal: Float32) {
     consoleLog(TAG, "setting salinity to \(sal)")
     let args = SetSalinityArgs(salinity: sal)
     viewShowSalinityActivity(true)
     useCases.setSalinity.execute(
         args,
-        onSuccess: {
-          _ in
-          consoleLog(TAG, "salinity set")
-        },
-        onError: {
-          error in
-          consoleLog(TAG, "error setting salinity: \(error)")
-        })
+        onSuccess: { _ in consoleLog(TAG, "salinity set") },
+        onError: { consoleLog(TAG, "error setting salinity: \($0)") })
   }
   
   private func observeSalinity() {

@@ -51,6 +51,7 @@ class CBPhyterInstrument: NSObject, PhyterInstrument {
   }
   
   func setSalinity(_ salinity: Float32) {
+    guard connected else { return }
     if !ioInitialized {
       runAfterIOInit = {
         self.setSalinity(salinity)
