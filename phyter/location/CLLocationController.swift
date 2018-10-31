@@ -77,7 +77,6 @@ class CLLocationController: NSObject, LocationController {
 extension CLLocationController: CLLocationManagerDelegate {
   
   func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-//    consoleLog(TAG, "locations updated: \(locations.last!)")
     let mostRecent = CLLocationWrapper(clLocation: locations.last!)
     locationSubject.onNext(mostRecent)
   }

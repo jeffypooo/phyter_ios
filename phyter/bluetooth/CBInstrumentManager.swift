@@ -23,7 +23,6 @@ class CBInstrumentManager: NSObject, InstrumentManager {
   private let cbManager:             CBCentralManager
   private let phyterServiceUUID                                 = CBUUID(string: "FFE0")
   private var discoveredInstruments: [UUID: CBPhyterInstrument] = [:]
-//  private var connectedInstruments:  [UUID: CBPhyterInstrument] = [:]
   private var connectCallbacks:      [UUID: (Error?) -> Void]   = [:]
   private var disconnectCallbacks:   [UUID: (Error?) -> Void]   = [:]
   private var shouldScanOnPowerOn                               = false

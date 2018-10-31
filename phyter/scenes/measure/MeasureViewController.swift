@@ -34,12 +34,11 @@ class MeasureViewController: UIViewController {
     super.viewDidLoad()
     print("CURRENT DIR: \(FileManager.default.currentDirectoryPath)")
     configureViews()
-    presenter.viewDidLoad(self)
   }
   
   open override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
-    presenter.viewDidAppear(instrument)
+    presenter.viewDidAppear(self, instrument)
   }
   
   open override func viewDidDisappear(_ animated: Bool) {

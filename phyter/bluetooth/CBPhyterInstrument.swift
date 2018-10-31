@@ -129,6 +129,7 @@ class CBPhyterInstrument: NSObject, PhyterInstrument {
   }
   
   private func emitErrorAndResetSubjects(_ error: Error) {
+    // emit errors to observers if necessary and then recreate the subjects
     if backgroundSubject.hasObservers {
       backgroundSubject.onError(error)
       backgroundSubject.dispose()
@@ -229,6 +230,7 @@ extension CBPhyterInstrument: CBPeripheralDelegate {
 }
 
 extension CBPhyterInstrument {
+  /// Notify this instance that the backing peripheral has been disconnected.
   func notifyDisconnected() {
     consoleLog(TAG, "received disconnect notification")
     ioInitialized = false

@@ -36,11 +36,9 @@ class MeasurePresenter {
     self.useCases = useCases
   }
   
-  func viewDidLoad(_ view: MeasureView) {
+  func viewDidAppear(_ view: MeasureView?, _ instrument: PhyterInstrument) {
+    consoleLog(TAG, "view appeared")
     self.view = view
-  }
-  
-  func viewDidAppear(_ instrument: PhyterInstrument) {
     self.instrument = instrument
     startLocationUpdates()
     defaultConfigureView()
@@ -256,14 +254,8 @@ class MeasurePresenter {
     let args = DeleteMeasurementArgs(measurement: measurement)
     useCases.deleteMeasurement.execute(
         args,
-        onSuccess: {
-          result in
-          consoleLog(TAG, "measurement deleted")
-        },
-        onError: {
-          error in
-          consoleLog(TAG, "error deleting measurement: \(error)")
-        }
+        onSuccess: { _ in consoleLog(TAG, "measurement deleted") },
+        onError: { consoleLog(TAG, "error deleting measurement: \($0)") }
     )
   }
   
@@ -302,12 +294,11 @@ class MeasurePresenter {
     let args     = ExportToCSVArgs(data: data, fileName: fileName)
     useCases.exportToCSV.execute(
         args,
-        onSuccess: {
-          res in
+        onSuccess: { [weak self] res in
           consoleLog(TAG, "file exported to \(res.fileURL)")
-          self.viewShowSharingOptions(file: res.fileURL)
+          self?.viewShowSharingOptions(file: res.fileURL)
         },
-        onError: { error in consoleLog(TAG, "error exporting \(error.localizedDescription)") }
+        onError: { consoleLog(TAG, "error exporting \($0.localizedDescription)") }
     )
   }
   
@@ -315,15 +306,14 @@ class MeasurePresenter {
     guard let inst = instrument else { return }
     useCases.disconnectInstrument.execute(
         DisconnectInstrumentArgs(inst),
-        onSuccess: {
-          result in
+        onSuccess: { [weak self] result in
           consoleLog(TAG, "instrument disconnected")
-          self.instrument = nil
+          self?.instrument = nil
         },
         onError: {
-          error in
-          consoleLog(TAG, "error disconnecting instrument")
-          self.instrument = nil
+          [weak self] error in
+          consoleLog(TAG, "error disconnecting instrument: \(error)")
+          self?.instrument = nil
         }
     )
   }
